@@ -1,0 +1,32 @@
+[web]
+address = ":50801"
+
+[docker]
+
+# Docker server endpoint. Can be a tcp or a unix socket endpoint.
+#
+# Required
+#
+endpoint = "tcp://192.168.99.100:2376"
+
+# Default domain used.
+# Can be overridden by setting the "traefik.domain" label on a container.
+#
+# Required
+#
+domain = "dev"
+
+# Enable watch docker changes
+#
+# Optional
+#
+watch = true
+
+
+[docker.tls]
+
+ca = "/Users/redaphid/.docker/machine/machines/tech-com/ca.pem"
+cert = "/Users/redaphid/.docker/machine/machines/tech-com/cert.pem"
+key = "/Users/redaphid/.docker/machine/machines/tech-com/key.pem"
+
+insecureskipverify = true

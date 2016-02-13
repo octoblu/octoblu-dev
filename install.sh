@@ -2,8 +2,18 @@
 brew install docker-machine
 brew install docker-compose
 
+#dnsmasq
+brew install dnsmasq
+cp dnsmasq.conf /usr/local/etc/
+sudo mkdir -p /etc/resolver
+sudo launchctl stop homebrew.mxcl.dnsmasq
+sudo launchctl start homebrew.mxcl.dnsmasq
+
+sudo cp -fv /usr/local/opt/dnsmasq/*.plist /Library/LaunchDaemons
+sudo chown root /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
+sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
+
 docker-machine create --driver virtualbox tech-com
 docker-osx-dev install
-eval "$(docker-machine env tech-com)"
-docker-compose up
-docker-osx-dev
+
+docker-machine regenerate-certs tech-com
