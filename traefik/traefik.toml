@@ -25,8 +25,8 @@ watch = true
 
 [docker.tls]
 
-ca = "/Users/redaphid/.docker/machine/machines/tech-com/ca.pem"
-cert = "/Users/redaphid/.docker/machine/machines/tech-com/cert.pem"
-key = "/Users/redaphid/.docker/machine/machines/tech-com/key.pem"
+ca = "./creds/ca.pem"
+cert = "./creds/cert.pem"
+key = "./creds/key.pem"
 
 insecureskipverify = true

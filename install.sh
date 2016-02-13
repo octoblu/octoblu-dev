@@ -16,4 +16,5 @@ sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
 docker-machine create --driver virtualbox tech-com
 docker-osx-dev install
 
-docker-machine regenerate-certs tech-com
+
+docker run -d -p 50801:50801 -p 80:80 -v $PWD/traefik.toml:/traefik.toml emilevauge/traefik
