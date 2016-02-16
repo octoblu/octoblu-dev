@@ -1,7 +1,8 @@
 weather-service:
+  container_name: "weather"
   build: .
   ports:
-   - "80:80"
+   - "80"
   volumes:
    - /usr/src/app/node_modules
    - .:/usr/src/app

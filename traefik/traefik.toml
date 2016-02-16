@@ -14,7 +14,7 @@ endpoint = "tcp://192.168.99.100:2376"
 #
 # Required
 #
-domain = "dev"
+domain = "octoblu.dev"
 
 # Enable watch docker changes
 #
