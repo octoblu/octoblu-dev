@@ -8,4 +8,3 @@ weather-service:
 
   environment:
    APPID: 1
-   PORT: 80
