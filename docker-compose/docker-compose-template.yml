@@ -1,0 +1,14 @@
+{{projectName}}:
+  container_name: "{{domainName}}"
+  build: .
+  ports:
+   - "80"
+
+  volumes:
+  - /usr/src/app/node_modules
+  - .:/usr/src/app
+
+  environment:
+   {{#each env}}
+   {{name}}: "{{value}}"
+   {{/each}}
