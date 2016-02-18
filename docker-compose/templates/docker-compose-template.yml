@@ -16,7 +16,5 @@
     - /usr/src/app/node_modules
     - ${HOME}/Projects/Octoblu/{{projectName}}:/usr/src/app
 
-  environment:
-   {{#each env}}
-   {{name}}: "{{value}}"
-   {{/each}}
+  env_file:
+    - ./common.env

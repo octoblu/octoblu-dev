@@ -4,8 +4,11 @@ path       = require 'path'
 _          = require 'lodash'
 dashdash   = require 'dashdash'
 
-templatePath = path.join(__dirname, 'docker-compose-template.yml')
-template = handlebars.compile(fse.readFileSync templatePath, 'utf8')
+composeTemplatePath = path.join(__dirname, 'templates', 'docker-compose-template.yml')
+envTemplatePath = path.join(__dirname, 'templates', 'common.env')
+
+templateCompose = handlebars.compile(fse.readFileSync composeTemplatePath, 'utf8')
+templateEnv = handlebars.compile(fse.readFileSync envTemplatePath, 'utf8')
 
 defaultStackEnv = "#{process.env.HOME}/Projects/Octoblu/the-stack-env-production/dev.d/octoblu"
 
@@ -71,7 +74,8 @@ writeData = () =>
   fse.mkdirpSync outputPath
   for name, value of environment
     templateData.env.push { name, value }
-  fse.writeFileSync path.join(outputPath, "docker-compose.yml"), template(templateData)
+  fse.writeFileSync path.join(outputPath, "docker-compose.yml"), templateCompose(templateData)
+  fse.writeFileSync path.join(outputPath, "common.env"), templateEnv(templateData)
   console.log "wrote output/#{templateData.projectName}/docker-compose.yml"
 
 writeProjectEnv = () =>
