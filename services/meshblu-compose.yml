@@ -1,6 +1,7 @@
 meshblu:
-  container_name: "meshblu-old"
-  build: ${HOME}/Projects/Octoblu/meshblu
+  container_name: "meshblu"
+  build: ${HOME}/Projects/Octoblu/meshblu-haproxy
+  dockerfile: "Dockerfile-dev"
   ports:
    - "80"
 
@@ -8,13 +9,13 @@ meshblu:
     traefik.port: "80"
 
   external_links:
-   - octoblu-redis
+    - octoblu-redis
 
   dns: "192.168.99.1"
 
   volumes:
     - /usr/src/app/node_modules
-    - ${HOME}/Projects/Octoblu/meshblu:/usr/src/app
+    - ${HOME}/Projects/Octoblu/meshblu-haproxy:/usr/src/app
 
   env_file:
     - ./meshblu.env

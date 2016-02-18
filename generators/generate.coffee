@@ -74,10 +74,10 @@ writeData = () =>
   fse.mkdirpSync outputPath
   for name, value of environment
     templateData.env.push { name, value }
-  fse.writeFileSync path.join(outputPath, "#{templateData.projectName}-compose.yml"), templateCompose(templateData)
-  fse.writeFileSync path.join(outputPath, "#{templateData.projectName}.env"), templateEnv(templateData)
-  console.log "wrote output/#{templateData.projectName}-compose.yml"
-  console.log "wrote output/#{templateData.projectName}.env"
+  fse.writeFileSync path.join(outputPath, "#{templateData.domainName}-compose.yml"), templateCompose(templateData)
+  fse.writeFileSync path.join(outputPath, "#{templateData.domainName}.env"), templateEnv(templateData)
+  console.log "wrote output/#{templateData.domainName}-compose.yml"
+  console.log "wrote output/#{templateData.domainName}.env"
 
 writeProjectEnv = () =>
   readEnv "#{options.stack_env}/#{templateData.projectName}/env", writeData

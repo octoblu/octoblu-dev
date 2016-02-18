@@ -1,4 +1,4 @@
-{{projectName}}:
+{{domainName}}:
   container_name: "{{domainName}}"
   build: ${HOME}/Projects/Octoblu/{{projectName}}
   ports:
@@ -8,7 +8,7 @@
     traefik.port: "80"
 
   external_links:
-   - octoblu-redis
+    - octoblu-redis
 
   dns: "192.168.99.1"
 
@@ -17,4 +17,4 @@
     - ${HOME}/Projects/Octoblu/{{projectName}}:/usr/src/app
 
   env_file:
-    - ./{{projectName}}.env
+    - ./{{domainName}}.env
