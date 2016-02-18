@@ -7,11 +7,14 @@
   labels:
     traefik.port: "80"
 
+  external_links:
+   - octoblu-redis
+
   dns: "192.168.99.1"
 
   volumes:
-  - /usr/src/app/node_modules
-  - .:/usr/src/app
+   - /usr/src/app/node_modules
+   - .:/usr/src/app
 
   environment:
    {{#each env}}
