@@ -38,7 +38,7 @@ if (options.help)
   console.log help
   process.exit(0)
 
-fse.walk "/Users/octoblu/Projects/Octoblu/the-stack-env-production/major.d/octoblu/#{templateData.projectName}/env"
+fse.walk "#{process.env.HOME}/Projects/Octoblu/the-stack-env-production/major.d/octoblu/#{templateData.projectName}/env"
   .on 'data', (file) =>
     return unless file.stats.nlink == 1
     fileName = _.last file.path.split('/')
