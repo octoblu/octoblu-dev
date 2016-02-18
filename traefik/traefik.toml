@@ -1,3 +1,5 @@
+logLevel = "DEBUG"
+
 [web]
 address = ":50801"
 
@@ -21,7 +23,6 @@ domain = "octoblu.dev"
 # Optional
 #
 watch = true
-
 
 [docker.tls]
 

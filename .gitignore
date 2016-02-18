@@ -1,0 +1,3 @@
+creds/
+traefik/creds/*.pem
+docker-compose/output
