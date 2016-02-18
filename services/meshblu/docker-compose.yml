@@ -15,18 +15,3 @@ meshblu:
   volumes:
     - /usr/src/app/node_modules
     - ${HOME}/Projects/Octoblu/meshblu:/usr/src/app
-
-  environment:
-   DOCKER_COMPOSE_GENERATE_TIME: "Thu Feb 18 2016 13:44:58 GMT-0700 (MST)"
-   DEBUG: "meshblu*"
-   PORT: "80"
-
-   REDIS_HOST: "192.168.99.1"
-   REDIS_PORT: "6379"
-   
-   MONGODB_URI: "mongodb://192.168.99.1/skynet"
-
-   TOKEN: "5968fd9971a6113938577a5426b4eeaff27f0bcc"
-   UUID: "dont-think-it-matters"
-   JOB_LOG_QUEUE: "sample-rate:0.01"
-   JOB_LOG_REDIS_URI: "redis://192.168.99.1:6379"

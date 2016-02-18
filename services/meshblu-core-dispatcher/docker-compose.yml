@@ -16,11 +16,5 @@ meshblu-core-dispatcher:
     - /usr/src/app/node_modules
     - ${HOME}/Projects/Octoblu/meshblu-core-dispatcher:/usr/src/app
 
-  environment:
-    DOCKER_COMPOSE_GENERATE_TIME: "Thu Feb 18 2016 11:23:50 GMT-0700 (MST)"
-    REDIS_URI: "redis://192.168.99.1:6379"
-    JOB_LOG_QUEUE: "sample-rate:0.01"
-    JOB_LOG_REDIS_URI: "redis://192.168.99.1:6379"
-    MONGODB_URI: "mongodb://192.168.99.1/skynet"
-    DEBUG: "meshblu*"
-    TOKEN: "5968fd9971a6113938577a5426b4eeaff27f0bcc"
+  env_file:
+  - ./common.env

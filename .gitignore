@@ -1,3 +1,4 @@
 creds/
 traefik/creds/*.pem
 docker-compose/output
+common.env
