@@ -1,6 +1,6 @@
 {{projectName}}:
   container_name: "{{domainName}}"
-  build: .
+  build: ${HOME}/Projects/Octoblu/{{projectName}}
   ports:
    - "80"
 
@@ -13,8 +13,8 @@
   dns: "192.168.99.1"
 
   volumes:
-   - /usr/src/app/node_modules
-   - .:/usr/src/app
+    - /usr/src/app/node_modules
+    - ${HOME}/Projects/Octoblu/{{projectName}}:/usr/src/app
 
   environment:
    {{#each env}}
