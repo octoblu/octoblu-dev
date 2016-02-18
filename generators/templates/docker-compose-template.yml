@@ -17,4 +17,4 @@
     - ${HOME}/Projects/Octoblu/{{projectName}}:/usr/src/app
 
   env_file:
-    - ./common.env
+    - ./{{projectName}}.env

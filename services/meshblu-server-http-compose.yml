@@ -3,6 +3,7 @@ meshblu-server-http:
   build: ${HOME}/Projects/Octoblu/meshblu-server-http
   ports:
    - "80"
+
   labels:
     traefik.port: "80"
 
@@ -15,10 +16,5 @@ meshblu-server-http:
     - /usr/src/app/node_modules
     - ${HOME}/Projects/Octoblu/meshblu-server-http:/usr/src/app
 
-  environment:
-    DEBUG: "nothing"
-    REDIS_HOST: "192.168.99.1:6379"
-    REDIS_PORT: "6379"
-    REDIS_URI: "redis://192.168.99.1:6379"
-    JOB_LOG_QUEUE: "sample-rate:0.01"
-    JOB_LOG_REDIS_URI: "redis://192.168.99.1:6379"
+  env_file:
+    - ./meshblu-server-http.env

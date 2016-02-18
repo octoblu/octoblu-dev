@@ -5,7 +5,7 @@ _          = require 'lodash'
 dashdash   = require 'dashdash'
 
 composeTemplatePath = path.join(__dirname, 'templates', 'docker-compose-template.yml')
-envTemplatePath = path.join(__dirname, 'templates', 'common.env')
+envTemplatePath = path.join(__dirname, 'templates', 'env-template')
 
 templateCompose = handlebars.compile(fse.readFileSync composeTemplatePath, 'utf8')
 templateEnv = handlebars.compile(fse.readFileSync envTemplatePath, 'utf8')
@@ -70,13 +70,14 @@ readEnv = (path, callback) =>
     .on 'end', callback
 
 writeData = () =>
-  outputPath = path.join(__dirname, "output", templateData.projectName)
+  outputPath = path.join __dirname, "output"
   fse.mkdirpSync outputPath
   for name, value of environment
     templateData.env.push { name, value }
-  fse.writeFileSync path.join(outputPath, "docker-compose.yml"), templateCompose(templateData)
-  fse.writeFileSync path.join(outputPath, "common.env"), templateEnv(templateData)
-  console.log "wrote output/#{templateData.projectName}/docker-compose.yml"
+  fse.writeFileSync path.join(outputPath, "#{templateData.projectName}-compose.yml"), templateCompose(templateData)
+  fse.writeFileSync path.join(outputPath, "#{templateData.projectName}.env"), templateEnv(templateData)
+  console.log "wrote output/#{templateData.projectName}-compose.yml"
+  console.log "wrote output/#{templateData.projectName}.env"
 
 writeProjectEnv = () =>
   readEnv "#{options.stack_env}/#{templateData.projectName}/env", writeData

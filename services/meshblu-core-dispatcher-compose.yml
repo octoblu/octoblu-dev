@@ -4,6 +4,7 @@ meshblu-core-dispatcher:
   command: node command-dispatch.js
   ports:
    - "80"
+
   labels:
     traefik.port: "80"
 
@@ -17,4 +18,4 @@ meshblu-core-dispatcher:
     - ${HOME}/Projects/Octoblu/meshblu-core-dispatcher:/usr/src/app
 
   env_file:
-  - ./common.env
+    - ./meshblu-core-dispatcher.env
