@@ -11,8 +11,7 @@ meshblu-core-dispatcher:
   dns: "192.168.99.1"
 
   external_links:
-    - octoblu-redis
-
+    - redis-tmp:redis
 
   volumes:
     - /usr/src/app/node_modules

@@ -1,7 +1,7 @@
 meshblu:
   container_name: "meshblu"
   build: ${HOME}/Projects/Octoblu/meshblu-haproxy
-  dockerfile: "Dockerfile-dev"
+  dockerfile: Dockerfile-dev
   ports:
    - "80"
 

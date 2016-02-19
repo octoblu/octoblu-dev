@@ -1,5 +1,6 @@
 #!/bin/sh
 brew install docker-machine
+brew link --overwrite docker
 brew install docker-compose
 
 #dnsmasq
@@ -18,4 +19,4 @@ docker-machine create --driver virtualbox octoblu-dev
 (cd redis; ./run.sh)
 (cd traefik; ./run.sh)
 
-./commands.d/generate-meshblu.sh
+(cd commands.d; ./generate.sh meshblu)

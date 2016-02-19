@@ -8,15 +8,15 @@
   {
     "project": "meshblu",
     "domain": "meshblu-old",
-    "links": [ "redis-tmp" ]
+    "links": [ "redis-tmp:redis" ]
   },
   {
     "project": "meshblu-server-http",
-    "links": [ "redis-tmp" ]
+    "links": [ "redis-tmp:redis" ]
   },
   {
     "project": "meshblu-core-dispatcher",
     "compose": [ "command: node command-dispatch.js" ],
-    "links": [ "redis-tmp" ]
+    "links": [ "redis-tmp:redis" ]
   }
 ]
