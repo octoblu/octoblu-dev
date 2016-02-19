@@ -1,0 +1,4 @@
+SERVERS=(
+  redis-tmp
+  redis-persist
+)
