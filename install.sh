@@ -20,3 +20,4 @@ docker-machine create --driver virtualbox octoblu-dev
 (cd traefik; ./run.sh)
 
 (cd commands.d; ./generate.sh meshblu)
+cp generators/output/*.env services
