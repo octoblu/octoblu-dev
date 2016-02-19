@@ -30,7 +30,7 @@ parser = dashdash.createParser
      }, {
       names: ['links', 'l']
       type: 'arrayOfString'
-      help: 'External links'
+      help: 'External links in format `docker-host[:as-host]`'
       default: []
      }, {
       names: ['compose', 'c']
@@ -40,7 +40,7 @@ parser = dashdash.createParser
      }, {
       names: ['environment', 'e']
       type: 'arrayOfString'
-      help: 'Environment key=value'
+      help: 'Environment `key=value` pairs'
       default: []
      }, {
       names: ['no-defaults', 'n']
@@ -106,12 +106,14 @@ writeData = () =>
 writeProjectEnv = () =>
 
   for link in options.links
+    [origServer, linkServer] = link.split(/:(.+)?/)
+    linkServer ?= origServer
     if link.match /redis/
-      environment.REDIS_URI = "redis://#{link}:6379"
-      environment.REDIS_HOST = link
+      environment.REDIS_URI = "redis://#{linkServer}:6379"
+      environment.REDIS_HOST = linkServer
       environment.REDIS_PORT = 6379
     if link.match /mongo/
-      environment.MONGODB_URI = "mongodb://#{link}/db"
+      environment.MONGODB_URI = "mongodb://#{linkServer}/#{linkServer}"
 
   readEnv "#{options.stack_env}/#{templateData.projectName}/env", writeData
 
