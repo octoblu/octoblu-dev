@@ -1,20 +1,27 @@
-{{domainName}}:
-  container_name: "{{domainName}}"
-  build: ${HOME}/Projects/Octoblu/{{projectName}}
+{{{domainName}}}:
+  container_name: "{{{domainName}}}"
+  build: ${HOME}/Projects/Octoblu/{{{projectName}}}
+{{#each compose}}
+  {{{this}}}
+{{/each}}
   ports:
    - "80"
 
   labels:
     traefik.port: "80"
 
+{{#if links}}
   external_links:
-    - octoblu-redis
+{{#each links}}
+    - {{{this}}}
+{{/each}}
 
+{{/if}}
   dns: "192.168.99.1"
 
   volumes:
     - /usr/src/app/node_modules
-    - ${HOME}/Projects/Octoblu/{{projectName}}:/usr/src/app
+    - ${HOME}/Projects/Octoblu/{{{projectName}}}:/usr/src/app
 
   env_file:
-    - ./{{domainName}}.env
+    - ./{{{domainName}}}.env

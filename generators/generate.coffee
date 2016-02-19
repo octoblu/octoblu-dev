@@ -28,6 +28,21 @@ parser = dashdash.createParser
       help: "Stack environment directory to read from, default: #{defaultStackEnv}"
       default: defaultStackEnv
      }, {
+      names: ['links', 'l']
+      type: 'arrayOfString'
+      help: 'External links'
+      default: []
+     }, {
+      names: ['compose', 'c']
+      type: 'arrayOfString'
+      help: 'Docker-Compose statements'
+      default: []
+     }, {
+      names: ['environment', 'e']
+      type: 'arrayOfString'
+      help: 'Environment key=value'
+      default: []
+     }, {
       names: ['no-defaults', 'n']
       type: 'bool'
       help: 'Do not read from {{--stack-env}}/_defaults/env'
@@ -53,6 +68,8 @@ options.domain ?= options.project?.replace(/-service$/,"")
 templateData =
   projectName: options.project
   domainName: options.domain
+  compose: options.compose
+  links: options.links
   env: []
 
 environment = { DOCKER_COMPOSE_GENERATE_TIME: new Date }
@@ -72,20 +89,36 @@ readEnv = (path, callback) =>
 writeData = () =>
   outputPath = path.join __dirname, "output"
   fse.mkdirpSync outputPath
+
+  for env in options.environment
+    [key,value] = env.split(/=(.+)?/)
+    environment[key]=value
+
   for name, value of environment
     templateData.env.push { name, value }
+
   fse.writeFileSync path.join(outputPath, "#{templateData.domainName}-compose.yml"), templateCompose(templateData)
-  fse.writeFileSync path.join(outputPath, "#{templateData.domainName}.env"), templateEnv(templateData)
   console.log "wrote output/#{templateData.domainName}-compose.yml"
+
+  fse.writeFileSync path.join(outputPath, "#{templateData.domainName}.env"), templateEnv(templateData)
   console.log "wrote output/#{templateData.domainName}.env"
 
 writeProjectEnv = () =>
+
+  for link in options.links
+    if link.match /redis/
+      environment.REDIS_URI = "redis://#{link}:6379"
+      environment.REDIS_HOST = link
+      environment.REDIS_PORT = 6379
+    if link.match /mongo/
+      environment.MONGODB_URI = "mongodb://#{link}/db"
+
   readEnv "#{options.stack_env}/#{templateData.projectName}/env", writeData
 
-writeAllEnv = () =>
-  readEnv "#{options.stack_env}/_defaults/env", writeProjectEnv
+writeDefaultsEnv = () =>
+  readEnv "defaults", writeProjectEnv
 
 if options.no_defaults == true
   writeProjectEnv()
 else
-  writeAllEnv()
+  writeDefaultsEnv()
