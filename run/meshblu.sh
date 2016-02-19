@@ -5,6 +5,8 @@ SERVICES_DIR="$HOME/Projects/Octoblu/octoblu-dev/services"
 SESSION='meshblu'
 nvm use 5
 
+( cd "$HOME/Projects/Octoblu/octoblu-dev/commands.d"; ./start.sh)
+
 tmux start-server
 tmux new-session -d -s $SESSION -n √ø
 
