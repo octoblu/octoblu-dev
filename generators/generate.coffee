@@ -25,7 +25,7 @@ parser = dashdash.createParser
      }, {
       names: ['domain', 'd']
       type: 'string'
-      help: 'The third level domain name aka container_name to use for Træfik'
+      help: 'The third level domain name aka container_name to use for Træfɪk'
      }, {
       names: ['stack-env', 's']
       type: 'string'

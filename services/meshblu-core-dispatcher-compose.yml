@@ -12,6 +12,7 @@ meshblu-core-dispatcher:
 
   external_links:
     - redis-tmp:redis
+    - mongo-persist:skynet
 
   volumes:
     - /usr/src/app/node_modules

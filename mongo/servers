@@ -1,0 +1,4 @@
+SERVERS=(
+  mongo-tmp
+  mongo-persist
+)
