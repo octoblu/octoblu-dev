@@ -1,6 +1,4 @@
-creds/
-traefik/creds/*.pem
 tmp/
 generators/output
 services/*.env
-redis/data
+meshblu.json
