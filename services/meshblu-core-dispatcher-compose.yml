@@ -8,10 +8,11 @@ meshblu-core-dispatcher:
   labels:
     traefik.port: "80"
 
-  external_links:
-   - octoblu-redis
-
   dns: "192.168.99.1"
+
+  external_links:
+    - octoblu-redis
+
 
   volumes:
     - /usr/src/app/node_modules

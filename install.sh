@@ -16,5 +16,5 @@ sudo chown root /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
 sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
 
 docker-machine create --driver virtualbox octoblu-dev
-eval $(docker-machine env --shell bash octoblu-dev)
-docker run -d -p 50801:50801 -p 80:80 -v $PWD/traefik.toml:/traefik.toml emilevauge/traefik
+(cd redis; ./run.sh)
+(cd traefik; ./run.sh)
