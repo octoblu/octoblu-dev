@@ -1,0 +1,22 @@
+[
+  {
+    "project": "meshblu-haproxy",
+    "domain": "meshblu",
+    "compose": [ "dockerfile: Dockerfile-dev" ],
+    "no_defaults": true
+  },
+  {
+    "project": "meshblu",
+    "domain": "meshblu-old",
+    "links": [ "redis-tmp" ]
+  },
+  {
+    "project": "meshblu-server-http",
+    "links": [ "redis-tmp" ]
+  },
+  {
+    "project": "meshblu-core-dispatcher",
+    "compose": [ "command: node command-dispatch.js" ],
+    "links": [ "redis-tmp" ]
+  }
+]

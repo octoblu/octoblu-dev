@@ -15,6 +15,10 @@ defaultStackEnv = "#{process.env.HOME}/Projects/Octoblu/the-stack-env-production
 parser = dashdash.createParser
   options:
     [{
+      names: ['json', 'j']
+      type: 'string'
+      help: 'JSON file to read options from'
+     }, {
       names: ['project', 'p']
       type: 'string'
       help: 'The project for which you want to generate a docker-compose.yml (required)'
@@ -52,7 +56,15 @@ parser = dashdash.createParser
       help: 'Print this help and exit.'
     }]
 
-options = parser.parse process.argv
+options = {}
+try
+  options = parser.parse process.argv
+catch error
+  options.help = true
+
+if options.json?
+  options.json = '/dev/stdin' if options.json == '-'
+  options = _.merge JSON.parse(fse.readFileSync options.json, 'utf8'), options
 
 if !options.project?
   options.help = true
