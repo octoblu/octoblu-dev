@@ -8,7 +8,7 @@ nvm use 5
 tmux start-server
 tmux new-session -d -s $SESSION -n √ø
 
-tmux new-window -t $SESSION:1 -n meshblu
+tmux new-window -t $SESSION:1 -n meshblu-haproxy
 tmux new-window -t $SESSION:2 -n meshblu-old
 tmux new-window -t $SESSION:3 -n meshblu-server-http
 tmux new-window -t $SESSION:4 -n meshblu-core-dispatcher
