@@ -127,10 +127,10 @@ writeProjectEnv = () =>
     if link.match /mongo/
       environment.MONGODB_URI = "mongodb://#{linkServer}/#{linkServer}"
 
-  readEnv "#{options.stack_env}/#{templateData.projectName}/env", writeData
+  readEnv "env/#{templateData.projectName}", writeData
 
 writeDefaultsEnv = () =>
-  readEnv "defaults", writeProjectEnv
+  readEnv "env/_defaults", writeProjectEnv
 
 if options.no_defaults == true
   writeProjectEnv()

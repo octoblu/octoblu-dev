@@ -5,6 +5,6 @@ sleep 5
 (
   cd $HOME/Projects/Octoblu/octoblu-dev/init
   for d in $(ls -d */); do
-    (cd $d; ./run.sh)
+    (cd $d; ./stop.sh; ./run.sh)
   done
 )
