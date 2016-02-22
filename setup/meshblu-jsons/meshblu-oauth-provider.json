@@ -1,0 +1,7 @@
+{
+  "uuid": "oauth-provider-uuid",
+  "token": "some-random-token",
+  "server": "meshblu.octoblu.dev",
+  "port": "80",
+  "type": "oauth"
+}

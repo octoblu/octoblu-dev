@@ -6,6 +6,8 @@ if [[ -z "$1" ]]; then
   exit -1
 fi
 
-docker run \
-  -v `pwd`:/js --link $1:mongo -it --rm mongo \
-  sh -c 'exec mongo mongo/skynet /js/setup-mongo.js'
+for file in db-jsons/*.json; do
+  docker run \
+    -v `pwd`:/js --link $1:mongo -it --rm mongo \
+    sh -c "exec mongo mongo/skynet --quiet --eval 'var file=\"/js/${file}\"' /js/setup-mongo.js"
+done
