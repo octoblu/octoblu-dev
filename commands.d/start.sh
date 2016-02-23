@@ -2,6 +2,8 @@
 
 docker-machine start octoblu-dev
 sleep 5
+docker-machine regenerate-certs -f octoblu-dev
+
 (
   cd $HOME/Projects/Octoblu/octoblu-dev/init
   for d in $(ls -d */); do

@@ -2,3 +2,4 @@ tmp/
 generators/output
 services/*.env
 meshblu.json
+init/traefik/traefik.toml

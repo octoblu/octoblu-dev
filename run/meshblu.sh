@@ -5,7 +5,7 @@ SERVICES_DIR="$HOME/Projects/Octoblu/octoblu-dev/services"
 SESSION='meshblu'
 nvm use 5
 
-PATH=$PATH;$HOME/Projects/Octoblu/octoblu-dev/commands.d
+PATH=$PATH:$HOME/Projects/Octoblu/octoblu-dev/commands.d
 
 ( cd "$HOME/Projects/Octoblu/octoblu-dev/commands.d"; ./start.sh)
 
