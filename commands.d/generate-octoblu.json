@@ -2,6 +2,7 @@
   {
     "project": "api-octoblu",
     "domain": "api",
+    "compose": [ "dockerfile: Dockerfile-dev" ],
     "links": [ "redis-tmp:redis", "mongo-persist:mongo" ]
   },
   {
