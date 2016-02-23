@@ -14,6 +14,6 @@ sudo chown root /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
 sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
 sudo launchctl start homebrew.mxcl.dnsmasq
 
-docker-machine create --driver virtualbox octoblu-dev
+docker-machine create --driver virtualbox --virtualbox-disk-size "100000" --virtualbox-memory "4096" octoblu-dev
 (cd commands.d; ./start.sh; ./generate.sh meshblu)
 cp generators/output/* services
