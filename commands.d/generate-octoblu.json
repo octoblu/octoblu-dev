@@ -1,0 +1,7 @@
+[
+  {
+    "project": "api-octoblu",
+    "domain": "api",
+    "links": [ "redis-tmp:redis", "mongo-persist:mongo" ]
+  }
+]
