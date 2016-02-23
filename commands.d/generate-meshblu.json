@@ -8,15 +8,15 @@
   {
     "project": "meshblu",
     "domain": "meshblu-old",
-    "links": [ "redis-tmp:redis", "mongo-persist:skynet" ]
+    "links": [ "redis-tmp:redis", "mongo-persist:mongo" ]
   },
   {
     "project": "meshblu-server-http",
-    "links": [ "redis-tmp:redis", "mongo-persist:skynet" ]
+    "links": [ "redis-tmp:redis", "mongo-persist:mongo" ]
   },
   {
     "project": "meshblu-core-dispatcher",
     "compose": [ "command: node command-dispatch.js" ],
-    "links": [ "redis-tmp:redis", "mongo-persist:skynet" ]
+    "links": [ "redis-tmp:redis", "mongo-persist:mongo" ]
   }
 ]

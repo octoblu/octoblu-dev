@@ -1,0 +1,17 @@
+api-octoblu:
+  container_name: "api-octoblu"
+  build: ${HOME}/Projects/Octoblu/api-octoblu
+  ports:
+   - "80"
+
+  labels:
+    traefik.port: "80"
+
+  dns: "192.168.99.1"
+
+  volumes:
+    - /usr/src/app/node_modules
+    - ${HOME}/Projects/Octoblu/api-octoblu:/usr/src/app
+
+  env_file:
+    - ./api-octoblu.env

@@ -116,17 +116,6 @@ writeData = () =>
   console.log "wrote output/#{templateData.domainName}.env"
 
 writeProjectEnv = () =>
-
-  for link in options.links
-    [origServer, linkServer] = link.split(/:(.+)?/)
-    linkServer ?= origServer
-    if link.match /redis/
-      environment.REDIS_URI = "redis://#{linkServer}:6379"
-      environment.REDIS_HOST = linkServer
-      environment.REDIS_PORT = 6379
-    if link.match /mongo/
-      environment.MONGODB_URI = "mongodb://#{linkServer}/#{linkServer}"
-
   readEnv "env/#{templateData.projectName}", writeData
 
 writeDefaultsEnv = () =>
