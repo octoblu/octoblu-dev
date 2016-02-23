@@ -17,6 +17,7 @@
     "no_defaults": true
   },
   {
-    "project": "meshblu-authenticator-email-password"
+    "project": "meshblu-authenticator-email-password",
+    "compose": [ "dockerfile: Dockerfile-dev" ]
   }
 ]
