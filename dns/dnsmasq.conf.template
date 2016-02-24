@@ -99,7 +99,7 @@ listen-address=127.0.0.1,192.168.99.1
 
 # If you want dnsmasq to change uid and gid to something other
 # than the default, edit the following lines.
-#user=
+user={{USER}}
 #group=
 
 # If you want dnsmasq to listen for DHCP and DNS requests only on

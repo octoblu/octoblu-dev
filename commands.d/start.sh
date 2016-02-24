@@ -1,8 +1,10 @@
 #!/bin/bash
 
 docker-machine start octoblu-dev
-sleep 5
-docker-machine regenerate-certs -f octoblu-dev
+
+DOCKER_ENV="docker-machine env --shell bash octoblu-dev"
+DOCKER_REGEN="docker-machine regenerate-certs -f octoblu-dev"
+eval "(${DOCKER_ENV} || (${DOCKER_REGEN} >/dev/null && ${DOCKER_ENV}))" 2>/dev/null
 
 (
   cd $HOME/Projects/Octoblu/octoblu-dev/init
