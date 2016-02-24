@@ -1,4 +1,4 @@
-address=/dev/192.168.99.100
+address=/dev/{{IP}}
 listen-address=127.0.0.1,192.168.99.1
 
 # Configuration file for dnsmasq.

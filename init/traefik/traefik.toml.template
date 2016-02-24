@@ -9,7 +9,7 @@ address = ":50801"
 #
 # Required
 #
-endpoint = "tcp://192.168.99.100:2376"
+endpoint = "tcp://{{IP}}:2376"
 
 # Default domain used.
 # Can be overridden by setting the "traefik.domain" label on a container.

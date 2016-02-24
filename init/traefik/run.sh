@@ -1,8 +1,8 @@
 #!/bin/bash
 eval $(docker-machine env --shell bash octoblu-dev)
 OCTOBLU_DEV_IP=$(docker-machine ip octoblu-dev)
-sed -e "s|192\.168\.99\.100|${OCTOBLU_DEV_IP}|" <traefik.toml.orig >traefik.toml
-sed -e "s|192\.168\.99\.100|${OCTOBLU_DEV_IP}|" <../../dns/dnsmasq.conf >/usr/local/etc/dnsmasq.conf
+sed -e "s|{{IP}}|${OCTOBLU_DEV_IP}|" <traefik.toml.template >traefik.toml
+sed -e "s|{{IP}}|${OCTOBLU_DEV_IP}|" <../../dns/dnsmasq.conf.template >/usr/local/etc/dnsmasq.conf
 sudo launchctl stop homebrew.mxcl.dnsmasq
 sudo launchctl start homebrew.mxcl.dnsmasq
 
