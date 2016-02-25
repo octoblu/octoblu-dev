@@ -24,11 +24,11 @@
     "links": [ "redis-tmp:redis" ]
   },
   {
-    "project": "nanocyte-credentials-service",
+    "project": "credentials-service",
     "links": [ "redis-tmp:redis" ]
   },
   {
-    "project": "nanocyte-credentials-worker",
+    "project": "credentials-worker",
     "links": [ "redis-tmp:redis" ]
   }
 ]

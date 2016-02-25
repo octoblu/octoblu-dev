@@ -12,10 +12,10 @@ PATH=$PATH:$HOME/Projects/Octoblu/octoblu-dev/commands.d
 tmux start-server
 tmux new-session -d -s $SESSION -n √ø
 
-tmux new-window -t $SESSION:1 -n meshblu-haproxy
+tmux new-window -t $SESSION:1 -n haproxy
 tmux new-window -t $SESSION:2 -n meshblu-old
-tmux new-window -t $SESSION:3 -n meshblu-server-http
-tmux new-window -t $SESSION:4 -n meshblu-core-dispatcher
+tmux new-window -t $SESSION:3 -n server-http
+tmux new-window -t $SESSION:4 -n core-dispatcher
 
 tmux send-keys -t $SESSION:0.0 C-m
 tmux send-keys -t $SESSION:0.0 "tmux kill-session -t $SESSION"

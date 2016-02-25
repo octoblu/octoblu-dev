@@ -21,5 +21,6 @@ docker-machine create \
   octoblu-dev
 
 (cd generators; npm install)
-(cd commands.d; ./start.sh; ./generate.sh meshblu)
+(cd commands.d; ./start.sh)
 cp generators/output/* services
+(cd setup; ./setup-mongo.sh mongo-persist)
