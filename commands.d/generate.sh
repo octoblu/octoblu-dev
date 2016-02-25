@@ -13,7 +13,6 @@ fi
 
 (
   cd $HOME/Projects/Octoblu/octoblu-dev/generators
-  npm install
   for i in $(seq 0 $(jq '.|length-1' <$GENERATE_FILE)); do
     jq ".[$i]" <$GENERATE_FILE | coffee generate.coffee -j -
   done

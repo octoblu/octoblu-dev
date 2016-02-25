@@ -1,0 +1,20 @@
+nanocyte-interval-redis:
+  container_name: "nanocyte-interval-redis"
+  build: ${HOME}/Projects/Octoblu/nanocyte-interval-redis
+  ports:
+   - "80"
+
+  labels:
+    traefik.port: "80"
+
+  dns: "192.168.99.1"
+
+  external_links:
+    - redis-tmp:redis
+
+  volumes:
+    - /usr/src/app/node_modules
+    - ${HOME}/Projects/Octoblu/nanocyte-interval-redis:/usr/src/app
+
+  env_file:
+    - ./nanocyte-interval-redis.env

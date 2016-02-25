@@ -5,7 +5,7 @@ SERVICES_DIR="$HOME/Projects/Octoblu/octoblu-dev/services"
 SESSION='octoblu'
 nvm use 5
 
-PATH=$PATH;$HOME/Projects/Octoblu/octoblu-dev/commands.d
+PATH=$PATH:$HOME/Projects/Octoblu/octoblu-dev/commands.d
 
 tmux start-server
 tmux new-session -d -s $SESSION -n √ø

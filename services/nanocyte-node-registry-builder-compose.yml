@@ -1,0 +1,20 @@
+nanocyte-node-registry-builder:
+  container_name: "nanocyte-node-registry-builder"
+  build: ${HOME}/Projects/Octoblu/nanocyte-node-registry-builder
+  ports:
+   - "80"
+
+  labels:
+    traefik.port: "80"
+
+  dns: "192.168.99.1"
+
+  external_links:
+    - redis-tmp:redis
+
+  volumes:
+    - /usr/src/app/node_modules
+    - ${HOME}/Projects/Octoblu/nanocyte-node-registry-builder:/usr/src/app
+
+  env_file:
+    - ./nanocyte-node-registry-builder.env
