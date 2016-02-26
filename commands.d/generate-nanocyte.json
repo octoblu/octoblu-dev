@@ -8,7 +8,7 @@
     "links": [ "redis-tmp:redis" ]
   },
   {
-    "project": "nanocyte-engine-worker",
+    "project": "nanocyte-engine-worker",  
     "links": [ "redis-tmp:redis" ]
   },
   {
@@ -20,7 +20,7 @@
     "links": [ "redis-tmp:redis" ]
   },
   {
-    "project": "nanocyte-node-registry-builder",
+    "project": "nanocyte-node-registry",
     "links": [ "redis-tmp:redis" ]
   },
   {

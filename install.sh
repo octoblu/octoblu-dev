@@ -22,5 +22,4 @@ docker-machine create \
 
 (cd generators; npm install)
 (cd commands.d; ./start.sh)
-cp generators/output/* services
 (cd setup; ./setup-mongo.sh mongo-persist)

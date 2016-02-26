@@ -16,7 +16,7 @@
   },
   {
     "project": "meshblu-core-dispatcher",
-    "compose": [ "command: node command-dispatch.js" ],
+    "compose": [ "command: node command-dispatch.js"],
     "links": [ "redis-tmp:redis", "mongo-persist:mongo" ]
   }
 ]

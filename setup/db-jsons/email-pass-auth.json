@@ -1,5 +1,6 @@
 {
   "uuid": "email-pass-auth-uuid",
+  "type": "meshblu-authenticator-email-password",
   "discoverWhitelist": [],
   "configureWhitelist": [],
   "receiveWhitelist": [],

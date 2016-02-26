@@ -35,7 +35,7 @@ tmux send-keys -t $SESSION:2.1 "cd $SERVICES_DIR; ./run-service.sh nanocyte-inte
 
 tmux send-keys -t $SESSION:3.0 "cd $SERVICES_DIR; ./run-service.sh nanocyte-flow-deploy" C-m
 
-tmux send-keys -t $SESSION:4.0 "cd $SERVICES_DIR; ./run-service.sh nanocyte-node-registry-builder" C-m
+tmux send-keys -t $SESSION:4.0 "cd $SERVICES_DIR; ./run-service.sh nanocyte-node-registry" C-m
 
 tmux send-keys -t $SESSION:5.0 "cd $SERVICES_DIR; ./run-service.sh credentials-worker" C-m
 tmux send-keys -t $SESSION:5.1 "cd $SERVICES_DIR; ./run-service.sh credentials" C-m

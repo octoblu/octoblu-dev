@@ -1,9 +1,10 @@
 #!/bin/bash
 
+OCTOBLU_DEV=$HOME/Projects/Octoblu/octoblu-dev
 (
-  cd $HOME/Projects/Octoblu/octoblu-dev/commands.d;
+  cd $OCTOBLU_DEV/commands.d;
   for project in meshblu octoblu nanocyte; do
     ./generate.sh $project;
   done
-  cp $HOME/Projects/Octoblu/octoblu-dev/generators/output/* $HOME/Projects/Octoblu/octoblu-dev/services/
 )
+cp $OCTOBLU_DEV/generators/output/* $OCTOBLU_DEV/services

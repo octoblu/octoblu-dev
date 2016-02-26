@@ -1,0 +1,9 @@
+{
+  "uuid": "f515e496-c6d5-4195-b3be-6a6fe77b3b51",
+  "type": "flow-deploy-service",
+  "discoverWhitelist": [],
+  "configureWhitelist": [],
+  "receiveWhitelist": [],
+  "sendWhitelist": [],
+  "token": "$2a$10$SNwbidQ9LRL.m2Z0zgbJjOyu/BGNImM4.hll4AghE/ZbOISg3xBUG"
+}

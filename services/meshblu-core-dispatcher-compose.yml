@@ -2,6 +2,7 @@ meshblu-core-dispatcher:
   container_name: "meshblu-core-dispatcher"
   build: ${HOME}/Projects/Octoblu/meshblu-core-dispatcher
   command: node command-dispatch.js
+  dockerfile: Dockerfile-dev
   ports:
    - "80"
 

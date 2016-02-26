@@ -1,0 +1,18 @@
+{
+  "uuid": "765bd3a4-546d-45e6-a62f-1157281083f0",
+  "type": "interval-service",
+  "discoverWhitelist": [],
+  "configureWhitelist": [],
+  "receiveWhitelist": ["*"],
+  "sendWhitelist": ["*"],
+  "meshblu": {
+  "messageHooks": [
+      {
+        "url": "http://nanocyte-interval-redis.octoblu.dev/message",
+        "method": "POST",
+        "generateAndForwardMeshbluCredentials": true
+      }
+    ]
+  },
+  "token": "$2a$10$SNwbidQ9LRL.m2Z0zgbJjOyu/BGNImM4.hll4AghE/ZbOISg3xBUG"
+}
