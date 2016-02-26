@@ -31,14 +31,14 @@ tmux send-keys -t $SESSION:1.0 "cd $SERVICES_DIR; ./run-service.sh nanocyte-engi
 tmux send-keys -t $SESSION:1.1 "cd $SERVICES_DIR; ./run-service.sh nanocyte-engine-worker" C-m
 
 tmux send-keys -t $SESSION:2.0 "cd $SERVICES_DIR; ./run-service.sh nanocyte-interval-redis" C-m
-tmux send-keys -t $SESSION:2.1 "cd $SERVICES_DIR; ./run-service.sh nanocyte-interval" C-m
+tmux send-keys -t $SESSION:2.1 "cd $SERVICES_DIR; ./run-service.sh nanocyte-interval-service" C-m
 
-tmux send-keys -t $SESSION:3.0 "cd $SERVICES_DIR; ./run-service.sh nanocyte-flow-deploy" C-m
+tmux send-keys -t $SESSION:3.0 "cd $SERVICES_DIR; ./run-service.sh nanocyte-flow-deploy-service" C-m
 
 tmux send-keys -t $SESSION:4.0 "cd $SERVICES_DIR; ./run-service.sh nanocyte-node-registry" C-m
 
 tmux send-keys -t $SESSION:5.0 "cd $SERVICES_DIR; ./run-service.sh credentials-worker" C-m
-tmux send-keys -t $SESSION:5.1 "cd $SERVICES_DIR; ./run-service.sh credentials" C-m
+tmux send-keys -t $SESSION:5.1 "cd $SERVICES_DIR; ./run-service.sh credentials-service" C-m
 
 tmux select-window -t $SESSION:1
 tmux attach-session -t $SESSION

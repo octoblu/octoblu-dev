@@ -109,11 +109,11 @@ writeData = () =>
   for name, value of environment
     templateData.env.push { name, value }
 
-  fse.writeFileSync path.join(outputPath, "#{templateData.domainName}-compose.yml"), templateCompose(templateData)
-  console.log "wrote output/#{templateData.domainName}-compose.yml"
+  fse.writeFileSync path.join(outputPath, "#{templateData.projectName}-compose.yml"), templateCompose(templateData)
+  console.log "wrote output/#{templateData.projectName}-compose.yml"
 
-  fse.writeFileSync path.join(outputPath, "#{templateData.domainName}.env"), templateEnv(templateData)
-  console.log "wrote output/#{templateData.domainName}.env"
+  fse.writeFileSync path.join(outputPath, "#{templateData.projectName}.env"), templateEnv(templateData)
+  console.log "wrote output/#{templateData.projectName}.env"
 
 writeProjectEnv = () =>
   readEnv "env/#{templateData.projectName}", writeData

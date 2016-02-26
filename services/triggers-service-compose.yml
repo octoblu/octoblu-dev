@@ -1,0 +1,17 @@
+triggers:
+  container_name: "triggers"
+  build: ${HOME}/Projects/Octoblu/triggers-service
+  ports:
+   - "80"
+
+  labels:
+    traefik.port: "80"
+
+  # dns: "192.168.99.1"
+
+  volumes:
+    - /usr/src/app/node_modules
+    - ${HOME}/Projects/Octoblu/triggers-service:/usr/src/app
+
+  env_file:
+    - ./triggers-service.env
