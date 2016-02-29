@@ -2,3 +2,4 @@ user={{USER}}
 address=/dev/{{IP}}
 listen-address=127.0.0.1
 server=8.8.8.8
+dns-forward-max=4096

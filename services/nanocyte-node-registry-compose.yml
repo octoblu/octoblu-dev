@@ -7,7 +7,7 @@ nanocyte-node-registry:
   labels:
     traefik.port: "80"
 
-  # dns: "192.168.99.1"
+  dns: "192.168.99.1"
 
   external_links:
     - redis-tmp:redis

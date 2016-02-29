@@ -4,6 +4,7 @@ brew link --overwrite docker
 brew install docker-compose
 
 #dnsmasq
+sudo sysctl -w kern.ipc.somaxconn=4096
 brew install dnsmasq
 sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
 sudo mkdir -p /etc/resolver
