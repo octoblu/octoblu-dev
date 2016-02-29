@@ -1,9 +1,33 @@
 {
   "uuid": "oauth-provider-uuid",
-  "type": "oauth",
-  "discoverWhitelist": [],
+  "token": "$2a$10$SNwbidQ9LRL.m2Z0zgbJjOyu/BGNImM4.hll4AghE/ZbOISg3xBUG",
+  "online": true,
+  "type": "device:oauth",
+  "name": "Oauthy",
+  "optionsSchema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "required": true
+      },
+      "imageUrl": {
+        "type": "string",
+        "required": true
+      },
+      "callbackUrl": {
+        "type": "string",
+        "required": true
+      }
+    }
+  },
+  "options": {
+    "name": "Device-Mailer",
+    "callbackUrl": "http://localhost:1337/octoblu/authenticate"
+  },
+  "owner": "nobody",
+  "discoverWhitelist": ["*"],
   "configureWhitelist": [],
-  "receiveWhitelist": [],
-  "sendWhitelist": ["*"],
-  "token": "$2a$10$SNwbidQ9LRL.m2Z0zgbJjOyu/BGNImM4.hll4AghE/ZbOISg3xBUG"
+  "sendWhitelist": [ "*" ],
+  "receiveWhitelist": [ "*" ]
 }
