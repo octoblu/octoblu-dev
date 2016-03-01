@@ -23,7 +23,7 @@
   },
   "options": {
     "name": "Device-Mailer",
-    "callbackUrl": "http://localhost:1337/octoblu/authenticate"
+    "callbackUrl": "http://device-mailer.octoblu.dev/octoblu/authenticate"
   },
   "owner": "nobody",
   "discoverWhitelist": ["*"],

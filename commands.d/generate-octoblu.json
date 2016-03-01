@@ -27,5 +27,8 @@
   {
     "project": "oauth-provider",
     "domain": "oauth"
+  },
+  {
+    "project": "device-mailer"
   }
 ]
