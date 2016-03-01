@@ -21,10 +21,6 @@
     "compose": [ "dockerfile: Dockerfile-dev" ]
   },
   {
-    "project": "device-editor-octoblu",
-    "compose": [ "dockerfile: Dockerfile-dev" ]
-  },
-  {
     "project": "oauth-provider",
     "domain": "oauth"
   },

@@ -1,0 +1,10 @@
+{
+  "uuid": "device-mailer-uuid",
+  "type": "device-mailer",
+  "discoverWhitelist": [],
+  "configureWhitelist": [],
+  "receiveWhitelist": [],
+  "sendWhitelist": [],
+  "token": "$2a$10$SNwbidQ9LRL.m2Z0zgbJjOyu/BGNImM4.hll4AghE/ZbOISg3xBUG",
+  "publicKey": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmNySo+H+x+UnRdW5htAc\nMCqaEi96/SocpjE1OaYvv8+NulFS6kaL8XuRc0Tp35nSJLjqajklszuTQ5BQ1UmZ\n/zNo6sEgz2wJhNbTkfvx/PIzvdy7Ta0tub3LCtQTOHtTTsl57b8du1UhwxWFdNVS\n8rltKs3fRarQqUllC3DXqVHWbzYYFMQbtYk6PMcOyLJ1+hZNJuU8MKVRns7Wfmv0\nL9g3YhKxbzHu+fFDRSboocYKWgfr1sCVpa4eGdijUfOQF612+80WVrKlapxg9KWf\nPX+WTINYqWgXWY+Y9eTEQO/0NirgVqRZq/XPOpARK+pVXBsYEs0g3qw761lRY5gK\nHQIDAQAB\n-----END PUBLIC KEY-----"
+}
