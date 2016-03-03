@@ -18,4 +18,5 @@ meshblu-server-http:
     # - ${HOME}/Projects/Octoblu/meshblu-server-http:/usr/src/app
 
   env_file:
-    - ./meshblu-server-http.env
+    - ./meshblu-server-http-public.env
+    - ./meshblu-server-http-private.env

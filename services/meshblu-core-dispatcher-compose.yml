@@ -1,4 +1,5 @@
 meshblu-core-dispatcher:
+  container_name: "meshblu-core-dispatcher"
   build: ${HOME}/Projects/Octoblu/meshblu-core-dispatcher
   command: node command-dispatch.js
   ports:
@@ -18,4 +19,5 @@ meshblu-core-dispatcher:
     # - ${HOME}/Projects/Octoblu/meshblu-core-dispatcher:/usr/src/app
 
   env_file:
-    - ./meshblu-core-dispatcher.env
+    - ./meshblu-core-dispatcher-public.env
+    - ./meshblu-core-dispatcher-private.env

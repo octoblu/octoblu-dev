@@ -18,4 +18,5 @@ meshblu-old:
     # - ${HOME}/Projects/Octoblu/meshblu:/usr/src/app
 
   env_file:
-    - ./meshblu.env
+    - ./meshblu-public.env
+    - ./meshblu-private.env

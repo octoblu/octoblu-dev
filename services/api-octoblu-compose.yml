@@ -19,4 +19,5 @@ api:
     # - ${HOME}/Projects/Octoblu/api-octoblu:/usr/src/app
 
   env_file:
-    - ./api-octoblu.env
+    - ./api-octoblu-public.env
+    - ./api-octoblu-private.env

@@ -15,4 +15,5 @@ meshblu:
     # - ${HOME}/Projects/Octoblu/meshblu-haproxy:/usr/src/app
 
   env_file:
-    - ./meshblu-haproxy.env
+    - ./meshblu-haproxy-public.env
+    - ./meshblu-haproxy-private.env

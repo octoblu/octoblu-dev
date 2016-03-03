@@ -17,4 +17,5 @@ nanocyte-interval-redis:
     # - ${HOME}/Projects/Octoblu/nanocyte-interval-redis:/usr/src/app
 
   env_file:
-    - ./nanocyte-interval-redis.env
+    - ./nanocyte-interval-redis-public.env
+    - ./nanocyte-interval-redis-private.env

@@ -14,4 +14,5 @@ oauth:
     # - ${HOME}/Projects/Octoblu/oauth-provider:/usr/src/app
 
   env_file:
-    - ./oauth-provider.env
+    - ./oauth-provider-public.env
+    - ./oauth-provider-private.env

@@ -18,4 +18,5 @@ nanocyte-engine-worker:
     # - ${HOME}/Projects/Octoblu/nanocyte-engine-worker:/usr/src/app
 
   env_file:
-    - ./nanocyte-engine-worker.env
+    - ./nanocyte-engine-worker-public.env
+    - ./nanocyte-engine-worker-private.env

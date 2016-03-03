@@ -15,4 +15,5 @@ app:
     # - ${HOME}/Projects/Octoblu/app-octoblu:/usr/src/app
 
   env_file:
-    - ./app-octoblu.env
+    - ./app-octoblu-public.env
+    - ./app-octoblu-private.env

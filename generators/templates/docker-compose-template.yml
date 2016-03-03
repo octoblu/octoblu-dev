@@ -24,4 +24,5 @@
     # - ${HOME}/Projects/Octoblu/{{{projectName}}}:/usr/src/app
 
   env_file:
-    - ./{{{projectName}}}.env
+    - ./{{{projectName}}}-public.env
+    - ./{{{projectName}}}-private.env

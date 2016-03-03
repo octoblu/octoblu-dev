@@ -17,4 +17,5 @@ nanocyte-engine-http:
     # - ${HOME}/Projects/Octoblu/nanocyte-engine-http:/usr/src/app
 
   env_file:
-    - ./nanocyte-engine-http.env
+    - ./nanocyte-engine-http-public.env
+    - ./nanocyte-engine-http-private.env

@@ -17,4 +17,5 @@ nanocyte-interval:
     # - ${HOME}/Projects/Octoblu/nanocyte-interval-service:/usr/src/app
 
   env_file:
-    - ./nanocyte-interval-service.env
+    - ./nanocyte-interval-service-public.env
+    - ./nanocyte-interval-service-private.env

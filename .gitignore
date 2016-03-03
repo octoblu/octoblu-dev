@@ -1,5 +1,5 @@
 tmp/
 generators/output
-services/*.env
+services/*-private.env
 meshblu.json
 init/traefik/traefik.toml

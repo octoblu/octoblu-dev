@@ -17,4 +17,5 @@ nanocyte-node-registry:
     # - ${HOME}/Projects/Octoblu/nanocyte-node-registry:/usr/src/app
 
   env_file:
-    - ./nanocyte-node-registry.env
+    - ./nanocyte-node-registry-public.env
+    - ./nanocyte-node-registry-private.env
