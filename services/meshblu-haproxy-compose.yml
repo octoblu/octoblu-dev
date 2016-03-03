@@ -12,7 +12,7 @@ meshblu:
 
   volumes:
     - /usr/src/app/node_modules
-    - ${HOME}/Projects/Octoblu/meshblu-haproxy:/usr/src/app
+    # - ${HOME}/Projects/Octoblu/meshblu-haproxy:/usr/src/app
 
   env_file:
     - ./meshblu-haproxy.env

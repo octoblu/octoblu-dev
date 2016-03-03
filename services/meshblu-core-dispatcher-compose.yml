@@ -16,7 +16,7 @@ meshblu-core-dispatcher:
 
   volumes:
     - /usr/src/app/node_modules
-    - ${HOME}/Projects/Octoblu/meshblu-core-dispatcher:/usr/src/app
+    # - ${HOME}/Projects/Octoblu/meshblu-core-dispatcher:/usr/src/app
 
   env_file:
     - ./meshblu-core-dispatcher.env

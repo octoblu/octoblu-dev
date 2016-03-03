@@ -21,7 +21,7 @@
 {{/if}}
   volumes:
     - /usr/src/app/node_modules
-    - ${HOME}/Projects/Octoblu/{{{projectName}}}:/usr/src/app
+    # - ${HOME}/Projects/Octoblu/{{{projectName}}}:/usr/src/app
 
   env_file:
     - ./{{{projectName}}}.env

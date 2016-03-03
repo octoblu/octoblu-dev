@@ -12,7 +12,7 @@ app:
 
   volumes:
     - /usr/src/app/node_modules
-    - ${HOME}/Projects/Octoblu/app-octoblu:/usr/src/app
+    # - ${HOME}/Projects/Octoblu/app-octoblu:/usr/src/app
 
   env_file:
     - ./app-octoblu.env

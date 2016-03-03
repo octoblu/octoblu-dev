@@ -12,7 +12,6 @@ device-editor-octoblu:
 
   volumes:
     - /usr/src/app/node_modules
-    - /usr/src/app/dist
     - ${HOME}/Projects/Octoblu/device-editor-octoblu:/usr/src/app
 
   env_file:

@@ -14,7 +14,7 @@ nanocyte-flow-deploy:
 
   volumes:
     - /usr/src/app/node_modules
-    - ${HOME}/Projects/Octoblu/nanocyte-flow-deploy-service:/usr/src/app
+    # - ${HOME}/Projects/Octoblu/nanocyte-flow-deploy-service:/usr/src/app
 
   env_file:
     - ./nanocyte-flow-deploy-service.env

@@ -15,7 +15,7 @@ meshblu-old:
 
   volumes:
     - /usr/src/app/node_modules
-    - ${HOME}/Projects/Octoblu/meshblu:/usr/src/app
+    # - ${HOME}/Projects/Octoblu/meshblu:/usr/src/app
 
   env_file:
     - ./meshblu.env

@@ -15,7 +15,7 @@ nanocyte-engine-worker:
 
   volumes:
     - /usr/src/app/node_modules
-    - ${HOME}/Projects/Octoblu/nanocyte-engine-worker:/usr/src/app
+    # - ${HOME}/Projects/Octoblu/nanocyte-engine-worker:/usr/src/app
 
   env_file:
     - ./nanocyte-engine-worker.env
