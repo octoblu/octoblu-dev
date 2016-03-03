@@ -1,5 +1,5 @@
 nanocyte-engine-worker:
-  container_name: "nanocyte-engine-worker"
+  container_name: nanocyte-engine-worker
   build: ${HOME}/Projects/Octoblu/nanocyte-engine-worker
   dockerfile: Dockerfile-dev
   ports:

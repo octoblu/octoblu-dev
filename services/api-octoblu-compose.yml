@@ -1,5 +1,5 @@
 api:
-  container_name: "api"
+  container_name: api
   build: ${HOME}/Projects/Octoblu/api-octoblu
   dockerfile: Dockerfile-dev
   ports:

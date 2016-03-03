@@ -1,5 +1,5 @@
 nanocyte-interval:
-  container_name: "nanocyte-interval"
+  container_name: nanocyte-interval
   build: ${HOME}/Projects/Octoblu/nanocyte-interval-service
   ports:
    - "80"

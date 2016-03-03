@@ -1,5 +1,5 @@
 nanocyte-interval-redis:
-  container_name: "nanocyte-interval-redis"
+  container_name: nanocyte-interval-redis
   build: ${HOME}/Projects/Octoblu/nanocyte-interval-redis
   ports:
    - "80"

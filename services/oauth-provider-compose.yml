@@ -1,5 +1,5 @@
 oauth:
-  container_name: "oauth"
+  container_name: oauth
   build: ${HOME}/Projects/Octoblu/oauth-provider
   ports:
    - "80"

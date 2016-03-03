@@ -1,5 +1,5 @@
-meshblu-core-dispatcher:
-  container_name: meshblu-core-dispatcher
+meshblu-core-dispatcher-foxtrot:
+  container_name: meshblu-core-dispatcher-foxtrot
   build: ${HOME}/Projects/Octoblu/meshblu-core-dispatcher
   command: node command-dispatch.js
   ports:

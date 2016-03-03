@@ -1,5 +1,5 @@
 device-mailer:
-  container_name: "device-mailer"
+  container_name: device-mailer
   build: ${HOME}/Projects/Octoblu/device-mailer
   ports:
    - "80"

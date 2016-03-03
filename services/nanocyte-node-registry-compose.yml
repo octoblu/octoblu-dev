@@ -1,5 +1,5 @@
 nanocyte-node-registry:
-  container_name: "nanocyte-node-registry"
+  container_name: nanocyte-node-registry
   build: ${HOME}/Projects/Octoblu/nanocyte-node-registry
   ports:
    - "80"

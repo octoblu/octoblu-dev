@@ -1,5 +1,5 @@
 meshblu-old:
-  container_name: "meshblu-old"
+  container_name: meshblu-old
   build: ${HOME}/Projects/Octoblu/meshblu
   ports:
    - "80"

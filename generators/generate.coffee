@@ -112,25 +112,25 @@ privateEnvFile="#{templateData.projectName}-private.env"
 
 writeProjectEnv = (environment) =>
   readEnv publicEnvPath, environment, parseEnv(templateData.env, (env) =>
-      outputPath = path.join __dirname, "output"
-      fse.mkdirpSync outputPath
+    outputPath = path.join __dirname, "output"
+    fse.mkdirpSync outputPath
 
-      fse.writeFileSync path.join(outputPath, composeFile), templateCompose(templateData)
-      console.log "wrote output/#{composeFile}"
+    fse.writeFileSync path.join(outputPath, composeFile), templateCompose(templateData)
+    console.log "wrote output/#{composeFile}"
 
-      fse.writeFileSync path.join(outputPath, publicEnvFile), templateEnv({env})
-      console.log "wrote output/#{publicEnvFile}"
+    fse.writeFileSync path.join(outputPath, publicEnvFile), templateEnv({env})
+    console.log "wrote output/#{publicEnvFile}"
 
-      readEnv privateEnvPath, {}, parseEnv([], (env) =>
-        fse.writeFileSync path.join(outputPath, privateEnvFile), templateEnv({env})
-        console.log "wrote output/#{privateEnvFile}"
-      )
+    readEnv privateEnvPath, {}, parseEnv([], (env) =>
+      fse.writeFileSync path.join(outputPath, privateEnvFile), templateEnv({env})
+      console.log "wrote output/#{privateEnvFile}"
+    )
   )
 
 writeDefaultsEnv = (environment) =>
   readEnv "env/_defaults", environment, writeProjectEnv
 
-initialEnvironment = { DOCKER_COMPOSE_GENERATE_TIME: new Date }
+initialEnvironment = {}
 for env in options.environment
   [key,value] = env.split(/=(.+)?/)
   initialEnvironment[key]=value

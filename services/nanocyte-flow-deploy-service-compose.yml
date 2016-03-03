@@ -1,5 +1,5 @@
 nanocyte-flow-deploy:
-  container_name: "nanocyte-flow-deploy"
+  container_name: nanocyte-flow-deploy
   build: ${HOME}/Projects/Octoblu/nanocyte-flow-deploy-service
   ports:
    - "80"

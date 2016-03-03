@@ -1,5 +1,5 @@
 app:
-  container_name: "app"
+  container_name: app
   build: ${HOME}/Projects/Octoblu/app-octoblu
   dockerfile: Dockerfile-dev
   ports:

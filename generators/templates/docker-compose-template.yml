@@ -1,5 +1,5 @@
 {{{domainName}}}:
-  container_name: "{{{domainName}}}"
+  container_name: {{{domainName}}}
   build: ${HOME}/Projects/Octoblu/{{{projectName}}}
 {{#each compose}}
   {{{this}}}

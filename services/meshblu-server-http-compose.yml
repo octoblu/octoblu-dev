@@ -1,5 +1,5 @@
 meshblu-server-http:
-  container_name: "meshblu-server-http"
+  container_name: meshblu-server-http
   build: ${HOME}/Projects/Octoblu/meshblu-server-http
   ports:
    - "80"
