@@ -1,0 +1,19 @@
+device-editor-octoblu:
+  container_name: device-editor-octoblu
+  build: ${HOME}/Projects/Octoblu/device-editor-octoblu
+  dockerfile: Dockerfile-dev
+  ports:
+   - "80"
+
+  labels:
+    traefik.port: "80"
+
+  dns: "192.168.99.1"
+
+  volumes:
+    - /usr/src/app/node_modules
+    # - ${HOME}/Projects/Octoblu/device-editor-octoblu:/usr/src/app
+
+  env_file:
+    - ./device-editor-octoblu-public.env
+    - ./device-editor-octoblu-private.env

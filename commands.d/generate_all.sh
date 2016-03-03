@@ -3,7 +3,7 @@
 OCTOBLU_DEV=$HOME/Projects/Octoblu/octoblu-dev
 (
   cd $OCTOBLU_DEV/commands.d;
-  for project in meshblu octoblu nanocyte; do
+  for project in $(ls generate-*.json | sed -e 's|^generate-||' -e 's|\.json$||'); do
     ./generate.sh $project;
   done
 )
