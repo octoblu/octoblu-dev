@@ -1,19 +1,14 @@
 #!/bin/bash
+trap "exit" INT
 
-if [[ -z "$1" ]]; then
-  echo "must provide name to generate from"
+GENERATE_FILE=$1
+
+if [[ -z "$GENERATE_FILE" ]] || [[ ! -f "$GENERATE_FILE" ]]; then
+  echo "must provide json file to generate from"
   exit -1
 fi
 
-GENERATE_FILE=`pwd`/generate-$1.json
-if [[ ! -f "$GENERATE_FILE" ]]; then
-  echo "$GENERATE_FILE does not exist"
-  exit -1
-fi
-
-(
-  cd $HOME/Projects/Octoblu/octoblu-dev/generators
-  for i in $(seq 0 $(jq '.|length-1' <$GENERATE_FILE)); do
-    jq ".[$i]" <$GENERATE_FILE | coffee generate.coffee -j -
-  done
-)
+GENERATOR_PATH=$HOME/Projects/Octoblu/octoblu-dev/generators
+for i in $(seq 0 $(jq '.|length-1' <$GENERATE_FILE)); do
+  jq ".[$i]" <$GENERATE_FILE | coffee $GENERATOR_PATH/generate.coffee -j -
+done

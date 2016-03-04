@@ -1,4 +1,5 @@
 #!/bin/bash
+trap "exit" INT
 
 docker-machine start octoblu-dev
 

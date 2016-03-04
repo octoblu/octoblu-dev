@@ -104,10 +104,12 @@ parseEnv = (envArray, callback) =>
       envArray.push {name, value}
     callback(envArray)
 
-composeFile="#{templateData.projectName}-compose.yml"
-publicEnvPath="env/#{templateData.projectName}"
-publicEnvFile="#{templateData.projectName}-public.env"
 privateEnvPath="#{options.stack_env}/#{templateData.projectName}/env"
+publicEnvPath=path.join __dirname, "env/#{templateData.projectName}"
+defaultsPath=path.join __dirname, "env/_defaults"
+
+composeFile="#{templateData.projectName}-compose.yml"
+publicEnvFile="#{templateData.projectName}-public.env"
 privateEnvFile="#{templateData.projectName}-private.env"
 
 writeProjectEnv = (environment) =>
@@ -128,7 +130,7 @@ writeProjectEnv = (environment) =>
   )
 
 writeDefaultsEnv = (environment) =>
-  readEnv "env/_defaults", environment, writeProjectEnv
+  readEnv defaultsPath, environment, writeProjectEnv
 
 initialEnvironment = {}
 for env in options.environment

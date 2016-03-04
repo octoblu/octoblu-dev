@@ -1,4 +1,6 @@
 #!/bin/sh
+trap "exit" INT
+
 brew install docker-machine
 brew link --overwrite docker
 brew install docker-compose
