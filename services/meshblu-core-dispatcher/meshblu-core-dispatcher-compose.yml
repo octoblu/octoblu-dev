@@ -1,0 +1,24 @@
+meshblu-core-dispatcher:
+  container_name: meshblu-core-dispatcher
+  build: ${HOME}/Projects/Octoblu/meshblu-core-dispatcher
+  dockerfile: meshblu-core-dispatcher.dockerfile-dev
+  command: node command-dispatch.js
+  ports:
+   - "80"
+
+  labels:
+    traefik.port: "80"
+
+  dns: "192.168.99.1"
+
+  external_links:
+    - redis-tmp:redis
+    - mongo-persist:mongo
+
+  volumes:
+    - /usr/src/app/node_modules
+    - ${HOME}/Projects/Octoblu/meshblu-core-dispatcher:/usr/src/app
+
+  env_file:
+    - ./meshblu-core-dispatcher-public.env
+    - ./meshblu-core-dispatcher-private.env

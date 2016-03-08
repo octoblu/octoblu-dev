@@ -1,6 +1,12 @@
 #!/bin/sh
 eval $(docker-machine env --shell bash octoblu-dev)
 
+if [[ ! -d "$1" ]]; then
+  echo "Project $1 does not exist, aborting!"
+  exit -1
+fi
+cd $1
+
 OCTOBLU_DEV=$HOME/Projects/Octoblu/octoblu-dev
 PROJECT_HOME=$HOME/Projects/Octoblu/$1
 PROJECT_JSON=$PROJECT_HOME/meshblu.json

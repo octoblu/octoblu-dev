@@ -4,12 +4,6 @@ path       = require 'path'
 _          = require 'lodash'
 dashdash   = require 'dashdash'
 
-composeTemplatePath = path.join(__dirname, '..', 'templates', 'docker-compose-template.yml')
-envTemplatePath = path.join(__dirname, '..', 'templates', 'env-template')
-
-templateCompose = handlebars.compile(fse.readFileSync composeTemplatePath, 'utf8')
-templateEnv = handlebars.compile(fse.readFileSync envTemplatePath, 'utf8')
-
 defaultStackEnv = "#{process.env.HOME}/Projects/Octoblu/the-stack-env-production/dev.d/octoblu"
 
 parser = dashdash.createParser
@@ -110,28 +104,40 @@ parseEnv = (envArray, callback) =>
       envArray.push {name, value}
     callback(envArray)
 
-privateEnvPath=path.join  "#{options.stack_env}", "#{templateData.projectName}", "env"
-publicEnvPath=path.join __dirname, '..', 'env', "#{templateData.projectName}"
+privateEnvPath=path.join  options.stack_env, templateData.projectName, 'env'
+publicEnvPath=path.join __dirname, '..', 'env', templateData.projectName
 defaultsPath=path.join __dirname, '..', 'env', '_defaults'
 
 composeFile="#{templateData.projectName}-compose.yml"
+dockerDevFile="#{templateData.projectName}.dockerfile-dev"
 publicEnvFile="#{templateData.projectName}-public.env"
 privateEnvFile="#{templateData.projectName}-private.env"
 
+composeTemplatePath = path.join(__dirname, '..', 'templates', 'docker-compose-template.yml')
+dockerTemplatePath = path.join(__dirname, '..', 'templates', 'dockerfile-devs', dockerDevFile)
+envTemplatePath = path.join(__dirname, '..', 'templates', 'env-template')
+
+templateCompose = handlebars.compile(fse.readFileSync composeTemplatePath, 'utf8')
+templateDocker = handlebars.compile(fse.readFileSync dockerTemplatePath, 'utf8')
+templateEnv = handlebars.compile(fse.readFileSync envTemplatePath, 'utf8')
+
 writeProjectEnv = (environment) =>
   readEnv publicEnvPath, environment, parseEnv(templateData.env, (env) =>
-    outputPath = path.join __dirname, '..', 'output'
+    outputPath = path.join __dirname, '..', 'output', templateData.projectName
     fse.mkdirpSync outputPath
 
     fse.writeFileSync path.join(outputPath, composeFile), templateCompose(templateData)
-    console.log "wrote output/#{composeFile}"
+    console.log "wrote #{templateData.projectName}/#{composeFile}"
+
+    fse.writeFileSync path.join(outputPath, dockerDevFile), templateDocker(templateData)
+    console.log "wrote #{templateData.projectName}/#{dockerDevFile}"
 
     fse.writeFileSync path.join(outputPath, publicEnvFile), templateEnv({env})
-    console.log "wrote output/#{publicEnvFile}"
+    console.log "wrote #{templateData.projectName}/#{publicEnvFile}"
 
     readEnv privateEnvPath, {}, parseEnv([], (env) =>
       fse.writeFileSync path.join(outputPath, privateEnvFile), templateEnv({env})
-      console.log "wrote output/#{privateEnvFile}"
+      console.log "wrote #{templateData.projectName}/#{privateEnvFile}"
     )
   )
 
