@@ -1,7 +1,0 @@
-{
-  "uuid": "octoblu-uuid",
-  "token": "some-random-token",
-  "server": "meshblu.octoblu.dev",
-  "port": "80",
-  "type": "octoblu"
-}

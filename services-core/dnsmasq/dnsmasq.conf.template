@@ -1,0 +1,8 @@
+user={{USER}}
+address=/dev/{{IP}}
+listen-address={{HOST}}
+server=8.8.8.8
+dns-forward-max=4096
+max-cache-ttl=120
+min-cache-ttl=30
+auth-ttl=30

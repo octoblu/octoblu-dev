@@ -1,7 +1,0 @@
-user={{USER}}
-address=/dev/{{IP}}
-listen-address=127.0.0.1,192.168.99.1
-server=8.8.8.8
-dns-forward-max=4096
-max-cache-ttl=1
-neg-ttl=1

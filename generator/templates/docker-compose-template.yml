@@ -1,0 +1,29 @@
+{{{containerName}}}:
+  container_name: {{{containerName}}}
+  build: ${HOME}/Projects/Octoblu/{{{projectName}}}
+  dockerfile: {{{projectName}}}.dockerfile-dev
+{{#each compose}}
+  {{{this}}}
+{{/each}}
+  ports:
+   - "80"
+
+  labels:
+    traefik.port: "80"
+
+  dns: "{{{dns}}}"
+
+{{#if links}}
+  external_links:
+{{#each links}}
+    - {{{this}}}
+{{/each}}
+
+{{/if}}
+  volumes:
+    - /usr/src/app/node_modules
+    - ${HOME}/Projects/Octoblu/{{{projectName}}}:/usr/src/app
+
+  env_file:
+    - ./{{{projectName}}}-public.env
+    - ./{{{projectName}}}-private.env

@@ -1,14 +1,14 @@
 api:
   container_name: api
   build: ${HOME}/Projects/Octoblu/api-octoblu
-  dockerfile: Dockerfile-dev
+  dockerfile: api-octoblu.dockerfile-dev
   ports:
    - "80"
 
   labels:
     traefik.port: "80"
 
-  dns: "192.168.99.1"
+  dns: "192.168.64.1"
 
   external_links:
     - redis-tmp:redis
@@ -16,7 +16,7 @@ api:
 
   volumes:
     - /usr/src/app/node_modules
-    # - ${HOME}/Projects/Octoblu/api-octoblu:/usr/src/app
+    - ${HOME}/Projects/Octoblu/api-octoblu:/usr/src/app
 
   env_file:
     - ./api-octoblu-public.env

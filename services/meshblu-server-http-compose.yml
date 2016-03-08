@@ -1,13 +1,14 @@
 meshblu-server-http:
   container_name: meshblu-server-http
   build: ${HOME}/Projects/Octoblu/meshblu-server-http
+  dockerfile: meshblu-server-http.dockerfile-dev
   ports:
    - "80"
 
   labels:
     traefik.port: "80"
 
-  dns: "192.168.99.1"
+  dns: "192.168.64.1"
 
   external_links:
     - redis-tmp:redis
@@ -15,7 +16,7 @@ meshblu-server-http:
 
   volumes:
     - /usr/src/app/node_modules
-    # - ${HOME}/Projects/Octoblu/meshblu-server-http:/usr/src/app
+    - ${HOME}/Projects/Octoblu/meshblu-server-http:/usr/src/app
 
   env_file:
     - ./meshblu-server-http-public.env

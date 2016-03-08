@@ -1,0 +1,12 @@
+[
+  {
+    "project": "oauth-provider",
+    "container": "oauth"
+  },
+  {
+    "project": "device-mailer"
+  },
+  {
+    "project": "device-editor-octoblu"
+  }
+]

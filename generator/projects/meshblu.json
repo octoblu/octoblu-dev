@@ -1,0 +1,21 @@
+[
+  {
+    "project": "meshblu-haproxy",
+    "container": "meshblu",
+    "no_defaults": true
+  },
+  {
+    "project": "meshblu",
+    "container": "meshblu-old",
+    "links": [ "redis-tmp:redis", "mongo-persist:mongo" ]
+  },
+  {
+    "project": "meshblu-server-http",
+    "links": [ "redis-tmp:redis", "mongo-persist:mongo" ]
+  },
+  {
+    "project": "meshblu-core-dispatcher",
+    "compose": [ "command: node command-dispatch.js"],
+    "links": [ "redis-tmp:redis", "mongo-persist:mongo" ]
+  }
+]

@@ -1,0 +1,19 @@
+[
+  {
+    "project": "api-octoblu",
+    "container": "api",
+    "links": [ "redis-tmp:redis", "mongo-persist:mongo" ]
+  },
+  {
+    "project": "app-octoblu",
+    "container": "app",
+    "no_defaults": true
+  },
+  {
+    "project": "email-password-site",
+    "no_defaults": true
+  },
+  {
+    "project": "meshblu-authenticator-email-password"
+  }
+]

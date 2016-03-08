@@ -10,19 +10,23 @@ sudo sysctl -w kern.ipc.somaxconn=4096
 brew install dnsmasq
 sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
 sudo mkdir -p /etc/resolver
-sudo cp dns/resolver-dev /etc/resolver/dev
+sudo cp services-core/dnsmasq/resolver-dev /etc/resolver/dev
 sudo cp -fv /usr/local/opt/dnsmasq/*.plist /Library/LaunchDaemons
 sudo chown root /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
-(cd dns; ./setup-conf.sh 127.0.0.1)
+(cd services-core/dnsmasq; ./setup.sh 127.0.0.1 127.0.0.1)
 sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
 
 docker-machine create \
-  --driver virtualbox \
-  --virtualbox-disk-size "100000" \
-  --virtualbox-memory "4096" \
-  --virtualbox-cpu-count "4" \
+  --driver xhyve \
+  --xhyve-disk-size "250000" \
+  --xhyve-memory-size "4096" \
+  --xhyve-cpu-count "4" \
   octoblu-dev
 
-(cd generators; npm install)
-(cd commands.d; ./start.sh)
-(cd setup; ./setup-mongo.sh mongo-persist)
+docker-machine-nfs octoblu-dev \
+  --shared-folder=/Users \
+  --mount-opts="vers=3,udp"
+
+(cd generator/bin; npm install)
+./start.sh
+(cd db-setup; ./setup-mongo.sh mongo-persist)
