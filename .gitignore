@@ -1,4 +1,3 @@
 tmp/
 generator/output
 services/*-private.env
-init/traefik/traefik.toml
