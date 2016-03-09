@@ -1,3 +1,5 @@
 tmp/
 generator/output
 services/*-private.env
+
+node_modules

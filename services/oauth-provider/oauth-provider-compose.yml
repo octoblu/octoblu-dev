@@ -8,11 +8,11 @@ oauth:
   labels:
     traefik.port: "80"
 
-  dns: "192.168.64.1"
+  dns: "192.168.99.1"
 
   volumes:
     - /usr/src/app/node_modules
-    - ${HOME}/Projects/Octoblu/oauth-provider:/usr/src/app
+    #- ${HOME}/Projects/Octoblu/oauth-provider:/usr/src/app
 
   env_file:
     - ./oauth-provider-public.env

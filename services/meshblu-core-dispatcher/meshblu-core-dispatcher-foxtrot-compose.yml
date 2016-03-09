@@ -1,5 +1,5 @@
-meshblu-core-dispatcher:
-  container_name: meshblu-core-dispatcher
+meshblu-core-dispatcher-foxtrot:
+  container_name: meshblu-core-dispatcher-foxtrot
   build: ${HOME}/Projects/Octoblu/meshblu-core-dispatcher
   dockerfile: meshblu-core-dispatcher.dockerfile-dev
   command: node command-dispatch.js
@@ -17,7 +17,7 @@ meshblu-core-dispatcher:
 
   volumes:
     - /usr/src/app/node_modules
-    #- ${HOME}/Projects/Octoblu/meshblu-core-dispatcher:/usr/src/app
+    - ${HOME}/Projects/Octoblu/meshblu-core-dispatcher:/usr/src/app
 
   env_file:
     - ./meshblu-core-dispatcher-public.env

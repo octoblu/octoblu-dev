@@ -14,3 +14,8 @@ docker-machine create \
   --xhyve-memory-size "4096" \
   --xhyve-cpu-count "4" \
   octoblu-dev
+
+
+docker-machine-nfs octoblu-dev \
+  --shared-folder=/Users \
+  --mount-opts="vers=3,udp"
