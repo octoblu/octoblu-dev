@@ -1,5 +1,4 @@
 FROM node:5-onbuild
 MAINTAINER Octoblu <docker@octoblu.com>
 
-COPY .aws /root/.aws
 EXPOSE 80
