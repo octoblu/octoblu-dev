@@ -2,12 +2,12 @@ FROM node:5
 MAINTAINER Octoblu <docker@octoblu.com>
 
 ENV NODE_TLS_REJECT_UNAUTHORIZED 0
-ADD npmrc-dev /root/.npmrc
+#ADD npmrc-dev /root/.npmrc
 WORKDIR /usr/src/app
 
 ADD package.json /usr/src/app/
-RUN npm -s install --production
+RUN npm install --production --silent
 
 ADD . /usr/src/app
 
-CMD npm start
+CMD node --max_old_space_size=256 command-dispatch.js
