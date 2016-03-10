@@ -1,5 +1,5 @@
 tmp/
 generator/output
-services/*-private.env
+*-private.env
 
 node_modules
