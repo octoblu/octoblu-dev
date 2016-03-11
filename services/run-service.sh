@@ -22,12 +22,12 @@ if [[ -n "$2" ]]; then
   sed -e "1 s|^\(.*\):|\1-$2:|" -e "s|\(container_name: .*\)|\1-$2|" \
     <$1-compose.yml >$1-$2-compose.yml
 fi
+
 COMPOSE=$PROJECT-compose.yml
 CONTAINER=$(sed -n 's/^.*container_name: *\(.*\)/\1/p' $COMPOSE)
 
 cp $1.dockerfile-dev $PROJECT_HOME
-cp $OCTOBLU_DEV/services-core/npm-proxy-cache/npmrc-dev $PROJECT_HOME/npmrc-dev
+# cp $OCTOBLU_DEV/services-core/npm-proxy-cache/npmrc-dev $PROJECT_HOME/npmrc-dev
 
-docker-compose -f $COMPOSE stop
-docker-compose -f $COMPOSE build
+docker-compose -f $COMPOSE rm -f
 docker-compose -f $COMPOSE up
