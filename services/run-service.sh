@@ -27,7 +27,7 @@ COMPOSE=$PROJECT-compose.yml
 CONTAINER=$(sed -n 's/^.*container_name: *\(.*\)/\1/p' $COMPOSE)
 
 cp $1.dockerfile-dev $PROJECT_HOME
-cp $OCTOBLU_DEV/services-core/npm-proxy-cache/npmrc-dev $PROJECT_HOME/npmrc-dev
+cp $OCTOBLU_DEV/services-core/squid/npmrc-dev $PROJECT_HOME/npmrc-dev
 
 docker-compose -f $COMPOSE rm -f
 docker-compose -f $COMPOSE build
