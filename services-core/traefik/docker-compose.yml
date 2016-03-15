@@ -1,8 +1,9 @@
 traefik:
   image: emilevauge/traefik
+  container_name: traefik
   ports:
     - "80:80"
-    - "5081:5081"
+    - "50801:50801"
   volumes:
     - $PWD/traefik.toml:/traefik.toml
     - $HOME/.docker/machine/certs:/creds
