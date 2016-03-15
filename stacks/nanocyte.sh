@@ -3,11 +3,12 @@
 source ~/.profile
 SERVICES_DIR="$HOME/Projects/Octoblu/octoblu-dev/services"
 SESSION='nanocyte'
-nvm use 5
 
 PROJECT_DIR=$HOME/Projects/Octoblu
-curl --silent http://meshblu.octoblu.dev/publickey > $PROJECT_DIR/credentials-service/public-key.json
-curl --silent http://meshblu.octoblu.dev/publickey > $PROJECT_DIR/nanocyte-engine-http/public-key.json
+
+
+rm $PROJECT_DIR/credentials-service/public-key.json
+rm $PROJECT_DIR/nanocyte-engine-http/public-key.json
 
 tmux start-server
 tmux new-session -d -s $SESSION -n √ø

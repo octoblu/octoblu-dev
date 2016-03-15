@@ -3,7 +3,6 @@
 source ~/.profile
 SERVICES="$HOME/Projects/Octoblu/octoblu-dev/services"
 SESSION='meshblu'
-nvm use 5
 
 cd $SERVICES;
 

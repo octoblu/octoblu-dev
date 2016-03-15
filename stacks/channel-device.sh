@@ -3,7 +3,6 @@
 source ~/.profile
 SERVICES_DIR="$HOME/Projects/Octoblu/octoblu-dev/services"
 SESSION='channel-device'
-nvm use 5
 
 tmux start-server
 tmux new-session -d -s $SESSION -n √ø
