@@ -13,7 +13,7 @@ WORKDIR /usr/src/app
 ENV PATH $PATH:/usr/local/bin
 
 ADD package.json /usr/src/app/
-RUN ["npm", "install", "--production", "--silent"]
+RUN ["npm", "install", "--production"]
 
 ADD gulpfile.js /usr/src/app
 ADD bower.json /usr/src/app

@@ -2,10 +2,9 @@
 eval $(docker-machine env --shell bash octoblu-dev)
 
 echo + squid
-docker-compose build >/dev/null
 docker-compose up -d
-CONTAINER=$(docker ps | grep /squid | cut -f1 -d\ )
-PROXY_IP=$(docker inspect --format '{{.NetworkSettings.IPAddress}}' $CONTAINER)
+PROXY_IP=$(docker inspect --format '{{.NetworkSettings.IPAddress}}' \
+  $(docker ps | grep /squid | cut -f1 -d\ ) | sed -e 's|\.[0-9]*$|.1|')
 
 (
 cat <<EOF
