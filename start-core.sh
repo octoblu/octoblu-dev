@@ -1,7 +1,8 @@
 #!/bin/bash
+set -eE
 trap "exit" INT
 
-docker-machine start octoblu-dev
+docker-machine start octoblu-dev || true
 if [[ -z "$(docker-machine inspect octoblu-dev)" ]]; then
   exit -1
 fi
@@ -13,6 +14,6 @@ eval "(${DOCKER_ENV} || (${DOCKER_REGEN} >/dev/null && ${DOCKER_ENV}))" 2>/dev/n
 (
   cd $HOME/Projects/Octoblu/octoblu-dev/services-core
   for d in $(ls -d */); do
-    (cd $d; ./stop.sh; ./run.sh)
+    (cd $d; ./stop.sh || true; ./run.sh)
   done
 )
