@@ -8,6 +8,7 @@ if [[ -z "$DNS" ]]; then
   exit -1
 fi
 
-for project in $OCTOBLU_DEV/generator/projects/*.json; do
-  $OCTOBLU_DEV/generator/bin/generate.sh "$project" $DNS;
-done
+GENERATOR_PATH=$HOME/Projects/Octoblu/octoblu-dev/generator/bin
+
+jq -s add $OCTOBLU_DEV/generator/projects/*.json |
+  coffee $GENERATOR_PATH/generate.coffee -d $DNS -j -
