@@ -22,11 +22,6 @@ parser = dashdash.createParser
       type: 'string'
       help: 'The third level container name aka container_name to use for Træfɪk'
      }, {
-      names: ['dns', 'd']
-      type: 'string'
-      help: 'Address to use for resolving DNS'
-      default: '127.0.0.1'
-     }, {
       names: ['stack-env', 's']
       type: 'string'
       help: "Stack environment directory to read from, default: #{defaultStackEnv}"
@@ -78,7 +73,6 @@ generate = (options)=>
     containerName: options.container
     compose: options.compose
     links: options.links
-    dns: options.dns
     env: []
 
   readFileEnv = (environment) =>

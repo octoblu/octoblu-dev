@@ -53,6 +53,8 @@ cp $OCTOBLU_DEV/services-core/squid/npmrc-dev $PROJECT_HOME/.npmrc-dev
   fi
 )
 
+export DNS=$(docker-machine ip octoblu-dev | sed -e 's|\.[0-9]*$|.1|')
+
 docker-compose -f $COMPOSE rm -f
 docker-compose -f $COMPOSE build
 docker-compose -f $COMPOSE up

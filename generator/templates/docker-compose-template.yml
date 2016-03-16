@@ -11,7 +11,7 @@
   labels:
     traefik.port: "80"
 
-  dns: "{{{dns}}}"
+  dns: "$DNS"
 
 {{#if links}}
   external_links:
