@@ -9,6 +9,8 @@ export SESSION='nanocyte'
 tmux start-server
 tmux new-session -d -s $SESSION -n √ø
 
+tmux set-environment -t $SESSION SERVICES $SERVICES
+
 tmux new-window -t $SESSION:1 -n engine
 tmux new-window -t $SESSION:2 -n interval
 tmux new-window -t $SESSION:3 -n deploy

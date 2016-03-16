@@ -9,6 +9,8 @@ export SESSION='channel-device'
 tmux start-server
 tmux new-session -d -s $SESSION -n √ø
 
+tmux set-environment -t $SESSION SERVICES $SERVICES
+
 tmux new-window -t $SESSION:1 -n oauth
 tmux new-window -t $SESSION:2 -n mailer
 tmux new-window -t $SESSION:3 -n editor

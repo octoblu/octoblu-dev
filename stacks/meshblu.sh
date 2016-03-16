@@ -9,6 +9,8 @@ export SESSION='meshblu'
 tmux start-server
 tmux new-session -d -s $SESSION -n √ø
 
+tmux set-environment -t $SESSION SERVICES $SERVICES
+
 tmux new-window -t $SESSION:1 -n proxy
 tmux new-window -t $SESSION:2 -n old
 tmux new-window -t $SESSION:3 -n http
