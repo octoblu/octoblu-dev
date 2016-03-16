@@ -1,7 +1,7 @@
 nanocyte-engine-http:
   container_name: nanocyte-engine-http
   build: ${HOME}/Projects/Octoblu/nanocyte-engine-http
-  dockerfile: nanocyte-engine-http.dockerfile-dev
+  dockerfile: .nanocyte-engine-http.dockerfile-dev
   ports:
    - "80"
 

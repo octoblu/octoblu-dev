@@ -1,7 +1,7 @@
 {{{containerName}}}:
   container_name: {{{containerName}}}
   build: ${HOME}/Projects/Octoblu/{{{projectName}}}
-  dockerfile: {{{projectName}}}.dockerfile-dev
+  dockerfile: .{{{projectName}}}.dockerfile-dev
 {{#each compose}}
   {{{this}}}
 {{/each}}

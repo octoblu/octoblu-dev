@@ -1,5 +1,5 @@
 #!/bin/sh
-set -e
+set -eE
 eval $(docker-machine env --shell bash octoblu-dev)
 
 if [[ ! -d "$1" ]]; then
@@ -18,7 +18,7 @@ if [[ ! -d "$PROJECT_HOME" ]]; then
 fi
 
 if [[ -f "$PROJECT_JSON" ]]; then
-  echo "$PROJECT_JSON already exists, remove to continue."
+  echo "meshblu.json already exists, remove to continue."
   exit 1
 fi
 
@@ -32,8 +32,8 @@ fi
 COMPOSE=$PROJECT-compose.yml
 CONTAINER=$(sed -n 's/^.*container_name: *\(.*\)/\1/p' $COMPOSE)
 
-cp $1.dockerfile-dev $PROJECT_HOME
-cp $OCTOBLU_DEV/services-core/squid/npmrc-dev $PROJECT_HOME/npmrc-dev
+cp $1.dockerfile-dev $PROJECT_HOME/.$1.dockerfile-dev
+cp $OCTOBLU_DEV/services-core/squid/npmrc-dev $PROJECT_HOME/.npmrc-dev
 
 (
   cd $PROJECT_HOME

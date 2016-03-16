@@ -1,7 +1,7 @@
 meshblu-server-http:
   container_name: meshblu-server-http
   build: ${HOME}/Projects/Octoblu/meshblu-server-http
-  dockerfile: meshblu-server-http.dockerfile-dev
+  dockerfile: .meshblu-server-http.dockerfile-dev
   ports:
    - "80"
 

@@ -2,10 +2,9 @@ FROM node:5
 MAINTAINER Octoblu, Inc. <docker@octoblu.com>
 
 ENV NODE_TLS_REJECT_UNAUTHORIZED 0
-ADD npmrc-dev /root/.npmrc
-
-ADD .npmrc /root/.npmrc-auth
-RUN cat /root/.npmrc-auth >>/root/.npmrc
+ADD .npmrc /root/.npmrc
+ADD .npmrc-dev /root/.npmrc-dev
+RUN cat /root/.npmrc-dev >>/root/.npmrc
 
 WORKDIR /usr/src/app
 

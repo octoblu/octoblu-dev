@@ -1,7 +1,7 @@
 app:
   container_name: app
   build: ${HOME}/Projects/Octoblu/app-octoblu
-  dockerfile: app-octoblu.dockerfile-dev
+  dockerfile: .app-octoblu.dockerfile-dev
   ports:
    - "80"
 

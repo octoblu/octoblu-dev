@@ -1,8 +1,7 @@
 meshblu-core-dispatcher-tango:
   container_name: meshblu-core-dispatcher-tango
   build: ${HOME}/Projects/Octoblu/meshblu-core-dispatcher
-  dockerfile: meshblu-core-dispatcher.dockerfile-dev
-  command: node command-dispatch.js
+  dockerfile: .meshblu-core-dispatcher.dockerfile-dev
   ports:
    - "80"
 

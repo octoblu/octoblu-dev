@@ -1,7 +1,7 @@
 nanocyte-engine-worker:
   container_name: nanocyte-engine-worker
   build: ${HOME}/Projects/Octoblu/nanocyte-engine-worker
-  dockerfile: nanocyte-engine-worker.dockerfile-dev
+  dockerfile: .nanocyte-engine-worker.dockerfile-dev
   ports:
    - "80"
 

@@ -1,7 +1,7 @@
 oauth:
   container_name: oauth
   build: ${HOME}/Projects/Octoblu/oauth-provider
-  dockerfile: oauth-provider.dockerfile-dev
+  dockerfile: .oauth-provider.dockerfile-dev
   ports:
    - "80"
 

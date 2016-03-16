@@ -1,7 +1,7 @@
 device-mailer:
   container_name: device-mailer
   build: ${HOME}/Projects/Octoblu/device-mailer
-  dockerfile: device-mailer.dockerfile-dev
+  dockerfile: .device-mailer.dockerfile-dev
   ports:
    - "80"
 
