@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 eval $(docker-machine env --shell bash octoblu-dev)
 
 if [[ ! -d "$1" ]]; then
@@ -10,6 +11,11 @@ cd $1
 OCTOBLU_DEV=$HOME/Projects/Octoblu/octoblu-dev
 PROJECT_HOME=$HOME/Projects/Octoblu/$1
 PROJECT_JSON=$PROJECT_HOME/meshblu.json
+
+if [[ ! -d "$PROJECT_HOME" ]]; then
+  echo "$PROJECT_HOME does not exist, aborting!"
+  exit -1
+fi
 
 if [[ -f "$PROJECT_JSON" ]]; then
   echo "$PROJECT_JSON already exists, remove to continue."
@@ -27,7 +33,25 @@ COMPOSE=$PROJECT-compose.yml
 CONTAINER=$(sed -n 's/^.*container_name: *\(.*\)/\1/p' $COMPOSE)
 
 cp $1.dockerfile-dev $PROJECT_HOME
-cp $OCTOBLU_DEV/services-core/npm-proxy-cache/npmrc-dev $PROJECT_HOME/npmrc-dev
+cp $OCTOBLU_DEV/services-core/squid/npmrc-dev $PROJECT_HOME/npmrc-dev
+
+(
+  cd $PROJECT_HOME
+  git fetch origin
+  GIT_LOG_CMD="git log HEAD..origin/master --oneline"
+  GIT_LOG=$($GIT_LOG_CMD)
+  if [[ -n "$GIT_LOG" ]]; then
+    echo "¡WARNING: $1 is ahead of remote!"
+    echo
+    $GIT_LOG_CMD
+    echo
+    read -s -p 'press "y" to pull, any other key continue'$'\n' -n 1 GIT_PULL
+    if [[ "$GIT_PULL" == "y" ]]; then
+      echo "pulling..."
+      git pull || exit 1
+    fi
+  fi
+)
 
 docker-compose -f $COMPOSE rm -f
 docker-compose -f $COMPOSE build

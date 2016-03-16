@@ -1,8 +1,0 @@
-npm-proxy-cache:
-  container_name: npm-proxy-cache
-  build: .
-  ports:
-   - "80"
-
-  labels:
-    traefik.port: "80"

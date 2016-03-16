@@ -3,18 +3,21 @@ MAINTAINER Octoblu, Inc. <docker@octoblu.com>
 
 EXPOSE 80
 
-ENV PATH $PATH:/usr/local/bin
+ENV NODE_TLS_REJECT_UNAUTHORIZED 0
+ADD npmrc-dev /root/.npmrc
 
 WORKDIR /usr/src/app/bower/lib
 WORKDIR /usr/src/app/bower_components
 WORKDIR /usr/src/app
 
+ENV PATH $PATH:/usr/local/bin
+
 ADD package.json /usr/src/app/
-RUN npm install --production
+RUN ["npm", "install", "--production", "--silent"]
 
 ADD gulpfile.js /usr/src/app
 ADD bower.json /usr/src/app
-RUN node_modules/gulp/bin/gulp.js bower:concat
+RUN ["node_modules/gulp/bin/gulp.js", "bower:concat"]
 
 ADD . /usr/src/app
 CMD ["node_modules/gulp/bin/gulp.js", "watch"]

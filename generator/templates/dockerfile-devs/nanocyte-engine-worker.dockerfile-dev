@@ -1,16 +1,17 @@
 FROM node:5
 MAINTAINER Octoblu, Inc. <docker@octoblu.com>
 
-RUN mkdir -p /usr/src/app
+ENV NODE_TLS_REJECT_UNAUTHORIZED 0
+ADD npmrc-dev /root/.npmrc
+
+ADD .npmrc /root/.npmrc-auth
+RUN cat /root/.npmrc-auth >>/root/.npmrc
+
 WORKDIR /usr/src/app
 
-COPY . /usr/src/app/
-COPY .npmrc /root/
+ADD package.json /usr/src/app/
+RUN ["npm", "install", "--production", "--silent"]
 
-# this is crazy for a reason
-# RUN npm install @octoblu/nanocyte-engine-simple --ignore-scripts
-# RUN cd /usr/src/app/node_modules/@octoblu/nanocyte-engine-simple; npm run postinstall
-RUN npm install
-# end crazinessF
+ADD . /usr/src/app
 
-CMD [ "node", "--max-old-space-size=150", "command.js" ]
+CMD ["node", "--max-old-space-size=150", "command.js"]

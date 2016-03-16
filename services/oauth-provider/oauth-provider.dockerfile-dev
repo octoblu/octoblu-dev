@@ -3,11 +3,14 @@ MAINTAINER Octoblu, Inc. <docker@octoblu.com>
 
 EXPOSE 80
 
-RUN mkdir -p /usr/src/app
+ENV NODE_TLS_REJECT_UNAUTHORIZED 0
+ADD npmrc-dev /root/.npmrc
+
 WORKDIR /usr/src/app
 
-COPY package.json /usr/src/app/
-RUN npm -s install --production
-COPY . /usr/src/app/
+ADD package.json /usr/src/app/
+RUN ["npm", "install", "--production", "--silent"]
 
-CMD [ "node", "server.js" ]
+ADD . /usr/src/app
+
+CMD ["node", "server.js"]
