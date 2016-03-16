@@ -2,6 +2,8 @@
 set -eE
 eval $(docker-machine env --shell bash octoblu-dev)
 
+cd $HOME/Projects/Octoblu/octoblu-dev/services
+
 if [[ ! -d "$1" ]]; then
   echo "Project $1 does not exist, aborting!"
   exit -1

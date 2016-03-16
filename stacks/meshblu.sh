@@ -23,20 +23,20 @@ tmux send-keys -t $SESSION:0.0 C-m
 tmux send-keys -t $SESSION:0.0 "tmux kill-session -t $SESSION"
 
 tmux send-keys -t $SESSION:1.0 'cd ~/Projects/Octoblu/meshblu-haproxy' C-m
-tmux send-keys -t $SESSION:1.0 '(cd $SERVICES; ./run-service.sh meshblu-haproxy)' C-m
+tmux send-keys -t $SESSION:1.0 'eval $SERVICES/run-service.sh meshblu-haproxy' C-m
 
 tmux send-keys -t $SESSION:2.0 'cd ~/Projects/Octoblu/meshblu' C-m
-tmux send-keys -t $SESSION:2.0 '(cd $SERVICES; ./run-service.sh meshblu)' C-m
+tmux send-keys -t $SESSION:2.0 'eval $SERVICES/run-service.sh meshblu' C-m
 
 tmux send-keys -t $SESSION:3.0 'cd ~/Projects/Octoblu/meshblu-server-http' C-m
-tmux send-keys -t $SESSION:3.0 '(cd $SERVICES; ./run-service.sh meshblu-server-http)' C-m
+tmux send-keys -t $SESSION:3.0 'eval $SERVICES/run-service.sh meshblu-server-http' C-m
 
 tmux send-keys -t $SESSION:4.0 'cd ~/Projects/Octoblu/meshblu-core-dispatcher' C-m
-tmux send-keys -t $SESSION:4.0 '(cd $SERVICES; ./run-service.sh meshblu-core-dispatcher whiskey)' C-m
+tmux send-keys -t $SESSION:4.0 'eval $SERVICES/run-service.sh meshblu-core-dispatcher whiskey' C-m
 tmux send-keys -t $SESSION:4.1 'cd ~/Projects/Octoblu/meshblu-core-dispatcher' C-m
-tmux send-keys -t $SESSION:4.1 '(cd $SERVICES; ./run-service.sh meshblu-core-dispatcher tango)' C-m
+tmux send-keys -t $SESSION:4.1 'eval $SERVICES/run-service.sh meshblu-core-dispatcher tango' C-m
 tmux send-keys -t $SESSION:4.2 'cd ~/Projects/Octoblu/meshblu-core-dispatcher' C-m
-tmux send-keys -t $SESSION:4.2 '(cd $SERVICES; ./run-service.sh meshblu-core-dispatcher foxtrot)' C-m
+tmux send-keys -t $SESSION:4.2 'eval $SERVICES/run-service.sh meshblu-core-dispatcher foxtrot' C-m
 
 tmux select-window -t $SESSION:1
 tmux attach-session -t $SESSION
