@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 eval $(docker-machine env --shell bash octoblu-dev)
 
 if [[ ! -d "$1" ]]; then
@@ -47,7 +48,7 @@ cp $OCTOBLU_DEV/services-core/squid/npmrc-dev $PROJECT_HOME/npmrc-dev
     read -s -p 'press "y" to pull, any other key continue'$'\n' -n 1 GIT_PULL
     if [[ "$GIT_PULL" == "y" ]]; then
       echo "pulling..."
-      git pull
+      git pull || exit 1
     fi
   fi
 )
