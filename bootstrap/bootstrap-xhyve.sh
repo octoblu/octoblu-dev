@@ -15,7 +15,4 @@ docker-machine create \
   --xhyve-cpu-count "4" \
   octoblu-dev
 
-
-docker-machine-nfs octoblu-dev \
-  --shared-folder=/Users \
-  --mount-opts="vers=3,udp"
+docker-machine-unfs octoblu-dev

@@ -5,6 +5,7 @@ _          = require 'lodash'
 dashdash   = require 'dashdash'
 
 defaultStackEnv = "#{process.env.HOME}/Projects/Octoblu/the-stack-env-production/dev.d/octoblu"
+defaultOutputDir = "#{process.env.HOME}/Projects/Octoblu/octoblu-dev/services"
 
 parser = dashdash.createParser
   options:
@@ -17,7 +18,7 @@ parser = dashdash.createParser
       type: 'string'
       help: 'The project for which you want to generate a docker-compose.yml (required)'
      }, {
-      names: ['container', 'c']
+      names: ['container', 'i']
       type: 'string'
       help: 'The third level container name aka container_name to use for Træfɪk'
      }, {
@@ -31,12 +32,17 @@ parser = dashdash.createParser
       help: "Stack environment directory to read from, default: #{defaultStackEnv}"
       default: defaultStackEnv
      }, {
+      names: ['output-dir', 'o']
+      type: 'string'
+      help: "Output parent directory to write files to, default: #{defaultOutputDir}"
+      default: defaultOutputDir
+     }, {
       names: ['links', 'l']
       type: 'arrayOfString'
       help: 'External links in format `docker-host[:as-host]`'
       default: []
      }, {
-      names: ['compose', 'o']
+      names: ['compose', 'c']
       type: 'arrayOfString'
       help: 'Docker-Compose statements'
       default: []
@@ -123,7 +129,7 @@ templateEnv = handlebars.compile(fse.readFileSync envTemplatePath, 'utf8')
 
 writeProjectEnv = (environment) =>
   readEnv publicEnvPath, environment, parseEnv(templateData.env, (env) =>
-    outputPath = path.join __dirname, '..', 'output', templateData.projectName
+    outputPath = path.join options.output_dir, templateData.projectName
     fse.mkdirpSync outputPath
 
     fse.writeFileSync path.join(outputPath, composeFile), templateCompose(templateData)

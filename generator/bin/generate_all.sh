@@ -11,4 +11,3 @@ fi
 for project in $OCTOBLU_DEV/generator/projects/*.json; do
   $OCTOBLU_DEV/generator/bin/generate.sh "$project" $DNS;
 done
-cp -rp $OCTOBLU_DEV/generator/output/* $OCTOBLU_DEV/services

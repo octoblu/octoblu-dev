@@ -6,8 +6,12 @@ if [[ -z "$1" ]]; then
   exit -1
 fi
 
-for file in db-jsons/*.json; do
-  docker run \
-    -v `pwd`:/js --link $1:mongo -it --rm mongo \
-    sh -c "exec mongo mongo/skynet --quiet --eval 'var file=\"/js/${file}\"' /js/setup-mongo.js"
-done
+files=(db-jsons/*.json)
+
+function join { local d=$1; shift; echo -n "$1"; shift; printf "%s" "${@/#/$d}"; }
+
+jsFilesArray='["'$(join '","' "${files[@]}")$'"]'
+
+docker run \
+  -v `pwd`:/db-setup --link $1:mongo -it --rm mongo \
+  sh -c "exec mongo mongo/skynet --quiet --eval 'var files=${jsFilesArray}' /db-setup/setup-mongo.js"
