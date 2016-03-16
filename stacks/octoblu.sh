@@ -9,7 +9,7 @@ export SESSION='octoblu'
 tmux start-server
 tmux new-session -d -s $SESSION -n √ø
 
-tmux set-environment -t $SESSION SERVICES $SERVICES
+tmux set-environment -t $SESSION SERVICES $SERVICES DOCKER_HOST $DOCKER_HOST DOCKER_CERT_PATH $DOCKER_CERT_PATH DOCKER_TLS_VERIFY $DOCKER_TLS_VERIFY DOCKER_MACHINE_NAME $DOCKER_MACHINE_NAME
 
 tmux new-window -t $SESSION:1 -n app
 tmux new-window -t $SESSION:2 -n api

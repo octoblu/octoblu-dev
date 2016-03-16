@@ -2,7 +2,7 @@
 eval $(docker-machine env --shell bash octoblu-dev)
 . ./servers
 
-DOCKER_RUN='docker run --name $SERVER --restart=always -d'
+DOCKER_RUN='docker run --name $SERVER --restart=always -d -p 6379:6379'
 DATA_VOLUME='--volumes-from ${SERVER}.data'
 DOCKER_PERSIST_CMD="$DOCKER_RUN $DATA_VOLUME redis redis-server --appendonly yes"
 DOCKER_TMP_CMD="$DOCKER_RUN redis"
