@@ -13,6 +13,8 @@ sudo chown root /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
 sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
 
 #docker
+brew update
 brew install docker-machine
 brew link --overwrite docker
 brew install docker-compose
+brew link --overwrite docker-compose

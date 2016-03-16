@@ -1,15 +1,17 @@
 #!/bin/bash
 
-source ~/.profile
-
 eval $(docker-machine env --shell=bash octoblu-dev)
-export SERVICES="$HOME/Projects/Octoblu/octoblu-dev/services"
-export SESSION='channel-device'
+SERVICES="$HOME/Projects/Octoblu/octoblu-dev/services"
+SESSION='channel-device'
 
 tmux start-server
 tmux new-session -d -s $SESSION -n √ø
 
 tmux set-environment -t $SESSION SERVICES $SERVICES
+tmux set-environment -t $SESSION DOCKER_CERT_PATH $DOCKER_CERT_PATH
+tmux set-environment -t $SESSION DOCKER_TLS_VERIFY $DOCKER_TLS_VERIFY
+tmux set-environment -t $SESSION DOCKER_HOST $DOCKER_HOST
+tmux set-environment -t $SESSION DOCKER_MACHINE_NAME $DOCKER_MACHINE_NAME
 
 tmux new-window -t $SESSION:1 -n oauth
 tmux new-window -t $SESSION:2 -n mailer

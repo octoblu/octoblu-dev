@@ -1,20 +1,22 @@
 #!/bin/bash
 
-source ~/.profile
-
 eval $(docker-machine env --shell=bash octoblu-dev)
-export SERVICES="$HOME/Projects/Octoblu/octoblu-dev/services"
-export SESSION='octoblu'
+SERVICES="$HOME/Projects/Octoblu/octoblu-dev/services"
+SESSION='octoblu'
 
 tmux start-server
 tmux new-session -d -s $SESSION -n √ø
 
 tmux set-environment -t $SESSION SERVICES $SERVICES
+tmux set-environment -t $SESSION DOCKER_CERT_PATH $DOCKER_CERT_PATH
+tmux set-environment -t $SESSION DOCKER_TLS_VERIFY $DOCKER_TLS_VERIFY
+tmux set-environment -t $SESSION DOCKER_HOST $DOCKER_HOST
+tmux set-environment -t $SESSION DOCKER_MACHINE_NAME $DOCKER_MACHINE_NAME
 
 tmux new-window -t $SESSION:1 -n app
 tmux new-window -t $SESSION:2 -n api
-tmux new-window -t $SESSION:3 -n email-pass-auth
-tmux new-window -t $SESSION:4 -n email-pass-site
+tmux new-window -t $SESSION:3 -n email-auth
+tmux new-window -t $SESSION:4 -n email-site
 
 tmux send-keys -t $SESSION:0.0 C-m
 tmux send-keys -t $SESSION:0.0 "tmux kill-session -t $SESSION"

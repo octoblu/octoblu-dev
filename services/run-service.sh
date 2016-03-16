@@ -45,7 +45,7 @@ cp $OCTOBLU_DEV/services-core/squid/npmrc-dev $PROJECT_HOME/.npmrc-dev
   if [[ -n "$GIT_LOG" ]]; then
     echo "¡WARNING: $1 is ahead of remote!"
     echo
-    $GIT_LOG_CMD
+    echo "$GIT_LOG"
     echo
     read -s -p 'press "y" to pull, any other key continue'$'\n' -n 1 GIT_PULL
     if [[ "$GIT_PULL" == "y" ]]; then
