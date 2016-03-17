@@ -14,6 +14,14 @@
     "links": [ "redis-tmp:redis", "mongo-persist:mongo" ]
   },
   {
+    "project": "meshblu-server-socket.io-v1",
+    "links": [ "redis-tmp:redis", "mongo-persist:mongo" ]
+  },
+  {
+    "project": "meshblu-server-websocket",
+    "links": [ "redis-tmp:redis", "mongo-persist:mongo" ]
+  },
+  {
     "project": "meshblu-core-dispatcher",
     "links": [ "redis-tmp:redis", "mongo-persist:mongo" ]
   }

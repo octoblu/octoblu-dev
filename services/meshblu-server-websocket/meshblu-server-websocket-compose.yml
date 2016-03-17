@@ -1,0 +1,23 @@
+meshblu-server-websocket:
+  container_name: meshblu-server-websocket
+  build: ${HOME}/Projects/Octoblu/meshblu-server-websocket
+  dockerfile: .meshblu-server-websocket.dockerfile-dev
+  ports:
+   - "80"
+
+  labels:
+    traefik.port: "80"
+
+  dns: "$DNS"
+
+  external_links:
+    - redis-tmp:redis
+    - mongo-persist:mongo
+
+  volumes:
+    - /usr/src/app/node_modules
+    #- ${HOME}/Projects/Octoblu/meshblu-server-websocket:/usr/src/app
+
+  env_file:
+    - ./meshblu-server-websocket-public.env
+    - ./meshblu-server-websocket-private.env
