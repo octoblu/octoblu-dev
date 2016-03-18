@@ -5,7 +5,7 @@ eval $(docker-machine env --shell bash octoblu-dev)
 cd $HOME/Projects/Octoblu/octoblu-dev/services
 
 if [[ ! -d "$1" ]]; then
-  echo "Project $1 does not exist, aborting!"
+  echo "Project $1 service definition does not exist, aborting!"
   exit -1
 fi
 cd $1
@@ -15,13 +15,24 @@ PROJECT_HOME=$HOME/Projects/Octoblu/$1
 PROJECT_JSON=$PROJECT_HOME/meshblu.json
 
 if [[ ! -d "$PROJECT_HOME" ]]; then
-  echo "$PROJECT_HOME does not exist, aborting!"
-  exit -1
+  read -s -p "Project $1 home does not exist, press 'y' to clone or any other key to abort!"$'\n' -n 1 GIT_CLONE
+  if [[ "$GIT_CLONE" == "y" ]]; then
+    (
+      cd $(dirname $PROJECT_HOME)
+      git clone git@github.com:octoblu/$1
+    )
+  else
+    exit -1
+  fi
 fi
 
 if [[ -f "$PROJECT_JSON" ]]; then
-  echo "meshblu.json already exists, remove to continue."
-  exit 1
+  read -s -p "meshblu.json exists, press 'y' to remove or any other key to abort!"$'\n' -n 1 RM_MESHBLU_JSON
+  if [[ "$RM_MESHBLU_JSON" == "y" ]]; then
+    rm $PROJECT_JSON
+  else
+    exit 1
+  fi
 fi
 
 PROJECT=$1
@@ -43,7 +54,7 @@ cp $OCTOBLU_DEV/services-core/squid/npmrc-dev $PROJECT_HOME/.npmrc-dev
   GIT_LOG_CMD="git log HEAD..origin/master --oneline"
   GIT_LOG=$($GIT_LOG_CMD)
   if [[ -n "$GIT_LOG" ]]; then
-    echo "¡WARNING: $1 is ahead of remote!"
+    echo "¡WARNING: $1 is behind remote!"
     echo
     echo "$GIT_LOG"
     echo

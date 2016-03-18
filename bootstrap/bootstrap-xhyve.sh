@@ -12,7 +12,7 @@ docker-machine create \
   --driver xhyve \
   --xhyve-disk-size "100000" \
   --xhyve-memory-size "4096" \
-  --xhyve-cpu-count "4" \
+  --xhyve-cpu-count "2" \
   octoblu-dev
 
 docker-machine-unfs octoblu-dev

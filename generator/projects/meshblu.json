@@ -15,6 +15,7 @@
   },
   {
     "project": "meshblu-server-socket.io-v1",
+    "container": "meshblu-server-socket-io",
     "links": [ "redis-tmp:redis", "mongo-persist:mongo" ]
   },
   {
