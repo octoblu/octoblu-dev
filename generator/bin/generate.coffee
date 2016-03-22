@@ -96,8 +96,8 @@ generate = (options)=>
       callback(envArray)
 
   privateEnvPath=path.join  options.stack_env, templateData.projectName, 'env'
-  publicEnvPath=path.join __dirname, '..', 'env', templateData.projectName
-  defaultsPath=path.join __dirname, '..', 'env', '_defaults'
+  publicEnvPath=path.join __dirname, '..', 'public-env', templateData.projectName
+  defaultsPath=path.join __dirname, '..', 'public-env', '_defaults'
 
   composeFile="#{templateData.projectName}-compose.yml"
   dockerDevFile="#{templateData.projectName}.dockerfile-dev"
