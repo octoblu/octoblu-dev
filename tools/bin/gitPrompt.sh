@@ -7,18 +7,15 @@ ORG_DIR=$(dirname $1)
 ORG=$(basename $ORG_DIR)
 NAME="$ORG/$REPO"
 
-if [[ ! -d "ORG_DIR" ]]; then
-  mkdir -p "$ORG_DIR" 2>/dev/null
-fi
-
+mkdir -p "$ORG_DIR" 2>/dev/null
 (
   if [[ ! -d "$REPO_DIR" ]]; then
     echo "¡ERROR: Project directory $NAME does not exist!"
     echo
     read -s -p "press 'y' to clone or any other key to abort"$'\n' -n 1 GIT_CLONE
     if [[ "$GIT_CLONE" == "y" ]]; then
-        cd "$ORG_DIR"
-        git clone git@github.com:$NAME
+      cd "$ORG_DIR"
+      git clone git@github.com:$NAME
     else
       exit -1
     fi
