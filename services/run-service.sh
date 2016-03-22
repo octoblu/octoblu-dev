@@ -32,7 +32,7 @@ if [[ -f "$PROJECT_JSON" ]]; then
 fi
 
 COMPOSE="$PROJECT-compose.yml"
-CONTAINER="$(sed -n 's/^.*container_name: *\(.*\)/\1/p' '$COMPOSE')"
+CONTAINER="$(sed -n 's/^.*container_name: *\(.*\)/\1/p' $COMPOSE)"
 
 cp "$1.dockerfile-dev" "$PROJECT_HOME/.$1.dockerfile-dev"
 cp "$OCTOBLU_DEV/services-core/squid/npmrc-dev" "$PROJECT_HOME/.npmrc-dev"
