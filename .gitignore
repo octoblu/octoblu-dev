@@ -1,5 +1,6 @@
 tmp/
 generator/output
 *-private.env
+*-local.env
 
 node_modules

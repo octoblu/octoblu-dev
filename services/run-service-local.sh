@@ -1,5 +1,16 @@
 #!/usr/bin/env bash
 set -eE
+
+home=$HOME
+user=$USER
+path=$PATH
+for i in $(env | awk -F"=" '{print $1}') ; do
+  unset $i;
+done
+export HOME=$home
+export USER=$user
+export PATH=$path
+
 eval $(docker-machine env --shell bash octoblu-dev)
 
 OCTOBLU_DEV="$HOME/Projects/Octoblu/octoblu-dev"
@@ -17,8 +28,10 @@ NAME="$1"
 PROJECT="$1"
 if [[ -n "$2" ]]; then
   PROJECT="$1-$2"
-  sed -e "1 s|^\(.*\):|\1-$2:|" -e "s|\(container_name: .*\)|\1-$2|" \
-    <"$1-compose-local.yml" >"$1-$2-compose-local.yml"
+  sed -e "1 s|^\(.*\):|\1-$2:|" \
+      -e "s|\(container_name: .*\)|\1-$2|" \
+      -e "s|-local\.env|-$2-local.env|" \
+      <"$1-compose-local.yml" >"$1-$2-compose-local.yml"
 fi
 
 "$OCTOBLU_DEV/tools/bin/gitPrompt.sh" "$PROJECT_HOME"
@@ -40,14 +53,14 @@ CMD=$(grep "^CMD" "$NAME.dockerfile-dev" |
 DEFAULT_PORT_MIN=49152
 DEFAULT_PORT_MAX=65535
 DEFAULT_PORT_RANGE=$((DEFAULT_PORT_MAX-DEFAULT_PORT_MIN))
+OCTOBLU_DEV_IP="$(docker-machine ip octoblu-dev | sed -e 's|\.[0-9]*$|.1|')"
 
 set -a
 . ./$NAME-public.env
 . ./$NAME-private.env
 
-OCTOBLU_DEV_IP="$(docker-machine ip octoblu-dev | sed -e 's|\.[0-9]*$|.1|')"
 PORT="$((RANDOM%DEFAULT_PORT_RANGE+DEFAULT_PORT_MIN))"
-echo "HOST=$OCTOBLU_DEV_IP"$'\n'$"PORT=$PORT" >$NAME-local.env
+echo "HOST=$OCTOBLU_DEV_IP"$'\n'$"PORT=$PORT" >$PROJECT-local.env
 
 docker-compose -f "$COMPOSE" rm -f
 docker-compose -f "$COMPOSE" build
