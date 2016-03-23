@@ -6,7 +6,7 @@ EXPOSE 80
 RUN apt-get update
 RUN apt-get install -y iptables
 
-WORKDIR /usr/src/app
-ADD start-forward.sh /usr/src/app
+WORKDIR /
+ADD start-forward.sh /
 
 CMD ./start-forward.sh
