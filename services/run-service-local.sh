@@ -4,12 +4,14 @@ set -eE
 home=$HOME
 user=$USER
 path=$PATH
+term=$TERM
 for i in $(env | awk -F"=" '{print $1}') ; do
   unset $i;
 done
 export HOME=$home
 export USER=$user
 export PATH=$path
+export TERM=$term
 
 eval $(docker-machine env --shell bash octoblu-dev)
 
