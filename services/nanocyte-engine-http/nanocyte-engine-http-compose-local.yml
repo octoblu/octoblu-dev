@@ -1,0 +1,13 @@
+nanocyte-engine-http:
+  container_name: nanocyte-engine-http
+  build: ${HOME}/Projects/Octoblu/octoblu-dev/services/_local
+  privileged: true
+
+  ports:
+   - "80"
+
+  labels:
+    traefik.port: "80"
+
+  env_file:
+    - ./nanocyte-engine-http-local.env

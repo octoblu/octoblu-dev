@@ -1,1 +1,1 @@
-bootstrap-virtualbox.sh
+./bootstrap-virtualbox.sh

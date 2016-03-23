@@ -11,8 +11,8 @@ meshblu-core-dispatcher:
   dns: "$DNS"
 
   external_links:
-    - redis-tmp:redis
-    - mongo-persist:mongo
+    - redis-tmp:redis.dev
+    - mongo-persist:mongo.dev
 
   volumes:
     - /usr/src/app/node_modules

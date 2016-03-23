@@ -1,34 +1,34 @@
 [
   {
     "project": "nanocyte-flow-deploy-service",
-    "links": [ "redis-tmp:redis" ]
+    "links": [ "redis-tmp:redis.dev" ]
   },
   {
     "project": "nanocyte-engine-http",
-    "links": [ "redis-tmp:redis" ]
+    "links": [ "redis-tmp:redis.dev" ]
   },
   {
     "project": "nanocyte-engine-worker",
-    "links": [ "redis-tmp:redis" ]
+    "links": [ "redis-tmp:redis.dev" ]
   },
   {
     "project": "nanocyte-interval-service",
-    "links": [ "redis-tmp:redis" ]
+    "links": [ "redis-tmp:redis.dev" ]
   },
   {
     "project": "nanocyte-interval-redis",
-    "links": [ "redis-tmp:redis" ]
+    "links": [ "redis-tmp:redis.dev" ]
   },
   {
     "project": "nanocyte-node-registry",
-    "links": [ "redis-tmp:redis" ]
+    "links": [ "redis-tmp:redis.dev" ]
   },
   {
     "project": "credentials-service",
-    "links": [ "redis-tmp:redis" ]
+    "links": [ "redis-tmp:redis.dev" ]
   },
   {
     "project": "credentials-worker",
-    "links": [ "redis-tmp:redis" ]
+    "links": [ "redis-tmp:redis.dev" ]
   }
 ]

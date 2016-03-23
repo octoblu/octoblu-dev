@@ -7,14 +7,23 @@
   {
     "project": "meshblu",
     "container": "meshblu-old",
-    "links": [ "redis-tmp:redis", "mongo-persist:mongo" ]
+    "links": [ "redis-tmp:redis.dev", "mongo-persist:mongo.dev" ]
   },
   {
     "project": "meshblu-server-http",
-    "links": [ "redis-tmp:redis", "mongo-persist:mongo" ]
+    "links": [ "redis-tmp:redis.dev", "mongo-persist:mongo.dev" ]
+  },
+  {
+    "project": "meshblu-server-socket.io-v1",
+    "container": "meshblu-server-socket-io",
+    "links": [ "redis-tmp:redis.dev", "mongo-persist:mongo.dev" ]
+  },
+  {
+    "project": "meshblu-server-websocket",
+    "links": [ "redis-tmp:redis.dev", "mongo-persist:mongo.dev" ]
   },
   {
     "project": "meshblu-core-dispatcher",
-    "links": [ "redis-tmp:redis", "mongo-persist:mongo" ]
+    "links": [ "redis-tmp:redis.dev", "mongo-persist:mongo.dev" ]
   }
 ]

@@ -11,7 +11,7 @@ nanocyte-engine-http:
   dns: "$DNS"
 
   external_links:
-    - redis-tmp:redis
+    - redis-tmp:redis.dev
 
   volumes:
     - /usr/src/app/node_modules
