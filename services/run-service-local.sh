@@ -50,7 +50,7 @@ fi
 COMPOSE="$PROJECT-compose-local.yml"
 CONTAINER="$(sed -n 's/^.*container_name: *\(.*\)/\1/p' $COMPOSE)"
 CMD=$(grep "^CMD" "$NAME.dockerfile-dev" |
-  sed -e 's|^CMD *||' -e 's|^ *\["||' -e 's|" *, *"| |g' -e 's|"\] *$||')
+  sed -e 's|^CMD *||' -e 's|^ *\[ *"||' -e 's|" *, *"| |g' -e 's|" *\] *$||')
 
 DEFAULT_PORT_MIN=49152
 DEFAULT_PORT_MAX=65535
