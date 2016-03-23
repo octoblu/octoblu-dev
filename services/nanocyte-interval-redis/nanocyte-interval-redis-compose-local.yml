@@ -1,0 +1,13 @@
+nanocyte-interval-redis:
+  container_name: nanocyte-interval-redis
+  build: ${HOME}/Projects/Octoblu/octoblu-dev/services/_local
+  privileged: true
+
+  ports:
+   - "80"
+
+  labels:
+    traefik.port: "80"
+
+  env_file:
+    - ./nanocyte-interval-redis-local.env

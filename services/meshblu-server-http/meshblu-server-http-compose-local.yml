@@ -1,0 +1,13 @@
+meshblu-server-http:
+  container_name: meshblu-server-http
+  build: ${HOME}/Projects/Octoblu/octoblu-dev/services/_local
+  privileged: true
+
+  ports:
+   - "80"
+
+  labels:
+    traefik.port: "80"
+
+  env_file:
+    - ./meshblu-server-http-local.env

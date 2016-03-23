@@ -2,7 +2,7 @@
   {
     "project": "api-octoblu",
     "container": "api",
-    "links": [ "redis-tmp:redis", "mongo-persist:mongo" ]
+    "links": [ "redis-tmp:redis.dev", "mongo-persist:mongo.dev" ]
   },
   {
     "project": "app-octoblu",

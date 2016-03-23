@@ -100,15 +100,18 @@ generate = (options)=>
   defaultsPath=path.join __dirname, '..', 'public-env', '_defaults'
 
   composeFile="#{templateData.projectName}-compose.yml"
+  composeLocalFile="#{templateData.projectName}-compose-local.yml"
   dockerDevFile="#{templateData.projectName}.dockerfile-dev"
   publicEnvFile="#{templateData.projectName}-public.env"
   privateEnvFile="#{templateData.projectName}-private.env"
 
   composeTemplatePath = path.join(__dirname, '..', 'templates', 'docker-compose-template.yml')
+  composeLocalTemplatePath = path.join(__dirname, '..', 'templates', 'docker-compose-local-template.yml')
   dockerTemplatePath = path.join(__dirname, '..', 'templates', 'dockerfile-devs', dockerDevFile)
   envTemplatePath = path.join(__dirname, '..', 'templates', 'env-template')
 
   templateCompose = handlebars.compile(fse.readFileSync composeTemplatePath, 'utf8')
+  templateComposeLocal = handlebars.compile(fse.readFileSync composeLocalTemplatePath, 'utf8')
   templateDocker = handlebars.compile(fse.readFileSync dockerTemplatePath, 'utf8')
   templateEnv = handlebars.compile(fse.readFileSync envTemplatePath, 'utf8')
 
@@ -119,6 +122,9 @@ generate = (options)=>
 
       fse.writeFileSync path.join(outputPath, composeFile), templateCompose(templateData)
       console.log "wrote #{templateData.projectName}/#{composeFile}"
+
+      fse.writeFileSync path.join(outputPath, composeLocalFile), templateComposeLocal(templateData)
+      console.log "wrote #{templateData.projectName}/#{composeLocalFile}"
 
       fse.writeFileSync path.join(outputPath, dockerDevFile), templateDocker(templateData)
       console.log "wrote #{templateData.projectName}/#{dockerDevFile}"
