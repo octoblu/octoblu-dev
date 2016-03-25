@@ -9,4 +9,4 @@ GENERATOR_PATH=$HOME/Projects/Octoblu/octoblu-dev/generator/bin
 "$OCTOBLU_DEV/tools/bin/gitPrompt.sh" "$STACK_PROD"
 
 jq -s add $OCTOBLU_DEV/generator/projects/*.json |
-  coffee $GENERATOR_PATH/generate.coffee -j -
+  $GENERATOR_PATH/generate.coffee -j -

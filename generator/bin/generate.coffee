@@ -1,3 +1,4 @@
+#!/usr/bin/env coffee
 fse        = require 'fs-extra'
 handlebars = require 'handlebars'
 path       = require 'path'

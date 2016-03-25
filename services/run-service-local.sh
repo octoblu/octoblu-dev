@@ -5,8 +5,8 @@ home=$HOME
 user=$USER
 path=$PATH
 term=$TERM
-for i in $(env | awk -F"=" '{print $1}') ; do
-  unset $i;
+for e in $(env | cut -f1 -d=); do
+  unset $e
 done
 export HOME=$home
 export USER=$user
