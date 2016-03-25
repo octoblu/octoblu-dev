@@ -20,3 +20,4 @@ nanocyte-node-registry:
   env_file:
     - ./nanocyte-node-registry-public.env
     - ./nanocyte-node-registry-private.env
+    - ./nanocyte-node-registry-local.env

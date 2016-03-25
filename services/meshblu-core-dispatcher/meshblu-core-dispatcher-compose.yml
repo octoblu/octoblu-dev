@@ -21,3 +21,4 @@ meshblu-core-dispatcher:
   env_file:
     - ./meshblu-core-dispatcher-public.env
     - ./meshblu-core-dispatcher-private.env
+    - ./meshblu-core-dispatcher-local.env

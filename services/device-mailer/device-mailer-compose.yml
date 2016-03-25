@@ -17,3 +17,4 @@ device-mailer:
   env_file:
     - ./device-mailer-public.env
     - ./device-mailer-private.env
+    - ./device-mailer-local.env

@@ -17,3 +17,4 @@ data-forwarders:
   env_file:
     - ./data-forwarders-public.env
     - ./data-forwarders-private.env
+    - ./data-forwarders-local.env

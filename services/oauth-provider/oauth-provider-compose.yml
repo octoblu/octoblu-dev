@@ -17,3 +17,4 @@ oauth:
   env_file:
     - ./oauth-provider-public.env
     - ./oauth-provider-private.env
+    - ./oauth-provider-local.env

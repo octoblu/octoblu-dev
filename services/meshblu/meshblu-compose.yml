@@ -21,3 +21,4 @@ meshblu-old:
   env_file:
     - ./meshblu-public.env
     - ./meshblu-private.env
+    - ./meshblu-local.env

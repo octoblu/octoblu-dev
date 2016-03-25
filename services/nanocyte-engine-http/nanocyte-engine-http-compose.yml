@@ -20,3 +20,4 @@ nanocyte-engine-http:
   env_file:
     - ./nanocyte-engine-http-public.env
     - ./nanocyte-engine-http-private.env
+    - ./nanocyte-engine-http-local.env

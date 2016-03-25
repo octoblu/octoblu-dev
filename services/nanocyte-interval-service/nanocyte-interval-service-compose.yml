@@ -20,3 +20,4 @@ nanocyte-interval:
   env_file:
     - ./nanocyte-interval-service-public.env
     - ./nanocyte-interval-service-private.env
+    - ./nanocyte-interval-service-local.env

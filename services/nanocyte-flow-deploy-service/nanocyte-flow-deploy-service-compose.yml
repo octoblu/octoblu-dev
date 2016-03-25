@@ -20,3 +20,4 @@ nanocyte-flow-deploy:
   env_file:
     - ./nanocyte-flow-deploy-service-public.env
     - ./nanocyte-flow-deploy-service-private.env
+    - ./nanocyte-flow-deploy-service-local.env

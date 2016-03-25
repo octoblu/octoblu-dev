@@ -62,7 +62,7 @@ set -a
 . ./$NAME-private.env
 
 PORT="$((RANDOM%DEFAULT_PORT_RANGE+DEFAULT_PORT_MIN))"
-echo "HOST=$OCTOBLU_DEV_IP"$'\n'$"PORT=$PORT" >$PROJECT-local.env
+echo "MACHINE_HOST=$OCTOBLU_DEV_IP"$'\n'$"SERVICE_PORT=$PORT" >$PROJECT-local.env
 
 docker-compose -f "$COMPOSE" rm -f
 docker-compose -f "$COMPOSE" build

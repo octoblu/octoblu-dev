@@ -21,3 +21,4 @@ meshblu-server-http:
   env_file:
     - ./meshblu-server-http-public.env
     - ./meshblu-server-http-private.env
+    - ./meshblu-server-http-local.env

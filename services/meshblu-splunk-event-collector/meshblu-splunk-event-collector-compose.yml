@@ -17,3 +17,4 @@ splunk-collector:
   env_file:
     - ./meshblu-splunk-event-collector-public.env
     - ./meshblu-splunk-event-collector-private.env
+    - ./meshblu-splunk-event-collector-local.env

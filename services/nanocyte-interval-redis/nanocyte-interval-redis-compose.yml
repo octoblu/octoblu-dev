@@ -20,3 +20,4 @@ nanocyte-interval-redis:
   env_file:
     - ./nanocyte-interval-redis-public.env
     - ./nanocyte-interval-redis-private.env
+    - ./nanocyte-interval-redis-local.env

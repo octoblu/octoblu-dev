@@ -21,3 +21,4 @@ api:
   env_file:
     - ./api-octoblu-public.env
     - ./api-octoblu-private.env
+    - ./api-octoblu-local.env

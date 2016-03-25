@@ -21,3 +21,4 @@ meshblu-server-websocket:
   env_file:
     - ./meshblu-server-websocket-public.env
     - ./meshblu-server-websocket-private.env
+    - ./meshblu-server-websocket-local.env

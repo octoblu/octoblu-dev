@@ -27,3 +27,4 @@
   env_file:
     - ./{{{projectName}}}-public.env
     - ./{{{projectName}}}-private.env
+    - ./{{{projectName}}}-local.env

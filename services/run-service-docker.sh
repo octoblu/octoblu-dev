@@ -33,6 +33,8 @@ fi
 
 COMPOSE="$PROJECT-compose.yml"
 CONTAINER="$(sed -n 's/^.*container_name: *\(.*\)/\1/p' $COMPOSE)"
+OCTOBLU_DEV_IP="$(docker-machine ip octoblu-dev | sed -e 's|\.[0-9]*$|.1|')"
+echo "MACHINE_HOST=$OCTOBLU_DEV_IP" >$PROJECT-local.env
 
 cp "$1.dockerfile-dev" "$PROJECT_HOME/.$1.dockerfile-dev"
 cp "$OCTOBLU_DEV/services-core/squid/npmrc-dev" "$PROJECT_HOME/.npmrc-dev"

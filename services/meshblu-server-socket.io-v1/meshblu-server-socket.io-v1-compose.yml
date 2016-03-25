@@ -21,3 +21,4 @@ meshblu-server-socket-io:
   env_file:
     - ./meshblu-server-socket.io-v1-public.env
     - ./meshblu-server-socket.io-v1-private.env
+    - ./meshblu-server-socket.io-v1-local.env

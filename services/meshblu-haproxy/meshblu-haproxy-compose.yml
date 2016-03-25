@@ -17,3 +17,4 @@ meshblu:
   env_file:
     - ./meshblu-haproxy-public.env
     - ./meshblu-haproxy-private.env
+    - ./meshblu-haproxy-local.env

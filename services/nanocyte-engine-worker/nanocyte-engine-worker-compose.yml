@@ -20,3 +20,4 @@ nanocyte-engine-worker:
   env_file:
     - ./nanocyte-engine-worker-public.env
     - ./nanocyte-engine-worker-private.env
+    - ./nanocyte-engine-worker-local.env

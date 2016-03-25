@@ -17,3 +17,4 @@ device-editor-octoblu:
   env_file:
     - ./device-editor-octoblu-public.env
     - ./device-editor-octoblu-private.env
+    - ./device-editor-octoblu-local.env
