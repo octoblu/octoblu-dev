@@ -1,0 +1,9 @@
+[
+  {
+    "project": "data-forwarders"
+  },
+  {
+    "container": "splunk-collector",
+    "project": "meshblu-splunk-event-collector"
+  }
+]
