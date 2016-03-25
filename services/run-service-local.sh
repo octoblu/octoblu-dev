@@ -69,6 +69,6 @@ docker-compose -f "$COMPOSE" build
 docker-compose -f "$COMPOSE" up -d
 
 cd $PROJECT_HOME
-#npm install
+npm install
 echo "$CMD"
 $CMD
