@@ -32,7 +32,7 @@ if [[ -n "$2" ]]; then
   PROJECT="$1-$2"
   sed -e "1 s|^\(.*\):|\1-$2:|" \
       -e "s|\(container_name: .*\)|\1-$2|" \
-      -e "s|-local\.env|-$2-local.env|" \
+      -e "s|$1-local.env|$1-$2-local.env|" \
       <"$1-compose-local.yml" >"$1-$2-compose-local.yml"
 fi
 
