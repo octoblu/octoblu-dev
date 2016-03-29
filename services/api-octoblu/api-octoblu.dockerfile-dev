@@ -13,4 +13,4 @@ RUN ["npm", "install", "--production"]
 
 ADD . /usr/src/app
 
-CMD ["node_modules/gulp/bin/gulp.js", "watch"]
+CMD ["./.growl-run-dev", "node_modules/gulp/bin/gulp.js", "watch"]

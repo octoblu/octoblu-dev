@@ -9,7 +9,8 @@ fi
 
 DOCKER_ENV="docker-machine env --shell bash octoblu-dev"
 DOCKER_REGEN="docker-machine regenerate-certs -f octoblu-dev"
-eval "(${DOCKER_ENV} || (${DOCKER_REGEN} >/dev/null && ${DOCKER_ENV}))" 2>/dev/null
+eval "(${DOCKER_ENV} || (${DOCKER_REGEN} >/dev/null && ${DOCKER_ENV}) || \
+  (echo 'Unable to regenerate certs! Please destroy and retry. :(' && false))" 2>/dev/null
 
 (
   cd $HOME/Projects/Octoblu/octoblu-dev/services-core

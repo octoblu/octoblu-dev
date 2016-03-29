@@ -15,4 +15,4 @@ RUN ["npm", "install", "--production"]
 
 ADD . /usr/src/app
 
-CMD ["node", "server.js"]
+CMD ["./.growl-run-dev", "node", "server.js"]

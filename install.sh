@@ -2,7 +2,7 @@
 #set -eE
 trap "exit" INT
 
-./tools/bin/gitPrompt.sh "$(pwd)" || exit 1
+./tools/bin/git-prompt.sh "$(pwd)" || exit 1
 (cd bootstrap && ./bootstrap.sh)
 ./start-core.sh || exit 1
 (cd db-setup && ./setup-mongo.sh mongo-persist)

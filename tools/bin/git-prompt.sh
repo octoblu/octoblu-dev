@@ -6,6 +6,16 @@ REPO=$(basename $1)
 ORG_DIR=$(dirname $1)
 ORG=$(basename $ORG_DIR)
 NAME="$ORG/$REPO"
+PROJECT_NAME=$2
+if [[ -z "$PROJECT_NAME" ]]; then
+  PROJECT_NAME=$REPO
+fi
+
+notify() {
+  cmd='curl -vvv -s -H "Content-Type: application/json" -X POST \
+            -d '$"'$@'"$' http://'$"$MACHINE_HOST"$':23054/notify'
+  eval "$cmd" >/dev/null 2>&1 &
+}
 
 mkdir -p "$ORG_DIR" 2>/dev/null
 (
@@ -27,6 +37,7 @@ mkdir -p "$ORG_DIR" 2>/dev/null
   GIT_LOG_CMD="git log HEAD..origin/master --oneline"
   GIT_LOG="$($GIT_LOG_CMD)"
   if [[ -n "$GIT_LOG" ]]; then
+    notify "{\"text\":\"$PROJECT_NAME\",\"options\":{\"title\":\"? git pull\",\"sticky\":true}}"
     echo "¡WARNING: $NAME is behind remote!"
     echo
     echo "$GIT_LOG"

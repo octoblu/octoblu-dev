@@ -13,6 +13,11 @@ docker-machine create \
   --xhyve-disk-size "100000" \
   --xhyve-memory-size "4096" \
   --xhyve-cpu-count "2" \
-  octoblu-dev
+  octoblu-dev || \
+docker-machine start octoblu-dev
 
+brew install unfs3
+curl -s https://raw.githubusercontent.com/erikwilson/docker-machine-unfs/master/docker-machine-unfs \
+  >/usr/local/bin/docker-machine-unfs && \
+  chmod +x /usr/local/bin/docker-machine-unfs
 docker-machine-unfs octoblu-dev

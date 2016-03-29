@@ -18,3 +18,6 @@ brew install docker-machine
 brew link --overwrite docker
 brew install docker-compose
 brew link --overwrite docker-compose
+
+#node
+npm install --global growl-express

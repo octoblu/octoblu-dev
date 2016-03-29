@@ -5,4 +5,4 @@ EXPOSE 80
 ADD run-dev.sh .
 ADD haproxy.cfg-dev.sh .
 
-CMD ./run-dev.sh
+CMD ["./run-dev.sh"]
