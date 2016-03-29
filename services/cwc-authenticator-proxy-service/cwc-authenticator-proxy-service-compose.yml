@@ -1,0 +1,20 @@
+cwc-authenticator-proxy:
+  container_name: cwc-authenticator-proxy
+  build: ${HOME}/Projects/Octoblu/cwc-authenticator-proxy-service
+  dockerfile: .cwc-authenticator-proxy-service.dockerfile-dev
+  ports:
+   - "80"
+
+  labels:
+    traefik.port: "80"
+
+  dns: "$DNS"
+
+  volumes:
+    - /usr/src/app/node_modules
+    #- ${HOME}/Projects/Octoblu/cwc-authenticator-proxy-service:/usr/src/app
+
+  env_file:
+    - ./cwc-authenticator-proxy-service-public.env
+    - ./cwc-authenticator-proxy-service-private.env
+    - ./cwc-authenticator-proxy-service-local.env
