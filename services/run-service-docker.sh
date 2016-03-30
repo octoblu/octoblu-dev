@@ -5,6 +5,7 @@ eval $(docker-machine env --shell bash octoblu-dev)
 OCTOBLU_DEV="$HOME/Projects/Octoblu/octoblu-dev"
 PROJECT_HOME="$HOME/Projects/Octoblu/$1"
 PROJECT_JSON="$PROJECT_HOME/meshblu.json"
+notify="$OCTOBLU_DEV/tools/bin/growl-notify.sh"
 
 cd "$OCTOBLU_DEV/services"
 if [[ ! -d "$1" ]]; then
@@ -48,4 +49,11 @@ export COMPOSE_HTTP_TIMEOUT=180
 
 docker-compose -f "$COMPOSE" rm -f
 docker-compose -f "$COMPOSE" build
-docker-compose -f "$COMPOSE" up
+(
+  docker-compose -f "$COMPOSE" up
+  STATUS_CODE=$(docker-compose -f "$COMPOSE" ps -q 2>/dev/null | xargs docker inspect -f '{{ .State.ExitCode }}')
+  if [[ $STATUS_CODE -ne 0 ]]; then
+    echo $'\n'$" ! docker exit code: $STATUS_CODE "$'\n'
+    $notify "{\"text\":\"$PROJECT\",\"options\":{\"label\":\"error\",\"title\":\"- docker exit ($STATUS_CODE)\"}}"
+  fi
+)
