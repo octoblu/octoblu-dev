@@ -18,6 +18,7 @@ eval $(docker-machine env --shell bash octoblu-dev)
 OCTOBLU_DEV="$HOME/Projects/Octoblu/octoblu-dev"
 PROJECT_HOME="$HOME/Projects/Octoblu/$1"
 PROJECT_JSON="$PROJECT_HOME/meshblu.json"
+notify="$OCTOBLU_DEV/tools/bin/growl-notify.sh"
 
 cd "$OCTOBLU_DEV/services"
 if [[ ! -d "$1" ]]; then
@@ -59,21 +60,29 @@ OCTOBLU_DEV_IP="$(docker-machine ip octoblu-dev | sed -e 's|\.[0-9]*$|.1|')"
 
 cp "$OCTOBLU_DEV/tools/bin/growl-run.sh" "$PROJECT_HOME/.growl-run-dev"
 
-echo "MACHINE_HOST=$OCTOBLU_DEV_IP"$'\n'$"SERVICE_PORT=$PORT" >$PROJECT-local.env
-
 set -a
 . ./$NAME-public.env
 . ./$NAME-private.env
 
 PORT="$((RANDOM%DEFAULT_PORT_RANGE+DEFAULT_PORT_MIN))"
+echo "MACHINE_HOST=$OCTOBLU_DEV_IP"$'\n'$"SERVICE_PORT=$PORT" >$PROJECT-local.env
+
 PROJECT_NAME=$PROJECT
 COMPOSE_HTTP_TIMEOUT=180
 
 docker-compose -f "$COMPOSE" rm -f
 docker-compose -f "$COMPOSE" build
-docker-compose -f "$COMPOSE" up -d
+(
+  docker-compose -f "$COMPOSE" up
+  STATUS_CODE=$(docker-compose -f "$COMPOSE" ps -q 2>/dev/null | xargs docker inspect -f '{{ .State.ExitCode }}')
+  if [[ $STATUS_CODE -ne 0 ]]; then
+    echo $'\n'$" ! docker exit code: $STATUS_CODE "$'\n'
+    $notify "{\"text\":\"$PROJECT_NAME\",\"options\":{\"label\":\"error\",\"title\":\"- docker exit ($STATUS_CODE)\"}}"
+  fi
+) &
 
 cd $PROJECT_HOME
-npm install
-echo "$CMD"
+echo "npm installing..."
+npm install --progress=false
+echo $CMD
 $CMD
