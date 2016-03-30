@@ -13,4 +13,4 @@ RUN ["npm", "install", "--production"]
 
 ADD . /usr/src/app
 
-CMD ["./.growl-run-dev", "node", "--max-old-space-size=150", "command.js"]
+CMD [".bin-dev/growl-run.sh", "node", "--max-old-space-size=150", "command.js"]

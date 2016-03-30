@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo "growl notify $1"$'\n'
+echo "growl notify $1"$'\n' >&2
 
 if [[ -z "$1" ]]; then
   echo "usage: $0 '<json string>'"

@@ -5,7 +5,11 @@ eval $(docker-machine env --shell bash octoblu-dev)
 OCTOBLU_DEV="$HOME/Projects/Octoblu/octoblu-dev"
 PROJECT_HOME="$HOME/Projects/Octoblu/$1"
 PROJECT_JSON="$PROJECT_HOME/meshblu.json"
-notify="$OCTOBLU_DEV/tools/bin/growl-notify.sh"
+GROWL_NOTIFY="$OCTOBLU_DEV/tools/bin/growl-notify.sh"
+
+notify () {
+  $GROWL_NOTIFY "$@" >/dev/null &
+}
 
 cd "$OCTOBLU_DEV/services"
 if [[ ! -d "$1" ]]; then
@@ -42,7 +46,9 @@ echo "MACHINE_HOST=$OCTOBLU_DEV_IP"$'\n'$"PROJECT_NAME=$PROJECT" >$PROJECT-local
 
 cp "$1.dockerfile-dev" "$PROJECT_HOME/.$1.dockerfile-dev"
 cp "$OCTOBLU_DEV/services-core/squid/npmrc-dev" "$PROJECT_HOME/.npmrc-dev"
-cp "$OCTOBLU_DEV/tools/bin/growl-run.sh" "$PROJECT_HOME/.growl-run-dev"
+
+rm -rf "$PROJECT_HOME/.bin-dev" 2>/dev/null
+cp -rp "$OCTOBLU_DEV/tools/bin/" "$PROJECT_HOME/.bin-dev"
 
 export DNS="$(docker-machine ip octoblu-dev | sed -e 's|\.[0-9]*$|.1|')"
 export COMPOSE_HTTP_TIMEOUT=180
@@ -54,6 +60,6 @@ docker-compose -f "$COMPOSE" build
   STATUS_CODE=$(docker-compose -f "$COMPOSE" ps -q 2>/dev/null | xargs docker inspect -f '{{ .State.ExitCode }}')
   if [[ $STATUS_CODE -ne 0 ]]; then
     echo $'\n'$" ! docker exit code: $STATUS_CODE "$'\n'
-    $notify "{\"text\":\"$PROJECT\",\"options\":{\"label\":\"error\",\"title\":\"- docker exit ($STATUS_CODE)\"}}"
+    notify "{\"text\":\"$PROJECT\",\"options\":{\"label\":\"error\",\"title\":\"- docker exit ($STATUS_CODE)\"}}"
   fi
 )

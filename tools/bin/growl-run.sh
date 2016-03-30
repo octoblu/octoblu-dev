@@ -5,12 +5,17 @@ if [[ -z "$@" ]]; then
   exit 1
 fi
 
-notify="$HOME/Projects/Octoblu/octoblu-dev/tools/bin/growl-notify.sh"
+GROWL_NOTIFY="$(dirname $0)/growl-notify.sh"
 
-$notify "{\"text\":\"$PROJECT_NAME\",\"options\":{\"label\":\"success\",\"title\":\"+ started\"}}"
+notify () {
+  $GROWL_NOTIFY "$@" >/dev/null &
+}
+
+notify "{\"text\":\"$PROJECT_NAME\",\"options\":{\"label\":\"success\",\"title\":\"+ service started\"}}"
+echo "$@"
 $@
 STATUS_CODE=$?
-$notify "{\"text\":\"$PROJECT_NAME\",\"options\":{\"label\":\"error\",\"title\":\"- exit ($STATUS_CODE)\",\"sticky\":true}}"
+notify "{\"text\":\"$PROJECT_NAME\",\"options\":{\"label\":\"error\",\"title\":\"- service exit ($STATUS_CODE)\",\"sticky\":true}}"
 
 sleep 1
 exit $STATUS_CODE
