@@ -1,0 +1,13 @@
+meshblu-authenticator-cwc:
+  container_name: meshblu-authenticator-cwc
+  build: ${HOME}/Projects/Octoblu/octoblu-dev/services/_local
+  privileged: true
+
+  ports:
+   - "80"
+
+  labels:
+    traefik.port: "80"
+
+  env_file:
+    - ./meshblu-authenticator-cwc-local.env

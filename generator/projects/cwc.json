@@ -1,0 +1,12 @@
+[
+  {
+    "project": "cwc-authenticator-proxy-service"
+  },
+  {
+    "project": "meshblu-authenticator-cwc-staging",
+    "container": "cwc-auth-staging"
+  },
+  {
+    "project": "meshblu-authenticator-cwc"
+  }
+]
