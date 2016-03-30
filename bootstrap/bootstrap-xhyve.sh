@@ -1,5 +1,8 @@
 #!/bin/sh
-. ./bootstrap-core.sh
+cd $(dirname $0)
+set -eE
+
+./bootstrap-core.sh
 
 brew install docker-machine-driver-xhyve
 brew install xhyve
@@ -14,7 +17,8 @@ docker-machine create \
   --xhyve-memory-size "4096" \
   --xhyve-cpu-count "2" \
   octoblu-dev || \
-docker-machine start octoblu-dev
+|| docker-machine start octoblu-dev \
+|| true
 
 brew install unfs3
 curl -s https://raw.githubusercontent.com/erikwilson/docker-machine-unfs/master/docker-machine-unfs \
