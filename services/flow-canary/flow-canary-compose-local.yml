@@ -1,5 +1,5 @@
-flow-canary:
-  container_name: flow-canary
+canary:
+  container_name: canary
   build: ${HOME}/Projects/Octoblu/octoblu-dev/services/_local
   privileged: true
 

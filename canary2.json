@@ -1,7 +1,0 @@
-{
-  "uuid": "canary-hook-device-uuid",
-  "token": "some-random-token",
-  "server": "meshblu.octoblu.dev",
-  "port": "80",
-  "type": "device:canary"
-}

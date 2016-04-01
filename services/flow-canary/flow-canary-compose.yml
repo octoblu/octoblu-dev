@@ -1,5 +1,5 @@
-flow-canary:
-  container_name: flow-canary
+canary:
+  container_name: canary
   build: ${HOME}/Projects/Octoblu/flow-canary
   dockerfile: .flow-canary.dockerfile-dev
   ports:

@@ -1,6 +1,7 @@
 [
   {
-    "project": "flow-canary"
+    "project": "flow-canary",
+    "container": "canary"
   },
   {
     "project": "triggers-service"
