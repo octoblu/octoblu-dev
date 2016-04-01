@@ -1,0 +1,18 @@
+{
+  "uuid": "canary-hook-device-uuid",
+  "type": "device:canary",
+  "owner": "flow-canary-user",
+  "discoverWhitelist": ["*"],
+  "configureWhitelist": ["*"],
+  "receiveWhitelist": ["*"],
+  "sendWhitelist": ["*"],
+  "token": "$2a$10$SNwbidQ9LRL.m2Z0zgbJjOyu/BGNImM4.hll4AghE/ZbOISg3xBUG",
+  "meshblu": {
+    "messageHooks": [
+      {
+        "url": "http://canary.octoblu.dev:80/message",
+        "method": "POST"
+      }
+    ]
+  }
+}

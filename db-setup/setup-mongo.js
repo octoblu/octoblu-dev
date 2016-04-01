@@ -1,5 +1,5 @@
 files.forEach( function(file) {
-  print('intserting into db:',file)
+  print('inserting into db:',file)
   var data = JSON.parse(cat('/db-setup/'+file))
   var database = file.split('/')[1]
   var collection = file.split('/')[2]

@@ -1,0 +1,24 @@
+{
+  "type" : "octoblu:user",
+  "discoverWhitelist" : [ "email-pass-auth-uuid" ],
+  "configureWhitelist" : [ "email-pass-auth-uuid" ],
+  "email-pass-auth-uuid" : {
+    "signature" : "WQjN2E3JHl5MQ130JlTPn5I72OInzwDi7uad34BMRRgaZh7ocakPauUmZMj+fgSoRIQfjZplFEditwk8bxzP9/y+xtEjiqDAXxzouGXC1MQwafI+If3YC2z9wCa07E9pNOc4e8YEffWk+/0TgpGnAI5CC7d8AnTpkxi9Tz3Zw0zystFGsgayWPX4nsVDaXFCGYebZJgcxQUGWtTZ3n5BU4NpfVQ/HIxM3kSsJjqyyke33G7vWxnbqrxIVdZlGXozVnzJ0OPOQuChDOMM+DUPaWn7mdWDCkeHuszD8/jka7GQmqQhTLx9TdAr8bbnKn85Jmo/uwG9eGOGzwjWxvzCeQ==",
+    "id" : "sqrt+canary@octoblu.dev",
+    "name" : "Email Authenticator",
+    "secret" : "$2a$08$nmdwni3ZkZ73Pg8wM9.RRuTj/f3DB8AUhkQOVhNRCVXPFLNWWoYEq"
+  },
+  "sendWhitelist" : [ "*" ],
+  "receiveWhitelist" : [ "*" ],
+  "uuid" : "05e636e3-d1ed-4329-a5d7-9ca4c94a71ee",
+  "online" : true,
+  "token" : "$2a$08$whCcaCyP70WBcE3.ACfV0emd62D9hUEeX8nRtX3u0Jb0oG0wT3ady",
+  "owner" : "05e636e3-d1ed-4329-a5d7-9ca4c94a71ee",
+  "octoblu" : {
+    "firstName" : "sqrt",
+    "lastName" : "canary",
+    "email" : "sqrt+canary@octoblu.dev",
+    "optInEmail" : false,
+    "termsAcceptedAt" : "2016-03-31T21:31:10.346Z"
+  }
+}

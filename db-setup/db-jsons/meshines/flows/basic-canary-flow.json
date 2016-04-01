@@ -1,0 +1,103 @@
+{
+	"flowId": "76a5d2c9-75ec-4a30-9b4e-36da1192a125",
+	"token": "cca70dd0bff4c13c590ee60408375e2f1d99bcbc",
+	"name": "Flow 76a5d2c9",
+	"description": null,
+	"resource": {
+		"nodeType": "flow",
+		"owner": {
+			"uuid": "05e636e3-d1ed-4329-a5d7-9ca4c94a71ee",
+			"nodeType": "user"
+		}
+	},
+	"nodes": [{
+		"id": "f3849b90-f795-11e5-a39b-298ff49055ec",
+		"resourceType": "flow-node",
+		"payloadType": "date",
+		"once": false,
+		"name": "Trigger",
+		"class": "trigger",
+		"helpText": "Send a static message. Can also be triggered from other flows",
+		"category": "operation",
+		"uuid": "37f0a74a-2f17-11e4-9617-a6c5e4d22fb7",
+		"type": "operation:trigger",
+		"defaults": {
+			"payloadType": "date",
+			"once": false
+		},
+		"input": 0,
+		"output": 1,
+		"formTemplatePath": "/pages/node_forms/button_form.html",
+		"nanocyte": {
+			"name": "nanocyte-node-trigger"
+		},
+		"logo": "https://ds78apnml6was.cloudfront.net/operation/trigger.svg",
+		"x": 130.42013549804688,
+		"y": 411.3314208984375,
+		"inputLocations": [],
+		"outputLocations": [],
+		"needsConfiguration": false,
+		"needsSetup": false
+	}, {
+		"id": "f38bcab0-f799-11e5-a369-01a9d078b55d",
+		"resourceType": "flow-node",
+		"uuid": "canary-hook-device-uuid",
+		"type": "device:canary",
+		"discoverWhitelist": ["05e636e3-d1ed-4329-a5d7-9ca4c94a71ee"],
+		"configureWhitelist": ["05e636e3-d1ed-4329-a5d7-9ca4c94a71ee"],
+		"receiveWhitelist": ["05e636e3-d1ed-4329-a5d7-9ca4c94a71ee"],
+		"sendWhitelist": ["05e636e3-d1ed-4329-a5d7-9ca4c94a71ee"],
+		"meshblu": {
+			"messageHooks": [{
+				"url": "http://canary.octoblu.dev:80/message",
+				"method": "POST"
+			}],
+			"updatedAt": "2016-03-31T16:40:12-07:00",
+			"hash": "n0/sMmiaik56Nws6zaVqtv5mcS+j0znuArtWW8Rgr6A="
+		},
+		"owner": "05e636e3-d1ed-4329-a5d7-9ca4c94a71ee",
+		"name": "canary device",
+		"category": "device",
+		"staticMessage": {},
+		"useStaticMessage": true,
+		"nodeType": {},
+		"class": "device-canary",
+		"defaults": {
+			"uuid": "canary-hook-device-uuid",
+			"type": "device:canary",
+			"discoverWhitelist": ["05e636e3-d1ed-4329-a5d7-9ca4c94a71ee"],
+			"configureWhitelist": ["05e636e3-d1ed-4329-a5d7-9ca4c94a71ee"],
+			"receiveWhitelist": ["05e636e3-d1ed-4329-a5d7-9ca4c94a71ee"],
+			"sendWhitelist": ["05e636e3-d1ed-4329-a5d7-9ca4c94a71ee"],
+			"token": "$2a$10$SNwbidQ9LRL.m2Z0zgbJjOyu/BGNImM4.hll4AghE/ZbOISg3xBUG",
+			"meshblu": {
+				"messageHooks": [{
+					"url": "http://canary.octoblu.dev:80/message",
+					"method": "POST"
+				}],
+				"updatedAt": "2016-03-31T16:40:12-07:00",
+				"hash": "n0/sMmiaik56Nws6zaVqtv5mcS+j0znuArtWW8Rgr6A="
+			},
+			"owner": "05e636e3-d1ed-4329-a5d7-9ca4c94a71ee",
+			"name": "canary device",
+			"category": "device",
+			"staticMessage": {},
+			"useStaticMessage": true,
+			"nodeType": {}
+		},
+		"input": 1,
+		"output": 1,
+		"formTemplatePath": "/pages/node_forms/device_form.html",
+		"logo": "https://ds78apnml6was.cloudfront.net/device/canary.svg",
+		"x": 346.7127990722656,
+		"y": 414.7920837402344,
+		"inputLocations": [],
+		"outputLocations": []
+	}],
+	"links": [{
+		"from": "f3849b90-f795-11e5-a39b-298ff49055ec",
+		"fromPort": 0,
+		"to": "f38bcab0-f799-11e5-a369-01a9d078b55d",
+		"toPort": 0
+	}]
+}

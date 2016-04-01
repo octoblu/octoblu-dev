@@ -1,0 +1,20 @@
+flow-canary:
+  container_name: flow-canary
+  build: ${HOME}/Projects/Octoblu/flow-canary
+  dockerfile: .flow-canary.dockerfile-dev
+  ports:
+   - "80"
+
+  labels:
+    traefik.port: "80"
+
+  dns: "$DNS"
+
+  volumes:
+    - /usr/src/app/node_modules
+    #- ${HOME}/Projects/Octoblu/flow-canary:/usr/src/app
+
+  env_file:
+    - ./flow-canary-public.env
+    - ./flow-canary-private.env
+    - ./flow-canary-local.env
