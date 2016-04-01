@@ -1,4 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
+cd $(dirname $0)
+set -eE
+trap "exit" INT
+
 eval $(docker-machine env --shell bash octoblu-dev)
 
 if [[ -z "$1" ]]; then

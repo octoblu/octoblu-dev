@@ -75,6 +75,7 @@ echo "MACHINE_HOST=$OCTOBLU_DEV_IP"$'\n'$"SERVICE_PORT=$PORT" >$PROJECT-local.en
 PROJECT_NAME=$PROJECT
 COMPOSE_HTTP_TIMEOUT=180
 
+docker-compose -f "$COMPOSE" kill
 docker-compose -f "$COMPOSE" rm -f
 docker-compose -f "$COMPOSE" build
 (

@@ -1,10 +1,10 @@
-#!/bin/sh
+#!/usr/bin/env bash
 cd $(dirname $0)
 set -eE
+trap "exit" INT
 
 ./tools/bin/git-prompt.sh "$(pwd)"
 ./bootstrap/bootstrap.sh
 ./start-core.sh
-
-(cd db-setup && ./setup-mongo.sh mongo-persist)
-(cd generator/bin && npm install && ./generate-all.sh)
+./db-setup/setup-mongo.sh mongo-persist
+./generator/bin/generate-all.sh

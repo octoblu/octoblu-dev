@@ -5,7 +5,7 @@ growl-express >/dev/null 2>&1 &
 echo $! >/tmp/growl-express.pid
 
 sleep 1
-curl -s -H "Content-Type: application/json" -X POST -d '{
+curl --silent --header "Content-Type: application/json" --request POST --data '{
   "appname": "octoblu-dev",
   "notifications": [
     { "label": "default", "icon": "http://imgur.com/amjVCj6.jpg" },

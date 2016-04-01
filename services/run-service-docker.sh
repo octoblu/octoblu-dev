@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 set -eE
 eval $(docker-machine env --shell bash octoblu-dev)
 
@@ -53,6 +53,7 @@ cp -rp "$OCTOBLU_DEV/tools/bin/" "$PROJECT_HOME/.bin-dev"
 export DNS="$(docker-machine ip octoblu-dev | sed -e 's|\.[0-9]*$|.1|')"
 export COMPOSE_HTTP_TIMEOUT=180
 
+docker-compose -f "$COMPOSE" kill
 docker-compose -f "$COMPOSE" rm -f
 docker-compose -f "$COMPOSE" build
 (

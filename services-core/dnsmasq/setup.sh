@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 sed -e "s|{{IP}}|${1}|" \
     -e "s|{{HOST}}|${2}|" \

@@ -1,25 +1,15 @@
-#!/bin/sh
+#!/usr/bin/env bash
 cd $(dirname $0)
 set -eE
-
-sudo sysctl -w kern.ipc.somaxconn=4096
+trap "exit" INT
 
 #brew install
 brew update
 for package in dnsmasq docker docker-machine docker-compose; do
-  brew unlink $package
+  brew unlink $package || true
   brew install $package
   brew link --overwrite $package
 done
-
-#dnsmasq
-sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
-sudo mkdir -p /etc/resolver
-sudo cp ../services-core/dnsmasq/resolver-dev /etc/resolver/dev
-sudo cp -fv /usr/local/opt/dnsmasq/*.plist /Library/LaunchDaemons
-sudo chown root /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
-(cd ../services-core/dnsmasq; ./setup.sh 127.0.0.1 127.0.0.1)
-sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
 
 MIN_COMPOSE_VER=1.6
 COMPOSE_VER=$(docker-compose --version | grep -oE '([0-9]+\.[0-9]+)')
@@ -39,5 +29,17 @@ if ! echo $NODE_VER $MIN_NODE_VER | awk '{exit $1>=$2?0:1}'; then
   exit 1
 fi
 
+../tools/bin/unlimit.sh
+
+#dnsmasq
+sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
+sudo mkdir -p /etc/resolver
+sudo cp ../services-core/dnsmasq/resolver-dev /etc/resolver/dev
+sudo cp -fv /usr/local/opt/dnsmasq/*.plist /Library/LaunchDaemons
+sudo chown root /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
+(cd ../services-core/dnsmasq; ./setup.sh 127.0.0.1 127.0.0.1)
+sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
+
 #node
 npm install --global growl-express
+(cd ../generator/bin && npm install)
