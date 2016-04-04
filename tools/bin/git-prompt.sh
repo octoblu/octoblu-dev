@@ -37,7 +37,7 @@ mkdir -p "$ORG_DIR" 2>/dev/null
   GIT_LOG_CMD="git log HEAD..origin/master --oneline"
   GIT_LOG="$($GIT_LOG_CMD)"
   if [[ -n "$GIT_LOG" ]]; then
-    notify "{\"text\":\"$PROJECT_NAME\",\"options\":{\"title\":\"? git pull\",\"sticky\":true}}"
+    notify "{\"text\":\"$PROJECT_NAME\",\"options\":{\"title\":\"? git pull\"}}"
     echo "¡WARNING: $NAME is behind remote!"
     echo
     echo "$GIT_LOG"

@@ -15,7 +15,7 @@ notify "{\"text\":\"$PROJECT_NAME\",\"options\":{\"label\":\"success\",\"title\"
 echo "$@"
 $@
 STATUS_CODE=$?
-notify "{\"text\":\"$PROJECT_NAME\",\"options\":{\"label\":\"error\",\"title\":\"- service exit ($STATUS_CODE)\",\"sticky\":true}}"
+notify "{\"text\":\"$PROJECT_NAME\",\"options\":{\"label\":\"error\",\"title\":\"- service exit ($STATUS_CODE)\"}}"
 
 sleep 1
 exit $STATUS_CODE
