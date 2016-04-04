@@ -25,5 +25,10 @@
   {
     "project": "meshblu-core-dispatcher",
     "links": [ "redis-tmp:redis.dev", "mongo-persist:mongo.dev" ]
+  },
+  {
+    "project": "meshblu-core-firehose-socket.io",
+    "container": "meshblu-firehose-socket-io",
+    "links": [ "redis-tmp:redis.dev" ]
   }
 ]
