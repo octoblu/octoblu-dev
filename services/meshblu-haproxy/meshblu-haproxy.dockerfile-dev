@@ -3,6 +3,6 @@ FROM haproxy:1.6
 EXPOSE 80
 
 ADD run-dev.sh .
-ADD haproxy.cfg-dev.sh .
+ADD haproxy.cfg-dev .
 
 CMD ["./run-dev.sh"]

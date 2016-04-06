@@ -1,5 +1,5 @@
-meshblu-server-websocket:
-  container_name: meshblu-server-websocket
+meshblu-websocket:
+  container_name: meshblu-websocket
   build: ${HOME}/Projects/Octoblu/octoblu-dev/services/_local
   privileged: true
 

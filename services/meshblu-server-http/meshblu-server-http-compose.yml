@@ -1,5 +1,5 @@
-meshblu-server-http:
-  container_name: meshblu-server-http
+meshblu-http:
+  container_name: meshblu-http
   build: ${HOME}/Projects/Octoblu/meshblu-server-http
   dockerfile: .meshblu-server-http.dockerfile-dev
   ports:

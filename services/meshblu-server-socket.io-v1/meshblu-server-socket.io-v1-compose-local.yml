@@ -1,5 +1,5 @@
-meshblu-server-socket-io:
-  container_name: meshblu-server-socket-io
+meshblu-socket-io:
+  container_name: meshblu-socket-io
   build: ${HOME}/Projects/Octoblu/octoblu-dev/services/_local
   privileged: true
 
