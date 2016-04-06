@@ -1,5 +1,5 @@
 traefik:
-  image: emilevauge/traefik
+  image: emilevauge/traefik:v1.0.0-beta.374
   container_name: traefik
   ports:
     - "80:80"
