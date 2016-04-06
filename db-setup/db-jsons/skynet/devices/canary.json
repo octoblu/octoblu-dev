@@ -7,6 +7,7 @@
   "receiveWhitelist": ["*"],
   "sendWhitelist": ["*"],
   "token": "$2a$10$SNwbidQ9LRL.m2Z0zgbJjOyu/BGNImM4.hll4AghE/ZbOISg3xBUG",
+  "online": true,
   "meshblu": {
     "messageHooks": [
       {
