@@ -5,5 +5,9 @@
   {
     "container": "splunk-collector",
     "project": "meshblu-splunk-event-collector"
+  },
+  {
+    "container": "mongodb-forwarder",
+    "project": "meshblu-mongodb-forwarder"
   }
 ]

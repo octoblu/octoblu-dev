@@ -1,0 +1,20 @@
+mongodb-forwarder:
+  container_name: mongodb-forwarder
+  build: ${HOME}/Projects/Octoblu/meshblu-mongodb-forwarder
+  dockerfile: .meshblu-mongodb-forwarder.dockerfile-dev
+  ports:
+   - "80"
+
+  labels:
+    traefik.port: "80"
+
+  dns: "$DNS"
+
+  volumes:
+    - /usr/src/app/node_modules
+    #- ${HOME}/Projects/Octoblu/meshblu-mongodb-forwarder:/usr/src/app
+
+  env_file:
+    - ./meshblu-mongodb-forwarder-public.env
+    - ./meshblu-mongodb-forwarder-private.env
+    - ./meshblu-mongodb-forwarder-local.env
