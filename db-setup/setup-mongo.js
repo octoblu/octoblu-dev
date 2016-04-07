@@ -5,5 +5,6 @@ files.forEach( function(file) {
   var collection = file.split('/')[2]
   data._id = data.uuid
   db = db.getSiblingDB(database)
+  db.createCollection(collection)
   db[collection].update({_id: data._id}, data, {upsert: true})
 })
