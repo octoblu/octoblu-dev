@@ -31,6 +31,9 @@ fi
 
 ../tools/bin/unlimit.sh
 
+#https certs
+sudo security add-trusted-cert -d -k /Library/Keychains/System.keychain ../tools/certs/octoblu-dev.crt
+
 #dnsmasq
 sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
 sudo mkdir -p /etc/resolver
