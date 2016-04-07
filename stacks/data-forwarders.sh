@@ -20,10 +20,18 @@ tmux send-keys -t $SESSION:0.0 C-m
 tmux send-keys -t $SESSION:0.0 "tmux kill-session -t $SESSION"
 
 tmux send-keys -t $SESSION:1.0 'cd ~/Projects/Octoblu/data-forwarders' C-m
-tmux send-keys -t $SESSION:1.0 'eval $SERVICES/run-service-docker.sh data-forwarders' C-m
+if [ "$1" == "-l" ]; then
+  tmux send-keys -t $SESSION:1.0 'eval $SERVICES/run-service-local.sh data-forwarders' C-m
+else
+  tmux send-keys -t $SESSION:1.0 'eval $SERVICES/run-service-docker.sh data-forwarders' C-m
+fi
 
 tmux send-keys -t $SESSION:2.0 'cd ~/Projects/Octoblu/meshblu-splunk-event-collector' C-m
-tmux send-keys -t $SESSION:2.0 'eval $SERVICES/run-service-docker.sh meshblu-splunk-event-collector' C-m
+if [ "$1" == "-l" ]; then
+  tmux send-keys -t $SESSION:2.0 'eval $SERVICES/run-service-local.sh meshblu-splunk-event-collector' C-m
+else
+  tmux send-keys -t $SESSION:2.0 'eval $SERVICES/run-service-docker.sh meshblu-splunk-event-collector' C-m
+fi
 
 tmux select-window -t $SESSION:1
 tmux attach-session -t $SESSION

@@ -20,10 +20,18 @@ tmux send-keys -t $SESSION:0.0 C-m
 tmux send-keys -t $SESSION:0.0 "tmux kill-session -t $SESSION"
 
 tmux send-keys -t $SESSION:1.0 'cd ~/Projects/Octoblu/flow-canary' C-m
-tmux send-keys -t $SESSION:1.0 'eval $SERVICES/run-service-docker.sh flow-canary' C-m
+if [ "$1" == "-l" ]; then
+  tmux send-keys -t $SESSION:1.0 'eval $SERVICES/run-service-local.sh flow-canary' C-m
+else
+  tmux send-keys -t $SESSION:1.0 'eval $SERVICES/run-service-docker.sh flow-canary' C-m
+fi
 
 tmux send-keys -t $SESSION:2.0 'cd ~/Projects/Octoblu/triggers-service' C-m
-tmux send-keys -t $SESSION:2.0 'eval $SERVICES/run-service-docker.sh triggers-service' C-m
+if [ "$1" == "-l" ]; then
+  tmux send-keys -t $SESSION:2.0 'eval $SERVICES/run-service-local.sh triggers-service' C-m
+else
+  tmux send-keys -t $SESSION:2.0 'eval $SERVICES/run-service-docker.sh triggers-service' C-m
+fi
 
 tmux select-window -t $SESSION:1
 tmux attach-session -t $SESSION

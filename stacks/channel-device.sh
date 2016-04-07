@@ -21,13 +21,25 @@ tmux send-keys -t $SESSION:0.0 C-m
 tmux send-keys -t $SESSION:0.0 "tmux kill-session -t $SESSION"
 
 tmux send-keys -t $SESSION:1.0 'cd ~/Projects/Octoblu/oauth-provider' C-m
-tmux send-keys -t $SESSION:1.0 'eval $SERVICES/run-service-docker.sh oauth-provider' C-m
+if [ "$1" == "-l" ]; then
+  tmux send-keys -t $SESSION:1.0 'eval $SERVICES/run-service-local.sh oauth-provider' C-m
+else
+  tmux send-keys -t $SESSION:1.0 'eval $SERVICES/run-service-docker.sh oauth-provider' C-m
+fi
 
 tmux send-keys -t $SESSION:2.0 'cd ~/Projects/Octoblu/device-mailer' C-m
-tmux send-keys -t $SESSION:2.0 'eval $SERVICES/run-service-docker.sh device-mailer' C-m
+if [ "$1" == "-l" ]; then
+  tmux send-keys -t $SESSION:2.0 'eval $SERVICES/run-service-local.sh device-mailer' C-m
+else
+  tmux send-keys -t $SESSION:2.0 'eval $SERVICES/run-service-docker.sh device-mailer' C-m
+fi
 
 tmux send-keys -t $SESSION:3.0 'cd ~/Projects/Octoblu/device-editor-octoblu' C-m
-tmux send-keys -t $SESSION:3.0 'eval $SERVICES/run-service-docker.sh device-editor-octoblu' C-m
+if [ "$1" == "-l" ]; then
+  tmux send-keys -t $SESSION:3.0 'eval $SERVICES/run-service-local.sh device-editor-octoblu' C-m
+else
+  tmux send-keys -t $SESSION:3.0 'eval $SERVICES/run-service-docker.sh device-editor-octoblu' C-m
+fi
 
 tmux select-window -t $SESSION:1
 tmux attach-session -t $SESSION

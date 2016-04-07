@@ -31,21 +31,37 @@ tmux send-keys -t $SESSION:1.0 'cd ~/Projects/Octoblu/meshblu-haproxy' C-m
 tmux send-keys -t $SESSION:1.0 'eval $SERVICES/run-service-docker.sh meshblu-haproxy' C-m
 
 tmux send-keys -t $SESSION:2.0 'cd ~/Projects/Octoblu/meshblu-server-http' C-m
-tmux send-keys -t $SESSION:2.0 'eval $SERVICES/run-service-docker.sh meshblu-server-http' C-m
 tmux send-keys -t $SESSION:2.1 'cd ~/Projects/Octoblu/meshblu-server-socket.io-v1' C-m
-tmux send-keys -t $SESSION:2.1 'eval $SERVICES/run-service-docker.sh meshblu-server-socket.io-v1' C-m
 tmux send-keys -t $SESSION:2.2 'cd ~/Projects/Octoblu/meshblu-server-websocket' C-m
-tmux send-keys -t $SESSION:2.2 'eval $SERVICES/run-service-docker.sh meshblu-server-websocket' C-m
+if [ "$1" == "-l" ]; then
+  tmux send-keys -t $SESSION:2.0 'eval $SERVICES/run-service-local.sh meshblu-server-http' C-m
+  tmux send-keys -t $SESSION:2.1 'eval $SERVICES/run-service-local.sh meshblu-server-socket.io-v1' C-m
+  tmux send-keys -t $SESSION:2.2 'eval $SERVICES/run-service-local.sh meshblu-server-websocket' C-m
+else
+  tmux send-keys -t $SESSION:2.0 'eval $SERVICES/run-service-docker.sh meshblu-server-http' C-m
+  tmux send-keys -t $SESSION:2.1 'eval $SERVICES/run-service-docker.sh meshblu-server-socket.io-v1' C-m
+  tmux send-keys -t $SESSION:2.2 'eval $SERVICES/run-service-docker.sh meshblu-server-websocket' C-m
+fi
 
 tmux send-keys -t $SESSION:3.0 'cd ~/Projects/Octoblu/meshblu-core-dispatcher' C-m
-tmux send-keys -t $SESSION:3.0 'eval $SERVICES/run-service-docker.sh meshblu-core-dispatcher whiskey' C-m
 tmux send-keys -t $SESSION:3.1 'cd ~/Projects/Octoblu/meshblu-core-dispatcher' C-m
-tmux send-keys -t $SESSION:3.1 'eval $SERVICES/run-service-docker.sh meshblu-core-dispatcher tango' C-m
 tmux send-keys -t $SESSION:3.2 'cd ~/Projects/Octoblu/meshblu-core-dispatcher' C-m
-tmux send-keys -t $SESSION:3.2 'eval $SERVICES/run-service-docker.sh meshblu-core-dispatcher foxtrot' C-m
+if [ "$1" == "-l" ]; then
+  tmux send-keys -t $SESSION:3.0 'eval $SERVICES/run-service-local.sh meshblu-core-dispatcher whiskey' C-m
+  tmux send-keys -t $SESSION:3.1 'eval $SERVICES/run-service-local.sh meshblu-core-dispatcher tango' C-m
+  tmux send-keys -t $SESSION:3.2 'eval $SERVICES/run-service-local.sh meshblu-core-dispatcher foxtrot' C-m
+else
+  tmux send-keys -t $SESSION:3.0 'eval $SERVICES/run-service-docker.sh meshblu-core-dispatcher whiskey' C-m
+  tmux send-keys -t $SESSION:3.1 'eval $SERVICES/run-service-docker.sh meshblu-core-dispatcher tango' C-m
+  tmux send-keys -t $SESSION:3.2 'eval $SERVICES/run-service-docker.sh meshblu-core-dispatcher foxtrot' C-m
+fi
 
 tmux send-keys -t $SESSION:4.0 'cd ~/Projects/Octoblu/meshblu-core-firehose-socket.io' C-m
-tmux send-keys -t $SESSION:4.0 'eval $SERVICES/run-service-docker.sh meshblu-core-firehose-socket.io' C-m
+if [ "$1" == "-l" ]; then
+  tmux send-keys -t $SESSION:4.0 'eval $SERVICES/run-service-local.sh meshblu-core-firehose-socket.io' C-m
+else
+  tmux send-keys -t $SESSION:4.0 'eval $SERVICES/run-service-docker.sh meshblu-core-firehose-socket.io' C-m
+fi
 
 tmux select-window -t $SESSION:1
 tmux attach-session -t $SESSION

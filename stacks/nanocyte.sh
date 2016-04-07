@@ -27,25 +27,49 @@ tmux send-keys -t $SESSION:0.0 C-m
 tmux send-keys -t $SESSION:0.0 "tmux kill-session -t $SESSION"
 
 tmux send-keys -t $SESSION:1.0 'cd ~/Projects/Octoblu/nanocyte-engine-http' C-m
-tmux send-keys -t $SESSION:1.0 'eval $SERVICES/run-service-docker.sh nanocyte-engine-http' C-m
 tmux send-keys -t $SESSION:1.1 'cd ~/Projects/Octoblu/nanocyte-engine-worker' C-m
-tmux send-keys -t $SESSION:1.1 'eval $SERVICES/run-service-docker.sh nanocyte-engine-worker' C-m
+if [ "$1" == "-l" ]; then
+  tmux send-keys -t $SESSION:1.0 'eval $SERVICES/run-service-local.sh nanocyte-engine-http' C-m
+  tmux send-keys -t $SESSION:1.1 'eval $SERVICES/run-service-local.sh nanocyte-engine-worker' C-m
+else
+  tmux send-keys -t $SESSION:1.0 'eval $SERVICES/run-service-docker.sh nanocyte-engine-http' C-m
+  tmux send-keys -t $SESSION:1.1 'eval $SERVICES/run-service-docker.sh nanocyte-engine-worker' C-m
+fi
 
 tmux send-keys -t $SESSION:2.0 'cd ~/Projects/Octoblu/nanocyte-interval-redis' C-m
-tmux send-keys -t $SESSION:2.0 'eval $SERVICES/run-service-docker.sh nanocyte-interval-redis' C-m
 tmux send-keys -t $SESSION:2.1 'cd ~/Projects/Octoblu/nanocyte-interval-service' C-m
-tmux send-keys -t $SESSION:2.1 'eval $SERVICES/run-service-docker.sh nanocyte-interval-service' C-m
+if [ "$1" == "-l" ]; then
+  tmux send-keys -t $SESSION:2.0 'eval $SERVICES/run-service-local.sh nanocyte-interval-redis' C-m
+  tmux send-keys -t $SESSION:2.1 'eval $SERVICES/run-service-local.sh nanocyte-interval-service' C-m
+else
+  tmux send-keys -t $SESSION:2.0 'eval $SERVICES/run-service-docker.sh nanocyte-interval-redis' C-m
+  tmux send-keys -t $SESSION:2.1 'eval $SERVICES/run-service-docker.sh nanocyte-interval-service' C-m
+fi
+
 
 tmux send-keys -t $SESSION:3.0 'cd ~/Projects/Octoblu/nanocyte-flow-deploy-service' C-m
-tmux send-keys -t $SESSION:3.0 'eval $SERVICES/run-service-docker.sh nanocyte-flow-deploy-service' C-m
+if [ "$1" == "-l" ]; then
+  tmux send-keys -t $SESSION:3.0 'eval $SERVICES/run-service-local.sh nanocyte-flow-deploy-service' C-m
+else
+  tmux send-keys -t $SESSION:3.0 'eval $SERVICES/run-service-docker.sh nanocyte-flow-deploy-service' C-m
+fi
 
 tmux send-keys -t $SESSION:4.0 'cd ~/Projects/Octoblu/nanocyte-node-registry' C-m
-tmux send-keys -t $SESSION:4.0 'eval $SERVICES/run-service-docker.sh nanocyte-node-registry' C-m
+if [ "$1" == "-l" ]; then
+  tmux send-keys -t $SESSION:4.0 'eval $SERVICES/run-service-local.sh nanocyte-node-registry' C-m
+else
+  tmux send-keys -t $SESSION:4.0 'eval $SERVICES/run-service-docker.sh nanocyte-node-registry' C-m
+fi
 
 tmux send-keys -t $SESSION:5.0 'cd ~/Projects/Octoblu/credentials-worker' C-m
-tmux send-keys -t $SESSION:5.0 'eval $SERVICES/run-service-docker.sh credentials-worker' C-m
 tmux send-keys -t $SESSION:5.1 'cd ~/Projects/Octoblu/credentials-service' C-m
-tmux send-keys -t $SESSION:5.1 'eval $SERVICES/run-service-docker.sh credentials-service' C-m
+if [ "$1" == "-l" ]; then
+  tmux send-keys -t $SESSION:5.0 'eval $SERVICES/run-service-local.sh credentials-worker' C-m
+  tmux send-keys -t $SESSION:5.1 'eval $SERVICES/run-service-local.sh credentials-service' C-m
+else
+  tmux send-keys -t $SESSION:5.0 'eval $SERVICES/run-service-docker.sh credentials-worker' C-m
+  tmux send-keys -t $SESSION:5.1 'eval $SERVICES/run-service-docker.sh credentials-service' C-m
+fi
 
 tmux select-window -t $SESSION:1
 tmux attach-session -t $SESSION

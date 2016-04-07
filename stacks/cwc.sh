@@ -21,7 +21,11 @@ tmux send-keys -t $SESSION:0.0 C-m
 tmux send-keys -t $SESSION:0.0 "tmux kill-session -t $SESSION"
 
 tmux send-keys -t $SESSION:1.0 'cd ~/Projects/Octoblu/cwc-authenticator-proxy-service' C-m
-tmux send-keys -t $SESSION:1.0 'eval $SERVICES/run-service-docker.sh cwc-authenticator-proxy-service' C-m
+if [ "$1" == "-l" ]; then
+  tmux send-keys -t $SESSION:1.0 'eval $SERVICES/run-service-local.sh cwc-authenticator-proxy-service' C-m
+else
+  tmux send-keys -t $SESSION:1.0 'eval $SERVICES/run-service-docker.sh cwc-authenticator-proxy-service' C-m
+fi
 
 # tmux send-keys -t $SESSION:2.0 'cd ~/Projects/Octoblu/meshblu-authenticator-cwc-staging' C-m
 # tmux send-keys -t $SESSION:2.0 'eval $SERVICES/run-service-docker.sh meshblu-authenticator-cwc-staging' C-m
