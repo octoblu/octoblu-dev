@@ -5,5 +5,5 @@ Run docker services in an easy(?) way for development on osx.
 Start the 'local' service. Example:
 
 ```
-eval $SERVICES/run-service-local.sh app-octoblu
+./stacks/meshblu -l
 ```

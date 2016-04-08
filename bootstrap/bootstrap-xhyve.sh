@@ -4,6 +4,7 @@ set -eE
 trap "exit" INT
 
 ./bootstrap-core.sh
+. ./bootstrap-local.env
 
 brew install docker-machine-driver-xhyve
 brew install xhyve
@@ -14,10 +15,10 @@ sudo chmod u+s $(brew --prefix)/opt/docker-machine-driver-xhyve/bin/docker-machi
 
 docker-machine create \
   --driver xhyve \
-  --xhyve-disk-size "100000" \
-  --xhyve-memory-size "4096" \
-  --xhyve-cpu-count "2" \
-  octoblu-dev || \
+  --xhyve-disk-size "$DISK" \
+  --xhyve-memory-size "$MEM" \
+  --xhyve-cpu-count "$CPU" \
+  octoblu-dev \
 || docker-machine start octoblu-dev \
 || true
 
