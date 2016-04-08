@@ -62,8 +62,7 @@ DEFAULT_PORT_MAX=65535
 DEFAULT_PORT_RANGE=$((DEFAULT_PORT_MAX-DEFAULT_PORT_MIN))
 OCTOBLU_DEV_IP="$(docker-machine ip octoblu-dev | sed -e 's|\.[0-9]*$|.1|')"
 
-rm -rf "$PROJECT_HOME/.bin-dev" 2>/dev/null
-cp -rp "$OCTOBLU_DEV/tools/bin/" "$PROJECT_HOME/.bin-dev"
+cp -rfp "$OCTOBLU_DEV/tools/bin/" "$PROJECT_HOME/.bin-dev"
 
 set -a
 . ./$NAME-public.env
@@ -74,6 +73,12 @@ echo "MACHINE_HOST=$OCTOBLU_DEV_IP"$'\n'$"SERVICE_PORT=$PORT" >$PROJECT-local.en
 
 PROJECT_NAME=$PROJECT
 COMPOSE_HTTP_TIMEOUT=180
+
+lockfile=/tmp/octoblu-dev-run-service-local.lock
+while ! shlock -f $lockfile -p $$; do
+  sleep 1
+  echo -n '.'
+done
 
 docker-compose -f "$COMPOSE" kill
 docker-compose -f "$COMPOSE" rm -f
@@ -87,8 +92,20 @@ docker-compose -f "$COMPOSE" build
   fi
 ) &
 
+rm $lockfile
+
 cd $PROJECT_HOME
 echo "npm installing..."
-npm install --progress=false
+
+lockfile=/tmp/octoblu-dev-run-service-local-npm-$NAME.lock
+while ! shlock -f $lockfile -p $$; do
+  sleep 1
+  echo -n '.'
+done
+
+npm install
+
+rm $lockfile
+
 echo $CMD
 $CMD
