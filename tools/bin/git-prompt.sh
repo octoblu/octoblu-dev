@@ -11,21 +11,21 @@ if [[ -z "$PROJECT_NAME" ]]; then
   PROJECT_NAME=$REPO
 fi
 
+GROWL_NOTIFY="$(dirname $0)/growl-notify.sh"
+notify () {
+  $GROWL_NOTIFY "$@" >/dev/null 2>&1 &
+}
+
 lockfile=/tmp/octoblu-dev-git-prompt-${PROJECT_NAME}.lock
 while ! shlock -f $lockfile -p $$; do
   sleep 1
   echo -n '.'
 done
 
-notify() {
-  cmd='curl -vvv -s -H "Content-Type: application/json" -X POST \
-            -d '$"'$@'"$' http://'$"$MACHINE_HOST"$':23054/notify'
-  eval "$cmd" >/dev/null 2>&1 &
-}
-
 mkdir -p "$ORG_DIR" 2>/dev/null
 (
   if [[ ! -d "$REPO_DIR" ]]; then
+    notify "{\"text\":\"$PROJECT_NAME\",\"options\":{\"title\":\"? git clone\"}}"
     echo "¡ERROR: Project directory $NAME does not exist!"
     echo
     read -s -p "press 'y' to clone or any other key to abort"$'\n' -n 1 GIT_CLONE
