@@ -11,6 +11,12 @@ if [[ -z "$PROJECT_NAME" ]]; then
   PROJECT_NAME=$REPO
 fi
 
+lockfile=/tmp/octoblu-dev-git-prompt-${PROJECT_NAME}.lock
+while ! shlock -f $lockfile -p $$; do
+  sleep 1
+  echo -n '.'
+done
+
 notify() {
   cmd='curl -vvv -s -H "Content-Type: application/json" -X POST \
             -d '$"'$@'"$' http://'$"$MACHINE_HOST"$':23054/notify'
@@ -27,6 +33,7 @@ mkdir -p "$ORG_DIR" 2>/dev/null
       cd "$ORG_DIR"
       git clone git@github.com:$NAME
     else
+      rm $lockfile
       exit -1
     fi
   fi
@@ -51,3 +58,4 @@ mkdir -p "$ORG_DIR" 2>/dev/null
     echo "+ $NAME is up to date"
   fi
 )
+rm $lockfile
