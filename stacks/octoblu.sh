@@ -34,17 +34,17 @@ tmux new-window -t $SESSION:4 -n email-site
 tmux send-keys -t $SESSION:0.0 C-m
 tmux send-keys -t $SESSION:0.0 "tmux kill-session -t $SESSION"
 
-tmux send-keys -t $SESSION:1.0 'cd ~/Projects/Octoblu/app-octoblu' C-m
-tmux send-keys -t $SESSION:1.0 'eval $SERVICES/$RUN_SERVICE app-octoblu' C-m
+tmux send-keys -t $SESSION:1.0 "cd ~/Projects/Octoblu/app-octoblu" C-m
+tmux send-keys -t $SESSION:1.0 "eval \$SERVICES/$RUN_SERVICE app-octoblu" C-m
 
-tmux send-keys -t $SESSION:2.0 'cd ~/Projects/Octoblu/api-octoblu' C-m
-tmux send-keys -t $SESSION:2.0 'eval $SERVICES/$RUN_SERVICE api-octoblu' C-m
+tmux send-keys -t $SESSION:2.0 "cd ~/Projects/Octoblu/api-octoblu" C-m
+tmux send-keys -t $SESSION:2.0 "eval \$SERVICES/$RUN_SERVICE api-octoblu" C-m
 
-tmux send-keys -t $SESSION:3.0 'cd ~/Projects/Octoblu/meshblu-authenticator-email-password' C-m
-tmux send-keys -t $SESSION:3.0 'eval $SERVICES/$RUN_SERVICE meshblu-authenticator-email-password' C-m
+tmux send-keys -t $SESSION:3.0 "cd ~/Projects/Octoblu/meshblu-authenticator-email-password" C-m
+tmux send-keys -t $SESSION:3.0 "eval \$SERVICES/$RUN_SERVICE meshblu-authenticator-email-password" C-m
 
-tmux send-keys -t $SESSION:4.0 'cd ~/Projects/Octoblu/email-password-site' C-m
-tmux send-keys -t $SESSION:4.0 'eval $SERVICES/$RUN_SERVICE email-password-site' C-m
+tmux send-keys -t $SESSION:4.0 "cd ~/Projects/Octoblu/email-password-site" C-m
+tmux send-keys -t $SESSION:4.0 "eval \$SERVICES/$RUN_SERVICE email-password-site" C-m
 
 tmux select-window -t $SESSION:1
 tmux attach-session -t $SESSION
