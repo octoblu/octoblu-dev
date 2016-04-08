@@ -1,5 +1,5 @@
-device-editor-octoblu:
-  container_name: device-editor-octoblu
+device-editor:
+  container_name: device-editor
   build: ${HOME}/Projects/Octoblu/device-editor-octoblu
   dockerfile: .device-editor-octoblu.dockerfile-dev
   ports:
