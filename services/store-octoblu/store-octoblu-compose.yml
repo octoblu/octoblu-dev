@@ -1,0 +1,20 @@
+cwc-store:
+  container_name: cwc-store
+  build: ${HOME}/Projects/Octoblu/store-octoblu
+  dockerfile: .store-octoblu.dockerfile-dev
+  ports:
+   - "80"
+
+  labels:
+    traefik.port: "80"
+
+  dns: "$DNS"
+
+  volumes:
+    - /usr/src/app/node_modules
+    #- ${HOME}/Projects/Octoblu/store-octoblu:/usr/src/app
+
+  env_file:
+    - ./store-octoblu-public.env
+    - ./store-octoblu-private.env
+    - ./store-octoblu-local.env

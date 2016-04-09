@@ -7,6 +7,10 @@
     "container": "cwc-auth-staging"
   },
   {
+    "project": "store-octoblu",
+    "container": "cwc-store"
+  },
+  {
     "project": "meshblu-authenticator-cwc"
   }
 ]
