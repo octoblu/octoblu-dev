@@ -80,6 +80,14 @@ while ! shlock -f $lockfile -p $$; do
   echo -n '.'
 done
 
+grep -Ei '^ *add +https?://' $NAME.dockerfile-dev | \
+while IFS= read -r add; do
+  URL=$(echo $add | awk '{print $2}')
+  FILE=$(echo $add | awk '{gsub(/^\/usr\/src\/app\//, "", $3); print $3}')
+  echo "FETCHING $URL to $FILE"
+  curl -s $URL >$PROJECT_HOME/$FILE
+done
+
 docker-compose -f "$COMPOSE" kill
 docker-compose -f "$COMPOSE" rm -f
 docker-compose -f "$COMPOSE" build
