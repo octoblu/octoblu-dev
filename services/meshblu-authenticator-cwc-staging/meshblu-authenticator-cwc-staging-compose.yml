@@ -3,7 +3,7 @@ cwc-auth-staging:
   build: ${HOME}/Projects/Octoblu/meshblu-authenticator-cwc-staging
   dockerfile: .meshblu-authenticator-cwc-staging.dockerfile-dev
   ports:
-   - "80"
+   - "$SERVICE_PORT"
 
   labels:
     traefik.port: "80"

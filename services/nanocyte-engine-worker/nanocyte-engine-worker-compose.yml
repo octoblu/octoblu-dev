@@ -3,7 +3,7 @@ nanocyte-engine-worker:
   build: ${HOME}/Projects/Octoblu/nanocyte-engine-worker
   dockerfile: .nanocyte-engine-worker.dockerfile-dev
   ports:
-   - "80"
+   - "$SERVICE_PORT"
 
   labels:
     traefik.port: "80"

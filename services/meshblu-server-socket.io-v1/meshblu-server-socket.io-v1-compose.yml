@@ -3,7 +3,7 @@ meshblu-socket-io:
   build: ${HOME}/Projects/Octoblu/meshblu-server-socket.io-v1
   dockerfile: .meshblu-server-socket.io-v1.dockerfile-dev
   ports:
-   - "80"
+   - "$SERVICE_PORT"
 
   labels:
     traefik.port: "80"

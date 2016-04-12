@@ -3,7 +3,7 @@ meshblu:
   build: ${HOME}/Projects/Octoblu/meshblu-haproxy
   dockerfile: .meshblu-haproxy.dockerfile-dev
   ports:
-   - "80"
+   - "$SERVICE_PORT"
 
   labels:
     traefik.port: "80"

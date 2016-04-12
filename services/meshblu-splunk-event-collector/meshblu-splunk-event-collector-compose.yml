@@ -3,7 +3,7 @@ splunk-collector:
   build: ${HOME}/Projects/Octoblu/meshblu-splunk-event-collector
   dockerfile: .meshblu-splunk-event-collector.dockerfile-dev
   ports:
-   - "80"
+   - "$SERVICE_PORT"
 
   labels:
     traefik.port: "80"

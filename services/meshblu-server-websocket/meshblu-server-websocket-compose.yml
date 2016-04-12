@@ -3,7 +3,7 @@ meshblu-websocket:
   build: ${HOME}/Projects/Octoblu/meshblu-server-websocket
   dockerfile: .meshblu-server-websocket.dockerfile-dev
   ports:
-   - "80"
+   - "$SERVICE_PORT"
 
   labels:
     traefik.port: "80"

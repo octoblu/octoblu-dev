@@ -3,7 +3,7 @@ nanocyte-node-registry:
   build: ${HOME}/Projects/Octoblu/nanocyte-node-registry
   dockerfile: .nanocyte-node-registry.dockerfile-dev
   ports:
-   - "80"
+   - "$SERVICE_PORT"
 
   labels:
     traefik.port: "80"

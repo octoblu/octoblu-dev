@@ -3,7 +3,7 @@ canary:
   build: ${HOME}/Projects/Octoblu/flow-canary
   dockerfile: .flow-canary.dockerfile-dev
   ports:
-   - "80"
+   - "$SERVICE_PORT"
 
   labels:
     traefik.port: "80"

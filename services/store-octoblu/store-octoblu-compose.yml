@@ -3,7 +3,7 @@ cwc-store:
   build: ${HOME}/Projects/Octoblu/store-octoblu
   dockerfile: .store-octoblu.dockerfile-dev
   ports:
-   - "80"
+   - "$SERVICE_PORT"
 
   labels:
     traefik.port: "80"
