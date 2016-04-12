@@ -37,7 +37,7 @@ tmux send-keys -t $SESSION:4.0 "cd ~/Projects/Octoblu/meshblu-core-firehose-sock
 tmux send-keys -t $SESSION:4.0 "eval \$SERVICES/$RUN_SERVICE meshblu-core-firehose-socket.io" C-m
 
 tmux send-keys -t $SESSION:5.0 "cd ~/Projects/Octoblu/meshblu-core-protocol-adapter-xmpp" C-m
-tmux send-keys -t $SESSION:5.0 "eval \$SERVICES/run-service-docker meshblu-core-protocol-adapter-xmpp" C-m
+tmux send-keys -t $SESSION:5.0 "eval \$SERVICES/run-service-docker.sh meshblu-core-protocol-adapter-xmpp" C-m
 
 tmux select-window -t $SESSION:1
 tmux attach-session -t $SESSION
