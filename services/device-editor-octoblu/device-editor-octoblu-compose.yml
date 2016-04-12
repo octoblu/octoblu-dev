@@ -3,7 +3,7 @@ device-editor:
   build: ${HOME}/Projects/Octoblu/device-editor-octoblu
   dockerfile: .device-editor-octoblu.dockerfile-dev
   ports:
-   - "80"
+   - "$SERVICE_PORT"
 
   labels:
     traefik.port: "80"

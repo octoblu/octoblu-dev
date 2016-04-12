@@ -3,7 +3,7 @@ triggers:
   build: ${HOME}/Projects/Octoblu/triggers-service
   dockerfile: .triggers-service.dockerfile-dev
   ports:
-   - "80"
+   - "$SERVICE_PORT"
 
   labels:
     traefik.port: "80"

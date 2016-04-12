@@ -17,10 +17,7 @@ notify () {
 }
 
 lockfile=/tmp/octoblu-dev-git-prompt-${PROJECT_NAME}.lock
-while ! shlock -f $lockfile -p $$; do
-  sleep 1
-  echo -n '.'
-done
+"$(dirname $0)/lock.sh" $lockfile 'git-prompt'
 
 mkdir -p "$ORG_DIR" 2>/dev/null
 (

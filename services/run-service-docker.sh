@@ -49,14 +49,22 @@ cp "$1.dockerfile-dev" "$PROJECT_HOME/.$1.dockerfile-dev"
 cp "$OCTOBLU_DEV/services-core/squid/npmrc-dev" "$PROJECT_HOME/.npmrc-dev"
 cp -rfp "$OCTOBLU_DEV/tools/bin/" "$PROJECT_HOME/.bin-dev"
 
+. ./$NAME-public.env
+
+if [[ -z "$PORT" ]]; then
+  PORT=80
+fi
+
+if [[ $PORT -ne 80 ]]; then
+  PORT=$PORT:$PORT
+fi
+
+export SERVICE_PORT=$PORT
 export DNS="$(docker-machine ip octoblu-dev | sed -e 's|\.[0-9]*$|.1|')"
 export COMPOSE_HTTP_TIMEOUT=180
 
 lockfile=/tmp/octoblu-dev-run-service-docker-build-$NAME.lock
-while ! shlock -f $lockfile -p $$; do
-  sleep 1
-  echo -n '.'
-done
+"$OCTOBLU_DEV/tools/bin/lock.sh" $lockfile 'docker-compose build'
 
 docker-compose -f "$COMPOSE" kill
 docker-compose -f "$COMPOSE" rm -f

@@ -6,6 +6,11 @@ if [[ -z "$MACHINE_HOST" ]]; then
   exit 1
 fi
 
+if [[ -z "$LOCAL_PORT" ]]; then
+  echo "LOCAL_PORT environment is not defined" >&2
+  exit 1
+fi
+
 if [[ -z "$SERVICE_PORT" ]]; then
   echo "SERVICE_PORT environment is not defined" >&2
   exit 1
@@ -16,12 +21,12 @@ if [[ -z "$CONTAINER_IP" ]]; then
   exit 1
 fi
 
-echo "+ iptables $CONTAINER_IP:80 -> $MACHINE_HOST:$SERVICE_PORT"
+echo "+ iptables $CONTAINER_IP:$SERVICE_PORT -> $MACHINE_HOST:$LOCAL_PORT"
 
 iptables -t nat -A PREROUTING -p tcp \
-  --dport 80 -j DNAT --to-destination $MACHINE_HOST:$SERVICE_PORT
+  --dport $SERVICE_PORT -j DNAT --to-destination $MACHINE_HOST:$LOCAL_PORT
 
 iptables -t nat -A POSTROUTING -p tcp \
-  -d $MACHINE_HOST --dport $SERVICE_PORT -j SNAT --to-source $CONTAINER_IP
+  -d $MACHINE_HOST --dport $LOCAL_PORT -j SNAT --to-source $CONTAINER_IP
 
 sleep infinity

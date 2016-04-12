@@ -3,7 +3,7 @@ nanocyte-flow-deploy:
   build: ${HOME}/Projects/Octoblu/nanocyte-flow-deploy-service
   dockerfile: .nanocyte-flow-deploy-service.dockerfile-dev
   ports:
-   - "80"
+   - "$SERVICE_PORT"
 
   labels:
     traefik.port: "80"

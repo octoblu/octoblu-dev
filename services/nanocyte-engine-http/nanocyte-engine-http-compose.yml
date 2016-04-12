@@ -3,7 +3,7 @@ nanocyte-engine-http:
   build: ${HOME}/Projects/Octoblu/nanocyte-engine-http
   dockerfile: .nanocyte-engine-http.dockerfile-dev
   ports:
-   - "80"
+   - "$SERVICE_PORT"
 
   labels:
     traefik.port: "80"

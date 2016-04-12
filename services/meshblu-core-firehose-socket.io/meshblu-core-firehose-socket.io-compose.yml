@@ -3,7 +3,7 @@ meshblu-firehose-socket-io:
   build: ${HOME}/Projects/Octoblu/meshblu-core-firehose-socket.io
   dockerfile: .meshblu-core-firehose-socket.io.dockerfile-dev
   ports:
-   - "80"
+   - "$SERVICE_PORT"
 
   labels:
     traefik.port: "80"

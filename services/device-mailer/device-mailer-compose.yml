@@ -3,7 +3,7 @@ mailer:
   build: ${HOME}/Projects/Octoblu/device-mailer
   dockerfile: .device-mailer.dockerfile-dev
   ports:
-   - "80"
+   - "$SERVICE_PORT"
 
   labels:
     traefik.port: "80"

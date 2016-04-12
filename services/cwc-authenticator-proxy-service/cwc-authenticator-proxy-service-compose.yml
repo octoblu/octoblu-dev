@@ -3,7 +3,7 @@ cwc-authenticator-proxy:
   build: ${HOME}/Projects/Octoblu/cwc-authenticator-proxy-service
   dockerfile: .cwc-authenticator-proxy-service.dockerfile-dev
   ports:
-   - "80"
+   - "$SERVICE_PORT"
 
   labels:
     traefik.port: "80"

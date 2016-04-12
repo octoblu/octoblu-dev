@@ -68,52 +68,59 @@ set -a
 . ./$NAME-public.env
 . ./$NAME-private.env
 
-PORT="$((RANDOM%DEFAULT_PORT_RANGE+DEFAULT_PORT_MIN))"
-echo "MACHINE_HOST=$OCTOBLU_DEV_IP"$'\n'$"SERVICE_PORT=$PORT" >$PROJECT-local.env
+if [[ -n "$PORT" ]]; then
 
-PROJECT_NAME=$PROJECT
-COMPOSE_HTTP_TIMEOUT=180
-
-lockfile=/tmp/octoblu-dev-run-service-local.lock
-while ! shlock -f $lockfile -p $$; do
-  sleep 1
-  echo -n '.'
-done
-
-grep -Ei '^ *add +https?://' $NAME.dockerfile-dev | \
-while IFS= read -r add; do
-  URL=$(echo $add | awk '{print $2}')
-  FILE=$(echo $add | awk '{gsub(/^\/usr\/src\/app\//, "", $3); print $3}')
-  echo "FETCHING $URL to $FILE"
-  curl -s $URL >$PROJECT_HOME/$FILE
-done
-
-docker-compose -f "$COMPOSE" kill
-docker-compose -f "$COMPOSE" rm -f
-docker-compose -f "$COMPOSE" build
-(
-  docker-compose -f "$COMPOSE" up
-  STATUS_CODE=$(docker-compose -f "$COMPOSE" ps -q 2>/dev/null | xargs docker inspect -f '{{ .State.ExitCode }}')
-  if [[ $STATUS_CODE -ne 0 ]]; then
-    echo $'\n'$" ! docker exit code: $STATUS_CODE "$'\n'
-    notify "{\"text\":\"$PROJECT_NAME\",\"options\":{\"label\":\"error\",\"title\":\"- docker exit ($STATUS_CODE)\"}}"
+  SERVICE_PORT=$PORT
+  if [[ $PORT -eq 80 ]]; then
+    PORT="$((RANDOM%DEFAULT_PORT_RANGE+DEFAULT_PORT_MIN))"
   fi
-) &
+  LOCAL_PORT=$PORT
 
-rm $lockfile
+  ( cat << EOF
+MACHINE_HOST=$OCTOBLU_DEV_IP
+SERVICE_PORT=$SERVICE_PORT
+LOCAL_PORT=$LOCAL_PORT
+EOF
+  ) >$PROJECT-local.env
+
+  PROJECT_NAME=$PROJECT
+  COMPOSE_HTTP_TIMEOUT=180
+
+  lockfile=/tmp/octoblu-dev-run-service-local.lock
+  "$OCTOBLU_DEV/tools/bin/lock.sh" $lockfile 'docker-compose build'
+
+  grep -Ei '^ *add +https?://' $NAME.dockerfile-dev | \
+  while IFS= read -r add; do
+    URL=$(echo $add | awk '{print $2}')
+    FILE=$(echo $add | awk '{gsub(/^\/usr\/src\/app\//, "", $3); print $3}')
+    echo "FETCHING $URL to $FILE"
+    curl -s $URL >$PROJECT_HOME/$FILE
+  done
+
+  docker-compose -f "$COMPOSE" kill
+  docker-compose -f "$COMPOSE" rm -f
+  docker-compose -f "$COMPOSE" build
+  (
+    docker-compose -f "$COMPOSE" up
+    STATUS_CODE=$(docker-compose -f "$COMPOSE" ps -q 2>/dev/null | xargs docker inspect -f '{{ .State.ExitCode }}')
+    if [[ $STATUS_CODE -ne 0 ]]; then
+      echo $'\n'$" ! docker exit code: $STATUS_CODE "$'\n'
+      notify "{\"text\":\"$PROJECT_NAME\",\"options\":{\"label\":\"error\",\"title\":\"- docker exit ($STATUS_CODE)\"}}"
+    fi
+  ) &
+
+  rm $lockfile
+fi
 
 cd $PROJECT_HOME
 echo "npm installing..."
 
 lockfile=/tmp/octoblu-dev-run-service-local-npm-$NAME.lock
-while ! shlock -f $lockfile -p $$; do
-  sleep 1
-  echo -n '.'
-done
+"$OCTOBLU_DEV/tools/bin/lock.sh" $lockfile 'npm install'
 
 npm install
 
-rm $lockfile
+(sleep 5; rm $lockfile) &
 
 echo $CMD
 $CMD

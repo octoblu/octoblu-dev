@@ -3,7 +3,7 @@ app:
   build: ${HOME}/Projects/Octoblu/app-octoblu
   dockerfile: .app-octoblu.dockerfile-dev
   ports:
-   - "80"
+   - "$SERVICE_PORT"
 
   labels:
     traefik.port: "80"

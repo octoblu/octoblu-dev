@@ -3,7 +3,7 @@ meshblu-core-dispatcher:
   build: ${HOME}/Projects/Octoblu/meshblu-core-dispatcher
   dockerfile: .meshblu-core-dispatcher.dockerfile-dev
   ports:
-   - "80"
+   - "$SERVICE_PORT"
 
   labels:
     traefik.port: "80"
