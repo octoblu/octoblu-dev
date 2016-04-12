@@ -4,7 +4,10 @@ meshblu-xmpp:
   privileged: true
 
   ports:
-   - "5222"
+   - "80"
+
+  labels:
+    traefik.port: "80"
 
   env_file:
     - ./meshblu-core-protocol-adapter-xmpp-local.env
