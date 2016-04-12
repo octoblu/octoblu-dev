@@ -3,10 +3,7 @@ meshblu-xmpp:
   build: ${HOME}/Projects/Octoblu/meshblu-core-protocol-adapter-xmpp
   dockerfile: .meshblu-core-protocol-adapter-xmpp.dockerfile-dev
   ports:
-   - "80"
-
-  labels:
-    traefik.port: "80"
+   - "5222:5222"
 
   dns: "$DNS"
 
