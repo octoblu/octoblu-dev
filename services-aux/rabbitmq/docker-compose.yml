@@ -1,0 +1,10 @@
+rabbitmq:
+  container_name: rabbitmq
+
+  build: .
+  dockerfile: Dockerfile
+
+  ports:
+   - "5672:5672"
+
+  dns: "$DNS"

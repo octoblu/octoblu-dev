@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 cd $(dirname $0)
-SESSION='channel-device'
+SESSION='data-forwarders'
 . ./_defaults.sh
 
 tmux new-window -t $SESSION:1 -n data-forwarders
