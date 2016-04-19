@@ -1,0 +1,20 @@
+meshblu-core-worker-firehose-amqp:
+  container_name: meshblu-core-worker-firehose-amqp
+  build: ${HOME}/Projects/Octoblu/meshblu-core-worker-firehose-amqp
+  dockerfile: .meshblu-core-worker-firehose-amqp.dockerfile-dev
+  ports:
+   - "$SERVICE_PORT"
+
+  labels:
+    traefik.port: "80"
+
+  dns: "$DNS"
+
+  volumes:
+    - /usr/src/app/node_modules
+    #- ${HOME}/Projects/Octoblu/meshblu-core-worker-firehose-amqp:/usr/src/app
+
+  env_file:
+    - ./meshblu-core-worker-firehose-amqp-public.env
+    - ./meshblu-core-worker-firehose-amqp-private.env
+    - ./meshblu-core-worker-firehose-amqp-local.env
