@@ -1,0 +1,23 @@
+meshblu-xmpp:
+  container_name: meshblu-xmpp
+  build: ${HOME}/Projects/Octoblu/meshblu-core-protocol-adapter-xmpp
+  dockerfile: .meshblu-core-protocol-adapter-xmpp.dockerfile-dev
+  ports:
+   - "$SERVICE_PORT"
+
+  labels:
+    traefik.port: "80"
+
+  dns: "$DNS"
+
+  external_links:
+    - redis-tmp:redis.dev
+
+  volumes:
+    - /usr/src/app/node_modules
+    #- ${HOME}/Projects/Octoblu/meshblu-core-protocol-adapter-xmpp:/usr/src/app
+
+  env_file:
+    - ./meshblu-core-protocol-adapter-xmpp-public.env
+    - ./meshblu-core-protocol-adapter-xmpp-private.env
+    - ./meshblu-core-protocol-adapter-xmpp-local.env

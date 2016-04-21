@@ -4,12 +4,13 @@ set -eE
 trap "exit" INT
 
 ./bootstrap-core.sh
+. ./bootstrap-local.env
 
 docker-machine create \
   --driver virtualbox \
-  --virtualbox-disk-size "100000" \
-  --virtualbox-memory "4096" \
-  --virtualbox-cpu-count "2" \
+  --virtualbox-disk-size "$DISK" \
+  --virtualbox-memory "$MEM" \
+  --virtualbox-cpu-count "$CPU" \
   octoblu-dev \
 || docker-machine start octoblu-dev \
 || true

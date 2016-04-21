@@ -1,0 +1,14 @@
+[
+  {
+    "project": "meshblu-amqp-auth-service",
+    "no_defaults": true
+  },
+  {
+    "project": "meshblu-core-worker-amqp",
+    "no_defaults": true
+  },
+  {
+    "project": "meshblu-core-worker-firehose-amqp",
+    "no_defaults": true
+  }
+]

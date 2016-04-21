@@ -31,7 +31,10 @@ fi
 
 ../tools/bin/unlimit.sh
 
-#dnsmasq
+# https certs
+sudo security add-trusted-cert -d -k /Library/Keychains/System.keychain ../tools/certs/octoblu-dev.crt
+
+# dnsmasq
 sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
 sudo mkdir -p /etc/resolver
 sudo cp ../services-core/dnsmasq/resolver-dev /etc/resolver/dev
@@ -40,6 +43,9 @@ sudo chown root /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
 (cd ../services-core/dnsmasq; ./setup.sh 127.0.0.1 127.0.0.1)
 sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
 
-#node
+# node
 npm install --global growl-express
 (cd ../generator/bin && npm install)
+
+# setup machine defaults, create bootstrap-local.env if doesn't exist
+./bootstrap-setup-env.sh

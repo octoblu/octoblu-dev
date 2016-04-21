@@ -3,7 +3,7 @@ meshblu-http:
   build: ${HOME}/Projects/Octoblu/meshblu-server-http
   dockerfile: .meshblu-server-http.dockerfile-dev
   ports:
-   - "80"
+   - "$SERVICE_PORT"
 
   labels:
     traefik.port: "80"

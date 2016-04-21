@@ -27,5 +27,10 @@
     "project": "meshblu-core-firehose-socket.io",
     "container": "meshblu-firehose-socket-io",
     "links": [ "redis-tmp:redis.dev" ]
+  },
+  {
+    "project": "meshblu-core-protocol-adapter-xmpp",
+    "container": "meshblu-xmpp",
+    "links": [ "redis-tmp:redis.dev" ]
   }
 ]

@@ -4,9 +4,11 @@
     "container": "oauth"
   },
   {
-    "project": "device-mailer"
+    "project": "device-mailer",
+    "container": "mailer"
   },
   {
-    "project": "device-editor-octoblu"
+    "project": "device-editor-octoblu",
+    "container": "device-editor"
   }
 ]

@@ -3,7 +3,7 @@ nanocyte-interval:
   build: ${HOME}/Projects/Octoblu/nanocyte-interval-service
   dockerfile: .nanocyte-interval-service.dockerfile-dev
   ports:
-   - "80"
+   - "$SERVICE_PORT"
 
   labels:
     traefik.port: "80"

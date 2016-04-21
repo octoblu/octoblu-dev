@@ -1,10 +1,10 @@
-device-editor-octoblu:
-  container_name: device-editor-octoblu
+device-editor:
+  container_name: device-editor
   build: ${HOME}/Projects/Octoblu/octoblu-dev/services/_local
   privileged: true
 
   ports:
-   - "80"
+   - "$LOCAL_PORT:$SERVICE_PORT"
 
   labels:
     traefik.port: "80"

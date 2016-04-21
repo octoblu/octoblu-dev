@@ -3,7 +3,7 @@ oauth:
   build: ${HOME}/Projects/Octoblu/oauth-provider
   dockerfile: .oauth-provider.dockerfile-dev
   ports:
-   - "80"
+   - "$SERVICE_PORT"
 
   labels:
     traefik.port: "80"

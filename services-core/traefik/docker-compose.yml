@@ -1,10 +1,12 @@
 traefik:
-  image: emilevauge/traefik:v1.0.0-beta.374
+  image: containous/traefik:v1.0.0-beta.408
   container_name: traefik
   ports:
     - "80:80"
+    - "443:443"
     - "50801:50801"
   volumes:
     - $PWD/traefik.toml:/traefik.toml
     - $HOME/.docker/machine/certs:/creds
+    - $PWD/../../tools/certs:/https-creds
   restart: always
