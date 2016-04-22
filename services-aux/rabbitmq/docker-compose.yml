@@ -5,6 +5,8 @@ rabbitmq:
   dockerfile: Dockerfile
 
   ports:
+   - "5671:5671"
    - "5672:5672"
-
+   - "1883:1883"
+   - "8883:8883"
   dns: "$DNS"
