@@ -15,7 +15,7 @@ tmux set-environment -t $SESSION TOOLS $TOOLS
 
 tmux send-keys -t $SESSION:1.0 "cd ~/Projects/Octoblu/octoblu-dev/services-aux/rabbitmq" C-m
 tmux send-keys -t $SESSION:1.0 "sleep 10" C-m
-tmux send-keys -t $SESSION:1.0 "./stop.sh; ./run.sh; docker attach rabbitmq" C-m
+tmux send-keys -t $SESSION:1.0 "./stop.sh; ./run.sh" C-m
 
 tmux send-keys -t $SESSION:2.0 "cd ~/Projects/Octoblu/meshblu-amqp-auth-service" C-m
 tmux send-keys -t $SESSION:2.0 "eval \$SERVICES/$RUN_SERVICE meshblu-amqp-auth-service" C-m
