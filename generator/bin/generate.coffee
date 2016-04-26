@@ -1,4 +1,5 @@
 #!/usr/bin/env coffee
+fs         = require 'fs'
 fse        = require 'fs-extra'
 handlebars = require 'handlebars'
 path       = require 'path'
@@ -6,7 +7,7 @@ _          = require 'lodash'
 dashdash   = require 'dashdash'
 
 defaultStackEnv = "#{process.env.HOME}/Projects/Octoblu/the-stack-env-production/dev.d/octoblu"
-defaultOutputDir = "#{process.env.HOME}/Projects/Octoblu/octoblu-dev/services"
+defaultOutputDir = "#{process.env.HOME}/Projects/Octoblu/octoblu-dev/services/generated"
 
 parser = dashdash.createParser
   options:
@@ -67,11 +68,14 @@ generate = (options)=>
     console.error help
     process.exit(0)
 
+  options.dockerFileCmd ?= "node command.js"
   options.container ?= options.project?.replace(/-service$/,"")
 
   templateData =
-    projectName: options.project
+    dockerFileInstructions: options.dockerFileInstructions
+    dockerFileCmd: options.dockerFileCmd
     containerName: options.container
+    projectName: options.project
     compose: options.compose
     links: options.links
     env: []
@@ -80,7 +84,7 @@ generate = (options)=>
     return (file) =>
       return if file.stats.isDirectory()
       name = _.last file.path.split('/')
-      value = _.trim fse.readFileSync file.path, 'utf8'
+      value = _.trim fs.readFileSync file.path, 'utf8'
       environment[name] = value
 
   readEnv = (path, environment, callback) =>
@@ -108,33 +112,42 @@ generate = (options)=>
 
   composeTemplatePath = path.join(__dirname, '..', 'templates', 'docker-compose-template.yml')
   composeLocalTemplatePath = path.join(__dirname, '..', 'templates', 'docker-compose-local-template.yml')
-  dockerTemplatePath = path.join(__dirname, '..', 'templates', 'dockerfile-devs', dockerDevFile)
   envTemplatePath = path.join(__dirname, '..', 'templates', 'env-template')
+  dockerTemplatePath = path.join(__dirname, '..', 'templates', 'dockerfile-devs', dockerDevFile)
 
-  templateCompose = handlebars.compile(fse.readFileSync composeTemplatePath, 'utf8')
-  templateComposeLocal = handlebars.compile(fse.readFileSync composeLocalTemplatePath, 'utf8')
-  templateDocker = handlebars.compile(fse.readFileSync dockerTemplatePath, 'utf8')
-  templateEnv = handlebars.compile(fse.readFileSync envTemplatePath, 'utf8')
+  hasDockerFile = true
+  try
+    fs.accessSync(dockerTemplatePath,fs.R_OK)
+  catch error
+    hasDockerFile = false
+
+  if !hasDockerFile
+    dockerTemplatePath = path.join(__dirname, '..', 'templates', 'template.dockerfile-dev')
+
+  templateCompose = handlebars.compile(fs.readFileSync composeTemplatePath, 'utf8')
+  templateComposeLocal = handlebars.compile(fs.readFileSync composeLocalTemplatePath, 'utf8')
+  templateEnv = handlebars.compile(fs.readFileSync envTemplatePath, 'utf8')
+  templateDocker = handlebars.compile(fs.readFileSync dockerTemplatePath, 'utf8')
 
   writeProjectEnv = (environment) =>
     readEnv publicEnvPath, environment, parseEnv(templateData.env, (env) =>
       outputPath = path.join options.output_dir, templateData.projectName
       fse.mkdirpSync outputPath
 
-      fse.writeFileSync path.join(outputPath, composeFile), templateCompose(templateData)
+      fs.writeFileSync path.join(outputPath, composeFile), templateCompose(templateData)
       console.log "wrote #{templateData.projectName}/#{composeFile}"
 
-      fse.writeFileSync path.join(outputPath, composeLocalFile), templateComposeLocal(templateData)
+      fs.writeFileSync path.join(outputPath, composeLocalFile), templateComposeLocal(templateData)
       console.log "wrote #{templateData.projectName}/#{composeLocalFile}"
 
-      fse.writeFileSync path.join(outputPath, dockerDevFile), templateDocker(templateData)
+      fs.writeFileSync path.join(outputPath, dockerDevFile), templateDocker(templateData)
       console.log "wrote #{templateData.projectName}/#{dockerDevFile}"
 
-      fse.writeFileSync path.join(outputPath, publicEnvFile), templateEnv({env})
+      fs.writeFileSync path.join(outputPath, publicEnvFile), templateEnv({env})
       console.log "wrote #{templateData.projectName}/#{publicEnvFile}"
 
       readEnv privateEnvPath, {}, parseEnv([], (env) =>
-        fse.writeFileSync path.join(outputPath, privateEnvFile), templateEnv({env})
+        fs.writeFileSync path.join(outputPath, privateEnvFile), templateEnv({env})
         console.log "wrote #{templateData.projectName}/#{privateEnvFile}"
       )
     )
@@ -164,7 +177,7 @@ if !options.json?
   generate options
 else
   options.json = process.stdin.fd if options.json == '-'
-  jsonOptions = JSON.parse(fse.readFileSync options.json, 'utf8')
+  jsonOptions = JSON.parse(fs.readFileSync options.json, 'utf8')
   if ! _.isArray jsonOptions
     jsonOptions = [ jsonOptions ]
 

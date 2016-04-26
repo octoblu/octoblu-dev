@@ -10,7 +10,7 @@ if [[ -n "$1" ]]; then
 else
   CONTAINER=mongo-persist
 fi
-echo 'Connecting to container: '$CONTAINER$'\n'
+echo $'\n'$'Connecting to container: '$CONTAINER
 
 files=(db-jsons/*/*/*.json)
 

@@ -8,7 +8,8 @@
   },
   {
     "project": "store-octoblu",
-    "container": "cwc-store"
+    "container": "cwc-store",
+    "dockerFileCmd": "node devServer.js"
   },
   {
     "project": "meshblu-authenticator-cwc"

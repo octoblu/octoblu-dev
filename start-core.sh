@@ -15,3 +15,6 @@ eval "(${DOCKER_ENV} || (${DOCKER_REGEN} >/dev/null && ${DOCKER_ENV}) || \
 for d in $(ls -d services-core/*/); do
   (cd $d; ./stop.sh || true; ./run.sh)
 done
+
+./db-setup/setup-mongo.sh mongo-persist
+./generator/bin/generate-all.sh

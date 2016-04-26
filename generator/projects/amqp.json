@@ -14,5 +14,9 @@
   {
     "project": "meshblu-core-worker-mqtt",
     "no_defaults": true
+  },
+  {
+    "project": "meshblu-core-protocol-adapter-mqtt",
+    "no_defaults": true
   }
 ]

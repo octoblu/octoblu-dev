@@ -9,6 +9,7 @@
   },
   {
     "project": "device-editor-octoblu",
-    "container": "device-editor"
+    "container": "device-editor",
+    "dockerFileCmd": "node dev-server.js"
   }
 ]

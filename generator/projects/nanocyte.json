@@ -1,15 +1,24 @@
 [
   {
     "project": "nanocyte-flow-deploy-service",
-    "links": [ "redis-tmp:redis.dev" ]
+    "links": [ "redis-tmp:redis.dev" ],
+    "dockerFileCmd": "node server.js"
   },
   {
     "project": "nanocyte-engine-http",
-    "links": [ "redis-tmp:redis.dev" ]
+    "links": [ "redis-tmp:redis.dev" ],
+    "dockerFileInstructions": [
+      "ADD http://meshblu.octoblu.dev/publickey /usr/src/app/public-key.json"
+    ],
+    "dockerFileCmd": "node server.js"
   },
   {
     "project": "nanocyte-engine-worker",
-    "links": [ "redis-tmp:redis.dev" ]
+    "links": [ "redis-tmp:redis.dev" ],
+    "dockerFileInstructions": [
+      "ADD .npmrc /root/.npmrc-auth",
+      "RUN cat /root/.npmrc-auth >>/root/.npmrc"
+    ]
   },
   {
     "project": "nanocyte-interval-service",
@@ -17,15 +26,20 @@
   },
   {
     "project": "nanocyte-interval-redis",
-    "links": [ "redis-tmp:redis.dev" ]
+    "links": [ "redis-tmp:redis.dev" ],
+    "dockerFileCmd": "node interval-redis.js"
   },
   {
     "project": "nanocyte-node-registry",
-    "links": [ "redis-tmp:redis.dev" ]
+    "links": [ "redis-tmp:redis.dev" ],
+    "dockerFileCmd": "node_modules/gulp/bin/gulp.js"
   },
   {
     "project": "credentials-service",
-    "links": [ "redis-tmp:redis.dev" ]
+    "links": [ "redis-tmp:redis.dev" ],
+    "dockerFileInstructions": [
+      "ADD http://meshblu.octoblu.dev/publickey /usr/src/app/public-key.json"
+    ]
   },
   {
     "project": "credentials-worker",

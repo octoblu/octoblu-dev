@@ -2,18 +2,22 @@
   {
     "project": "api-octoblu",
     "container": "api",
-    "links": [ "redis-tmp:redis.dev", "mongo-persist:mongo.dev" ]
+    "links": [ "redis-tmp:redis.dev", "mongo-persist:mongo.dev" ],
+    "dockerFileCmd": "node_modules/gulp/bin/gulp.js watch"
   },
   {
     "project": "app-octoblu",
     "container": "app",
-    "no_defaults": true
+    "no_defaults": true,
+    "dockerFileCmd": "node_modules/gulp/bin/gulp.js watch"
   },
   {
     "project": "email-password-site",
-    "no_defaults": true
+    "no_defaults": true,
+    "dockerFileCmd": "node_modules/gulp/bin/gulp.js watch"
   },
   {
-    "project": "meshblu-authenticator-email-password"
+    "project": "meshblu-authenticator-email-password",
+    "dockerFileCmd": "node server.js"
   }
 ]

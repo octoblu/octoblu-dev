@@ -11,7 +11,7 @@ notify () {
   $GROWL_NOTIFY "$@" >/dev/null &
 }
 
-cd "$OCTOBLU_DEV/services"
+cd "$OCTOBLU_DEV/services/generated"
 if [[ ! -d "$1" ]]; then
   echo "Project $1 service definition does not exist, aborting!"
   exit -1

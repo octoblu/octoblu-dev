@@ -1,5 +1,7 @@
 tmp/
 generator/output
+services/generated
+
 *-private.env
 *-local.env
 

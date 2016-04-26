@@ -1,7 +1,8 @@
 [
   {
     "project": "flow-canary",
-    "container": "canary"
+    "container": "canary",
+    "dockerFileCmd": "node octoblu-flow-canary.js"
   },
   {
     "project": "triggers-service"

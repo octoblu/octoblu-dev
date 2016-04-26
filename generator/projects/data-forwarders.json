@@ -1,6 +1,7 @@
 [
   {
-    "project": "data-forwarders"
+    "project": "data-forwarders",
+    "dockerFileCmd": "node dev-server.js"
   },
   {
     "container": "splunk-collector",

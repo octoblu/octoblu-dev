@@ -4,4 +4,4 @@ export DNS=0.0.0.0
 
 echo - rabbitmq
 docker-compose stop
-docker-compose rm --force --all
+docker-compose rm -f

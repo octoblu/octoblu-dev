@@ -6,5 +6,3 @@ trap "exit" INT
 ./tools/bin/git-prompt.sh "$(pwd)"
 ./bootstrap/bootstrap.sh
 ./start-core.sh
-./db-setup/setup-mongo.sh mongo-persist
-./generator/bin/generate-all.sh

@@ -1,6 +1,6 @@
 {{{containerName}}}:
   container_name: {{{containerName}}}
-  build: ${HOME}/Projects/Octoblu/octoblu-dev/services/_local
+  build: ${HOME}/Projects/Octoblu/octoblu-dev/services/local
   privileged: true
 
   ports:

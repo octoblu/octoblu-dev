@@ -7,10 +7,12 @@ ADD .npmrc-dev /root/.npmrc
 EXPOSE 80
 
 WORKDIR /usr/src/app
-
 ADD package.json /usr/src/app/
+{{#each dockerFileInstructions}}
+  {{{this}}}
+{{/each}}
 RUN ["npm", "install", "--production"]
 
 ADD . /usr/src/app
 
-CMD [".bin-dev/growl-run.sh", "node", "interval-redis.js"]
+CMD .bin-dev/growl-run.sh {{{dockerFileCmd}}}
