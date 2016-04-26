@@ -1,0 +1,20 @@
+meshblu-core-worker-mqtt:
+  container_name: meshblu-core-worker-mqtt
+  build: ${HOME}/Projects/Octoblu/meshblu-core-worker-mqtt
+  dockerfile: .meshblu-core-worker-mqtt.dockerfile-dev
+  ports:
+   - "$SERVICE_PORT"
+
+  labels:
+    traefik.port: "80"
+
+  dns: "$DNS"
+
+  volumes:
+    - /usr/src/app/node_modules
+    #- ${HOME}/Projects/Octoblu/meshblu-core-worker-mqtt:/usr/src/app
+
+  env_file:
+    - ./meshblu-core-worker-mqtt-public.env
+    - ./meshblu-core-worker-mqtt-private.env
+    - ./meshblu-core-worker-mqtt-local.env
