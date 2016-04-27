@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-git clean -x -i
+git clean -x -d --interactive
