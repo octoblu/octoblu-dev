@@ -22,8 +22,8 @@
     }
   },
   "options": {
-    "name": "Device-Mailer",
-    "callbackUrl": "http://device-mailer.octoblu.dev/octoblu/authenticate"
+    "name": "Forwarder Oauth",
+    "callbackUrl": "https://data-forwarders.octoblu.dev"
   },
   "owner": "nobody",
   "discoverWhitelist": ["*"],
