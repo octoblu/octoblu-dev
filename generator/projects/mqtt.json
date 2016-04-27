@@ -1,0 +1,6 @@
+[
+  {
+    "project": "meshblu-core-protocol-adapter-mqtt",
+    "container": "mqtt"
+  }
+]
