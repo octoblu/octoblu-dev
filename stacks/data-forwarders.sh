@@ -5,7 +5,7 @@ SESSION='data-forwarders'
 . ./_defaults.sh
 
 tmux new-window -t $SESSION:1 -n data-forwarders
-tmux new-window -t $SESSION:2 -n event-collector
+tmux new-window -t $SESSION:2 -n splunk-event-collector
 tmux new-window -t $SESSION:3 -n oauth-provider
 
 tmux send-keys -t $SESSION:1.0 "cd ~/Projects/Octoblu/data-forwarders" C-m
