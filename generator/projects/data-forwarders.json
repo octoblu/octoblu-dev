@@ -4,11 +4,14 @@
     "dockerFileCmd": "node dev-server.js"
   },
   {
-    "container": "splunk-collector",
-    "project": "meshblu-splunk-event-collector"
+    "project": "meshblu-splunk-event-collector",
+    "container": "splunk-collector"
   },
   {
-    "container": "mongodb-forwarder",
-    "project": "meshblu-mongodb-forwarder"
+    "project": "meshblu-mongodb-forwarder",
+    "container": "mongodb-forwarder"
+  },
+  {
+    "project": "forwarder-service"
   }
 ]
