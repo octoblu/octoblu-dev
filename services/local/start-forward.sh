@@ -21,7 +21,7 @@ if [[ -z "$CONTAINER_IP" ]]; then
   exit 1
 fi
 
-echo "+ iptables $CONTAINER_IP:$SERVICE_PORT -> $MACHINE_HOST:$LOCAL_PORT"
+echo "+ iptables $CONTAINER_IP:$SERVICE_PORT -> $MACHINE_HOST:$LOCAL_PORT"$'\n'
 
 iptables -t nat -A PREROUTING -p tcp \
   --dport $SERVICE_PORT -j DNAT --to-destination $MACHINE_HOST:$LOCAL_PORT
