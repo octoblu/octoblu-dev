@@ -114,12 +114,12 @@ fi
 
 cd $PROJECT_HOME
 
+lockfile=/tmp/octoblu-dev-run-service-local-npm-$NAME.lock
+"$OCTOBLU_DEV/tools/bin/lock.sh" $lockfile 'npm install'
 if [[ "package.json" -nt "node_modules" ]]; then
-  lockfile=/tmp/octoblu-dev-run-service-local-npm-$NAME.lock
-  "$OCTOBLU_DEV/tools/bin/lock.sh" $lockfile 'npm install'
   npm install
-  (sleep 10; rm $lockfile) &
 fi
+rm $lockfile
 
 echo $CMD
 $CMD
