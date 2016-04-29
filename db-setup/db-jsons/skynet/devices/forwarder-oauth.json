@@ -23,7 +23,7 @@
   },
   "options": {
     "name": "Forwarder Oauth",
-    "callbackUrl": "https://forwarder-ui.octoblu.dev"
+    "callbackUrl": "https://forwarder.octoblu.dev"
   },
   "owner": "nobody",
   "discoverWhitelist": ["*"],
