@@ -12,6 +12,7 @@
     "container": "mongodb-forwarder"
   },
   {
-    "project": "forwarder-service"
+    "project": "forwarder-service",
+    "container": "forwarder-service"
   }
 ]
