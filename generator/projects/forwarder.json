@@ -1,7 +1,8 @@
 [
   {
     "project": "forwarder-ui",
-    "dockerFileCmd": "node dev-server.js"
+    "dockerFileCmd": "node dev-server.js",
+    "container": "forwarder"
   },
   {
     "project": "meshblu-splunk-event-collector",

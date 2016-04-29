@@ -15,8 +15,8 @@ tmux send-keys -t $SESSION:1.0 "eval \$SERVICES/$RUN_SERVICE forwarder-ui" C-m
 tmux send-keys -t $SESSION:2.0 "cd ~/Projects/Octoblu/forwarder-service" C-m
 tmux send-keys -t $SESSION:2.0 "eval \$SERVICES/$RUN_SERVICE forwarder-service" C-m
 
-tmux send-keys -t $SESSION:2.0 "cd ~/Projects/Octoblu/meshblu-splunk-event-collector" C-m
-tmux send-keys -t $SESSION:2.0 "eval \$SERVICES/$RUN_SERVICE meshblu-splunk-event-collector" C-m
+tmux send-keys -t $SESSION:3.0 "cd ~/Projects/Octoblu/meshblu-splunk-event-collector" C-m
+tmux send-keys -t $SESSION:3.0 "eval \$SERVICES/$RUN_SERVICE meshblu-splunk-event-collector" C-m
 
 tmux send-keys -t $SESSION:4.0 "cd ~/Projects/Octoblu/oauth-provider" C-m
 tmux send-keys -t $SESSION:4.0 "eval \$SERVICES/$RUN_SERVICE oauth-provider" C-m
