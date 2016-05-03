@@ -1,10 +1,11 @@
 {
   "uuid": "765bd3a4-546d-45e6-a62f-1157281083f0",
   "type": "interval-service",
-  "discoverWhitelist": [],
+  "discoverWhitelist": ["*"],
   "configureWhitelist": [],
   "receiveWhitelist": ["*"],
   "sendWhitelist": ["*"],
+  "name":"Interval Service",
   "meshblu": {
   "messageHooks": [
       {

@@ -1,0 +1,13 @@
+meshblu-core-dispatcher-tangonpm:
+  container_name: meshblu-core-dispatcher-tangonpm
+  build: ${HOME}/Projects/Octoblu/octoblu-dev/services/_local
+  privileged: true
+
+  ports:
+   - "$LOCAL_PORT:$SERVICE_PORT"
+
+  labels:
+    traefik.port: "80"
+
+  env_file:
+    - ./meshblu-core-dispatcher-tangonpm-local.env
