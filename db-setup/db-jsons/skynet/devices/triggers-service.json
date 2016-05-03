@@ -1,10 +1,11 @@
 {
   "uuid": "b560b6ee-c264-4ed9-b98e-e3376ce6ce64",
-  "type": "device:triggers-service",
+  "type": "trigger-service",
   "discoverWhitelist": ["*"],
-  "configureWhitelist": ["*"],
-  "receiveWhitelist": ["*"],
-  "sendWhitelist": ["*"],
+  "configureWhitelist": [],
+  "receiveWhitelist": [],
+  "sendWhitelist": [],
+  "name":"Trigger Service",
   "token": "$2a$10$SNwbidQ9LRL.m2Z0zgbJjOyu/BGNImM4.hll4AghE/ZbOISg3xBUG",
   "online": true
 }
