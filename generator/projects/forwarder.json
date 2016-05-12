@@ -5,12 +5,20 @@
     "container": "forwarder"
   },
   {
-    "project": "meshblu-splunk-event-collector",
-    "container": "splunk-collector"
+    "project": "data-forwarder-splunk",
+    "container": "data-forwarder-splunk"
   },
   {
-    "project": "meshblu-mongodb-forwarder",
-    "container": "mongodb-forwarder"
+    "project": "data-forwarder-mongodb",
+    "container": "data-forwarder-mongodb"
+  },
+  {
+    "project": "data-forwarder-elasticsearch",
+    "container": "data-forwarder-elasticsearch"
+  },
+  {
+    "project": "data-forwarder-azure-service-bus",
+    "container": "data-forwarder-azure-service-bus"
   },
   {
     "project": "forwarder-service",
