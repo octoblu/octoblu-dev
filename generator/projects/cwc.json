@@ -12,6 +12,7 @@
     "dockerFileCmd": "node devServer.js"
   },
   {
-    "project": "meshblu-authenticator-cwc"
+    "project": "meshblu-authenticator-cwc",
+    "container": "cwc-auth"
   }
 ]
