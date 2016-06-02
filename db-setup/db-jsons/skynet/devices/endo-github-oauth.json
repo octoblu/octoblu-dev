@@ -1,0 +1,63 @@
+{
+  "online": true,
+  "type": "device:oauth",
+  "name": "Oauthy",
+  "optionsSchema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "required": true
+      },
+      "imageUrl": {
+        "type": "string",
+        "required": true
+      },
+      "callbackUrl": {
+        "type": "string",
+        "required": true
+      }
+    }
+  },
+  "options": {
+    "name": "Endo Github",
+    "imageUrl": "https://s3-us-west-2.amazonaws.com/octoblu-icons/device/github.svg",
+    "callbackUrl": "http://endo-github.octoblu.dev:3000/auth/api/callback"
+  },
+  "owner": "nobody",
+  "discoverWhitelist": [
+    "*"
+  ],
+  "configureWhitelist": [],
+  "sendWhitelist": [
+    "*"
+  ],
+  "receiveWhitelist": [
+    "*"
+  ],
+  "uuid": "79226f3f-acc2-4957-a093-eebef42c65ee",
+  "token": "$2a$08$0ziMcigk7iHutRlGKp8I4OiqeNy2avLrQ5kukG8PuQYzoxgRSMZ1i",
+  "meshblu": {
+    "createdAt": "2016-06-02T08:38:01-07:00",
+    "hash": "XjbAjwFTTwN/kIFT3i7hZULP5aCC0OB3GOF19sbK33M=",
+    "updatedAt": "2016-06-02T08:48:38-07:00",
+    "tokens": {
+      "ncVw9+o9yawPRcyb8qVABMj5gEXwGEhFrZwC28s0jFk=": {
+        "tag": "app.octoblu.com",
+        "createdAt": "2016-06-02T15:39:31.911Z"
+      }
+    }
+  },
+  "logo": "https://icons.octoblu.com/device/oauth.svg",
+  "schemas": {
+    "selected": {
+      "configure": "default"
+    }
+  },
+  "sendWhiteList": [
+    "*"
+  ],
+  "receiveWhiteList": [
+    "*"
+  ]
+}
