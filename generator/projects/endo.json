@@ -2,18 +2,10 @@
   {
     "project": "endo-manager",
     "dockerFileCmd": "node dev-server.js",
-    "container": "manager"
+    "container": "endo-manager"
   },
   {
     "project": "endo-github",
-    "container": "github"
-  },
-  {
-    "project": "endo-twitter",
-    "container": "twitter"
-  },
-  {
-    "project": "endo-facebook",
-    "container": "facebook"
+    "container": "endo-github"
   }
 ]
