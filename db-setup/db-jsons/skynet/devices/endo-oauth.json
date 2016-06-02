@@ -1,0 +1,40 @@
+{
+  "online": true,
+  "type": "device:oauth",
+  "name": "Endo Github",
+  "optionsSchema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "required": true
+      },
+      "imageUrl": {
+        "type": "string",
+        "required": true
+      },
+      "callbackUrl": {
+        "type": "string",
+        "required": true
+      }
+    }
+  },
+  "options": {
+    "name": "Github",
+    "imageUrl": "https://s3-us-west-2.amazonaws.com/octoblu-icons/device/github.svg",
+    "callbackUrl": "http://endo-github.octoblu.dev:3000/auth/api/callback"
+  },
+  "owner": "nobody",
+  "discoverWhitelist": [
+    "*"
+  ],
+  "configureWhitelist": [],
+  "sendWhitelist": [
+    "*"
+  ],
+  "receiveWhitelist": [
+    "*"
+  ],
+  "uuid": "9a4cc874-c3f0-4796-a0e3-1910c96a350d",
+  "token": "$2a$08$OqCSGOPPFfYJ1SAGOwYvPe1gMX1SVb.ikpR68kMevMTgLjJ5iqto6",
+}
