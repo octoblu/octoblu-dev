@@ -22,7 +22,7 @@
   "options": {
     "name": "Endo Github",
     "imageUrl": "https://s3-us-west-2.amazonaws.com/octoblu-icons/device/github.svg",
-    "callbackUrl": "http://endo-github.octoblu.dev:3000/auth/api/callback"
+    "callbackUrl": "http://endo-github.octoblu.dev/auth/octoblu/callback"
   },
   "owner": "nobody",
   "discoverWhitelist": [
