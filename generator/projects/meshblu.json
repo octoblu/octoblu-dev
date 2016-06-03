@@ -21,8 +21,7 @@
   },
   {
     "project": "meshblu-core-dispatcher",
-    "links": [ "redis-tmp:redis.dev", "mongo-persist:mongo.dev" ],
-    "dockerFileCmd": "node command-dispatch.js"
+    "links": [ "redis-tmp:redis.dev", "mongo-persist:mongo.dev" ]
   },
   {
     "project": "meshblu-core-firehose-socket.io",
