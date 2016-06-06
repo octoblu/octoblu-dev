@@ -16,6 +16,8 @@ tmux split-window -t $SESSION:2 -d -p 50
 tmux split-window -t $SESSION:3 -d -p 33
 tmux split-window -t $SESSION:3 -d -p 50
 
+tmux split-window -t $SESSION:5 -d -p 50
+
 tmux send-keys -t $SESSION:1.0 "cd ~/Projects/Octoblu/meshblu-haproxy" C-m
 tmux send-keys -t $SESSION:1.0 "eval \$SERVICES/run-service-docker.sh meshblu-haproxy" C-m
 
@@ -38,6 +40,8 @@ tmux send-keys -t $SESSION:4.0 "eval \$SERVICES/$RUN_SERVICE meshblu-core-fireho
 
 tmux send-keys -t $SESSION:5.0 "cd ~/Projects/Octoblu/meshblu-core-protocol-adapter-xmpp" C-m
 tmux send-keys -t $SESSION:5.0 "eval \$SERVICES/$RUN_SERVICE meshblu-core-protocol-adapter-xmpp" C-m
+tmux send-keys -t $SESSION:5.1 "cd ~/Projects/Octoblu/meshblu-core-protocol-adapter-http-streaming" C-m
+tmux send-keys -t $SESSION:5.1 "eval \$SERVICES/$RUN_SERVICE meshblu-core-protocol-adapter-http-streaming" C-m
 
 tmux select-window -t $SESSION:1
 tmux attach-session -t $SESSION
