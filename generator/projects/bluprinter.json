@@ -1,0 +1,6 @@
+[
+  {
+    "project": "bluprinter",
+    "dockerFileCmd": "node dev-server.js"
+  }
+]
