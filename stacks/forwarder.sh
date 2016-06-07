@@ -7,7 +7,6 @@ SESSION='forwarder'
 tmux new-window -t $SESSION:1 -n ui
 tmux new-window -t $SESSION:2 -n service
 tmux new-window -t $SESSION:3 -n forwarders
-tmux new-window -t $SESSION:4 -n oauth-provider
 
 tmux split-window -t $SESSION:3 -d -p 25
 tmux split-window -t $SESSION:3 -d -p 25
@@ -30,9 +29,6 @@ tmux send-keys -t $SESSION:3.2 "eval \$SERVICES/$RUN_SERVICE data-forwarder-mong
 
 tmux send-keys -t $SESSION:3.3 "cd ~/Projects/Octoblu/data-forwarder-azure-service-bus" C-m
 tmux send-keys -t $SESSION:3.3 "eval \$SERVICES/$RUN_SERVICE data-forwarder-azure-service-bus" C-m
-
-tmux send-keys -t $SESSION:4.0 "cd ~/Projects/Octoblu/oauth-provider" C-m
-tmux send-keys -t $SESSION:4.0 "eval \$SERVICES/$RUN_SERVICE oauth-provider" C-m
 
 tmux select-window -t $SESSION:1
 tmux attach-session -t $SESSION
