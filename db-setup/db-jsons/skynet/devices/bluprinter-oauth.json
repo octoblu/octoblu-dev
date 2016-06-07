@@ -1,0 +1,33 @@
+{
+  "uuid": "12293e51-9122-4402-9063-6d3a41a8507f",
+  "token": "$2a$10$SNwbidQ9LRL.m2Z0zgbJjOyu/BGNImM4.hll4AghE/ZbOISg3xBUG",
+  "online": true,
+  "type": "device:oauth",
+  "name": "Bluprinter Oauth",
+  "optionsSchema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "required": true
+      },
+      "imageUrl": {
+        "type": "string",
+        "required": true
+      },
+      "callbackUrl": {
+        "type": "string",
+        "required": true
+      }
+    }
+  },
+  "options": {
+    "name": "Bluprinter",
+    "callbackUrl": "https://bluprinter.octoblu.dev/auth/callback"
+  },
+  "owner": "nobody",
+  "discoverWhitelist": ["*"],
+  "configureWhitelist": [],
+  "sendWhitelist": [ "*" ],
+  "receiveWhitelist": [ "*" ]
+}
