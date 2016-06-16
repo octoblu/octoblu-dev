@@ -1,0 +1,58 @@
+{
+  "online": true,
+  "type": "device:oauth",
+  "name": "Oauthy",
+  "optionsSchema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "required": true
+      },
+      "imageUrl": {
+        "type": "string",
+        "required": true
+      },
+      "callbackUrl": {
+        "type": "string",
+        "required": true
+      }
+    }
+  },
+  "options": {
+    "name": "Endo Sendgrid",
+    "imageUrl": "https://openclipart.org/download/216995/3d-perspective-grid-very-long.svg",
+    "callbackUrl": "http://endo-sendgrid.octoblu.dev/auth/octoblu/callback"
+  },
+  "owner": "nobody",
+  "discoverWhitelist": [
+    "*"
+  ],
+  "configureWhitelist": [],
+  "sendWhitelist": [
+    "*"
+  ],
+  "receiveWhitelist": [
+    "*"
+  ],
+  "uuid": "2705f909-c00b-48f3-9420-68e684934dbc",
+  "token": "$2a$10$SNwbidQ9LRL.m2Z0zgbJjOyu/BGNImM4.hll4AghE/ZbOISg3xBUG",
+  "meshblu": {
+    "createdAt": "2016-06-02T08:38:01-07:00",
+    "hash": "XjbAjwFTTwN/kIFT3i7hZULP5aCC0OB3GOF19sbK33M=",
+    "updatedAt": "2016-06-02T08:48:38-07:00",
+    "tokens": {}
+  },
+  "logo": "https://icons.octoblu.com/device/oauth.svg",
+  "schemas": {
+    "selected": {
+      "configure": "default"
+    }
+  },
+  "sendWhiteList": [
+    "*"
+  ],
+  "receiveWhiteList": [
+    "*"
+  ]
+}

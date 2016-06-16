@@ -5,7 +5,16 @@
     "container": "endo-manager"
   },
   {
+    "project": "form-service",
+    "dockerFileCmd": "node dev-server.js",
+    "container": "form-service"
+  },
+  {
     "project": "endo-github",
     "container": "endo-github"
+  },
+  {
+    "project": "endo-sendgrid",
+    "container": "endo-sendgrid"
   }
 ]
