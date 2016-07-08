@@ -25,7 +25,7 @@
     "links": [ "redis-tmp:redis.dev" ]
   },
   {
-    "project": "nanocyte-interval-redis",
+    "project": "interval-service",
     "links": [ "redis-tmp:redis.dev" ],
     "dockerFileCmd": "node interval-redis.js"
   },

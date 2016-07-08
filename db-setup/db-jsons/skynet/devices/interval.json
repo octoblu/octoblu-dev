@@ -9,7 +9,7 @@
   "meshblu": {
   "messageHooks": [
       {
-        "url": "http://nanocyte-interval-redis.octoblu.dev/message",
+        "url": "http://interval-service.octoblu.dev/message",
         "method": "POST",
         "generateAndForwardMeshbluCredentials": true
       }

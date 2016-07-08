@@ -19,10 +19,10 @@ tmux send-keys -t $SESSION:1.0 "eval \$SERVICES/$RUN_SERVICE nanocyte-engine-htt
 tmux send-keys -t $SESSION:1.1 "cd ~/Projects/Octoblu/nanocyte-engine-worker" C-m
 tmux send-keys -t $SESSION:1.1 "eval \$SERVICES/$RUN_SERVICE nanocyte-engine-worker" C-m
 
-tmux send-keys -t $SESSION:2.0 "cd ~/Projects/Octoblu/nanocyte-interval-redis" C-m
-tmux send-keys -t $SESSION:2.0 "eval \$SERVICES/$RUN_SERVICE nanocyte-interval-redis" C-m
-tmux send-keys -t $SESSION:2.1 "cd ~/Projects/Octoblu/nanocyte-interval-service" C-m
-tmux send-keys -t $SESSION:2.1 "eval \$SERVICES/$RUN_SERVICE nanocyte-interval-service" C-m
+tmux send-keys -t $SESSION:2.0 "cd ~/Projects/Octoblu/interval-service" C-m
+tmux send-keys -t $SESSION:2.0 "eval \$SERVICES/$RUN_SERVICE interval-service" C-m
+tmux send-keys -t $SESSION:2.1 "cd ~/Projects/Octoblu/interval-worker" C-m
+tmux send-keys -t $SESSION:2.1 "eval \$SERVICES/$RUN_SERVICE interval-worker" C-m
 
 tmux send-keys -t $SESSION:3.0 "cd ~/Projects/Octoblu/nanocyte-flow-deploy-service" C-m
 tmux send-keys -t $SESSION:3.0 "eval \$SERVICES/$RUN_SERVICE nanocyte-flow-deploy-service" C-m
