@@ -9,7 +9,7 @@
   "meshblu": {
   "messageHooks": [
       {
-        "url": "http://interval-service.octoblu.dev/message",
+        "url": "http://interval.octoblu.dev/message",
         "method": "POST",
         "generateAndForwardMeshbluCredentials": true
       }

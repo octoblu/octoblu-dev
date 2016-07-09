@@ -21,13 +21,13 @@
     ]
   },
   {
-    "project": "nanocyte-interval-service",
+    "project": "interval-worker",
     "links": [ "redis-tmp:redis.dev" ]
   },
   {
     "project": "interval-service",
     "links": [ "redis-tmp:redis.dev" ],
-    "dockerFileCmd": "node interval-redis.js"
+    "dockerFileCmd": "node command.js"
   },
   {
     "project": "nanocyte-node-registry",
