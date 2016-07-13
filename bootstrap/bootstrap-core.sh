@@ -5,11 +5,16 @@ trap "exit" INT
 
 #brew install
 brew update
-for package in dnsmasq docker docker-machine docker-compose; do
-  brew unlink $package || true
-  brew install $package
-  brew link --overwrite $package
-done
+brew install --force dnsmasq
+MIN_DOCKER_MACHINE_VER=0.7
+DOCKER_MACHINE_VER=$(docker-machine --version | grep -oE '([0-9]+\.[0-9]+)')
+if ! echo $DOCKER_MACHINE_VER $MIN_DOCKER_MACHINE_VER | awk '{exit $1>=$2?0:1}'; then
+  for package in docker docker-machine docker-compose; do
+    brew unlink $package || true
+    brew install $package
+    brew link --overwrite $package
+  done
+fi
 
 MIN_COMPOSE_VER=1.6
 COMPOSE_VER=$(docker-compose --version | grep -oE '([0-9]+\.[0-9]+)')
