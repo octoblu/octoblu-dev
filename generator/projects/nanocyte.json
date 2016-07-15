@@ -27,7 +27,10 @@
   {
     "project": "interval-service",
     "links": [ "redis-tmp:redis.dev" ],
-    "dockerFileCmd": "node command.js"
+    "dockerFileCmd": "node command.js",
+    "dockerFileInstructions": [
+      "ADD http://meshblu.octoblu.dev/publickey /usr/src/app/public-key.json"
+    ]
   },
   {
     "project": "nanocyte-node-registry",
