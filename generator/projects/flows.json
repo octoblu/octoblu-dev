@@ -1,0 +1,7 @@
+[
+  {
+    "project": "flows.octoblu.com",
+    "container":"flows", 
+    "dockerFileCmd": "node dev-server.js"
+  }
+]
