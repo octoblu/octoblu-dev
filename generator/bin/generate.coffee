@@ -6,7 +6,7 @@ path       = require 'path'
 _          = require 'lodash'
 dashdash   = require 'dashdash'
 
-defaultStackEnv = "#{process.env.HOME}/Projects/Octoblu/the-stack-env-production/dev.d/octoblu"
+defaultStackEnv = "#{process.env.HOME}/Projects/Octoblu/the-stack-env-production/dev/etcd/octoblu"
 defaultOutputDir = "#{process.env.HOME}/Projects/Octoblu/octoblu-dev/services/generated"
 
 parser = dashdash.createParser
