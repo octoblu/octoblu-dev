@@ -7,9 +7,6 @@
   {
     "project": "nanocyte-engine-http",
     "links": [ "redis-tmp:redis.dev" ],
-    "dockerFileInstructions": [
-      "ADD http://meshblu.octoblu.dev/publickey /usr/src/app/public-key.json"
-    ],
     "dockerFileCmd": "node server.js"
   },
   {
@@ -27,10 +24,7 @@
   {
     "project": "interval-service",
     "links": [ "redis-tmp:redis.dev" ],
-    "dockerFileCmd": "node command.js",
-    "dockerFileInstructions": [
-      "ADD http://meshblu.octoblu.dev/publickey /usr/src/app/public-key.json"
-    ]
+    "dockerFileCmd": "node command.js"
   },
   {
     "project": "nanocyte-node-registry",
@@ -39,10 +33,7 @@
   },
   {
     "project": "credentials-service",
-    "links": [ "redis-tmp:redis.dev" ],
-    "dockerFileInstructions": [
-      "ADD http://meshblu.octoblu.dev/publickey /usr/src/app/public-key.json"
-    ]
+    "links": [ "redis-tmp:redis.dev" ]
   },
   {
     "project": "credentials-worker",
