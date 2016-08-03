@@ -6,3 +6,8 @@ dns-forward-max=4096
 max-cache-ttl=120
 min-cache-ttl=30
 auth-ttl=30
+
+srv-host=_meshblu._http.octoblu.dev,meshblu-http.octoblu.dev,80
+srv-host=_meshblu._https.octoblu.dev,meshblu-http.octoblu.dev,443
+srv-host=_meshblu._socket-io-ws.octoblu.dev,meshblu-socket-io.octoblu.dev,80
+srv-host=_meshblu._socket-io-wss.octoblu.dev,meshblu-socket-io.octoblu.dev,443
