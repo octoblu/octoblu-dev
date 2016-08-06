@@ -1,0 +1,54 @@
+{
+  "uuid": "480bae02-3ccb-494c-b357-ccac653c0093",
+  "token": "8a601acbd684d2a2f9f7ab29f118210891b4ab00",
+  "server": "meshblu.octoblu.dev",
+  "port": "80",
+  "type": "device:oauth",
+  "online": true,
+  "name": "Endo Intercom OAuth",
+  "optionsSchema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "required": true
+      },
+      "imageUrl": {
+        "type": "string",
+        "required": true
+      },
+      "callbackUrl": {
+        "type": "string",
+        "required": true
+      }
+    }
+  },
+  "options": {
+    "name": "Endo Intercom",
+    "imageUrl": "https://s3-us-west-2.amazonaws.com/octoblu-icons/channel/intercom.svg",
+    "callbackUrl": "http://endo-intercom.octoblu.dev/auth/octoblu/callback"
+  },
+  "owner": "nobody",
+  "discoverWhitelist": [
+    "*"
+  ],
+  "configureWhitelist": [],
+  "sendWhitelist": [
+    "*"
+  ],
+  "receiveWhitelist": [
+    "*"
+  ],
+  "logo": "https://icons.octoblu.com/device/oauth.svg",
+  "schemas": {
+    "selected": {
+      "configure": "default"
+    }
+  },
+  "sendWhiteList": [
+    "*"
+  ],
+  "receiveWhiteList": [
+    "*"
+  ]
+}
