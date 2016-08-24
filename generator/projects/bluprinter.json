@@ -1,6 +1,6 @@
 [
   {
     "project": "bluprinter",
-    "dockerFileCmd": "node dev-server.js"
+    "dockerFileCmd": "npm start"
   }
 ]
