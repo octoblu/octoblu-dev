@@ -1,7 +1,7 @@
 [
   {
     "project": "forwarder-ui",
-    "dockerFileCmd": "node dev-server.js",
+    "dockerFileCmd": "npm start",
     "container": "forwarder"
   },
   {
