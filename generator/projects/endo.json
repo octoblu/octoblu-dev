@@ -1,7 +1,7 @@
 [
   {
     "project": "form-service",
-    "dockerFileCmd": "node dev-server.js",
+    "dockerFileCmd": "npm start",
     "container": "form-service"
   },
   {
@@ -14,7 +14,7 @@
   },
   {
     "project": "endo-manager",
-    "dockerFileCmd": "node dev-server.js",
+    "dockerFileCmd": "npm start",
     "container": "endo-manager"
   },
   {

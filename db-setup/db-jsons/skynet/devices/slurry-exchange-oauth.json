@@ -1,0 +1,58 @@
+{
+  "meshblu": {
+    "createdAt": "2016-09-09T20:33:06.300Z",
+    "hash": "U9fB9kRxDNUMAFHHiuIygKVqcv86cZz6tDs/wsTVyV8=",
+    "updatedAt": "2016-09-09T20:33:25.000Z"
+  },
+  "uuid": "f82ae429-0178-4067-9421-7a59e48fca85",
+  "token": "$2a$08$moREOJxkq9divWNPe1DAAOj3Y/UUwaR8fYNtYa15tUIYLWhwUJb1G",
+  "publicKey": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgFTDYQWkJ4wMWgyx2oYo\nLGA9B+0uY3Iw+U3YmmN6kFWLfoR3R1KkRxthB/2pwKtw4QQJRxXn5jeJPprtDFGZ\nabQmVI95pAoFk7dCHme3vx/xT2EWydXp6oJflij0MQIyrJV+qHDgFHCAat5lY1De\nSvpwOIn3/8skOU1IBP1An/7rFyh7fgT5NgE26SHgScQr8O5xKKAThrTM/KJA8Y1Q\n/eq/kEN3+xXz9Lfwyw9CcCdaERYehPPR/4WANUo6LT3pPT8peUIGRkW5SW1Bb60B\nWFEfvaoZG8hGN6JxAPqRT0FYdegQRBAr59PHcMNb5gwZGP1gWBv0iFokhPktVtA5\nfwIDAQAB\n-----END PUBLIC KEY-----",
+  "type": "device:oauth",
+  "online": true,
+  "name": "Slurry Exchange OAuth",
+  "optionsSchema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "required": true
+      },
+      "imageUrl": {
+        "type": "string",
+        "required": true
+      },
+      "callbackUrl": {
+        "type": "string",
+        "required": true
+      }
+    }
+  },
+  "options": {
+    "name": "Slurry Exchange",
+    "imageUrl": "https://s3-us-west-2.amazonaws.com/octoblu-icons/channel/exchange.svg",
+    "callbackUrl": "http://slurry-exchange.octoblu.dev/auth/octoblu/callback"
+  },
+  "owner": "nobody",
+  "discoverWhitelist": [
+    "*"
+  ],
+  "configureWhitelist": [],
+  "sendWhitelist": [
+    "*"
+  ],
+  "receiveWhitelist": [
+    "*"
+  ],
+  "logo": "https://icons.octoblu.com/device/oauth.svg",
+  "schemas": {
+    "selected": {
+      "configure": "default"
+    }
+  },
+  "sendWhiteList": [
+    "*"
+  ],
+  "receiveWhiteList": [
+    "*"
+  ]
+}
