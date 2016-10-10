@@ -1,0 +1,33 @@
+{
+  "uuid": "5f58b3c1-ac2a-408e-b4ab-d457a135e6d7",
+  "token": "$2a$10$SNwbidQ9LRL.m2Z0zgbJjOyu/BGNImM4.hll4AghE/ZbOISg3xBUG",
+  "online": true,
+  "type": "device:oauth",
+  "name": "Thing Oauth",
+  "optionsSchema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "required": true
+      },
+      "imageUrl": {
+        "type": "string",
+        "required": true
+      },
+      "callbackUrl": {
+        "type": "string",
+        "required": true
+      }
+    }
+  },
+  "options": {
+    "name": "Thing",
+    "callbackUrl": "https://thing.octoblu.dev/auth/callback"
+  },
+  "owner": "nobody",
+  "discoverWhitelist": ["*"],
+  "configureWhitelist": [],
+  "sendWhitelist": [ "*" ],
+  "receiveWhitelist": [ "*" ]
+}
