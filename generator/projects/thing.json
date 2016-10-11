@@ -1,7 +1,0 @@
-[
-  {
-    "project": "thing.octoblu.com",
-    "container":"thing",
-    "dockerFileCmd": "npm start"
-  }
-]

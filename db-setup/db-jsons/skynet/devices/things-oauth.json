@@ -3,7 +3,7 @@
   "token": "$2a$10$SNwbidQ9LRL.m2Z0zgbJjOyu/BGNImM4.hll4AghE/ZbOISg3xBUG",
   "online": true,
   "type": "device:oauth",
-  "name": "Thing Oauth",
+  "name": "Things Oauth",
   "optionsSchema": {
     "type": "object",
     "properties": {
@@ -22,8 +22,8 @@
     }
   },
   "options": {
-    "name": "Thing",
-    "callbackUrl": "https://thing.octoblu.dev/auth/callback"
+    "name": "Things",
+    "callbackUrl": "https://things.octoblu.dev/auth/callback"
   },
   "owner": "nobody",
   "discoverWhitelist": ["*"],

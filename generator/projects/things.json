@@ -1,0 +1,7 @@
+[
+  {
+    "project": "things.octoblu.com",
+    "container":"things",
+    "dockerFileCmd": "npm start"
+  }
+]
