@@ -37,5 +37,10 @@
     "project": "meshblu-core-protocol-adapter-http-streaming",
     "container": "meshblu-http-streaming",
     "links": [ "redis-tmp:redis.dev" ]
+  },
+  {
+    "project": "meshblu-core-worker-webhook",
+    "container": "meshblu-core-worker-webhook",
+    "links": [ "redis-tmp:redis.dev" ]
   }
 ]
