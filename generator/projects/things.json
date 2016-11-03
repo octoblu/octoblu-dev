@@ -1,6 +1,6 @@
 [
   {
-    "project": "things.octoblu.com",
+    "project": "things-ui",
     "container":"things",
     "dockerFileCmd": "npm start"
   }
