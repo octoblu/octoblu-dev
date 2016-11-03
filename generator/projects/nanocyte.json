@@ -18,8 +18,21 @@
     ]
   },
   {
-    "project": "interval-worker",
+    "project": "minute-man-worker",
+    "links": [ "redis-tmp:redis.dev", "mongo-persist:mongo.dev" ]
+  },
+  {
+    "project": "now-man-worker",
+    "links": [ "redis-tmp:redis.dev", "mongo-persist:mongo.dev" ]
+  },
+  {
+    "project": "second-man-worker",
     "links": [ "redis-tmp:redis.dev" ]
+  },
+  {
+    "project": "interval-service",
+    "links": [ "redis-tmp:redis.dev", "mongo-persist:mongo.dev" ],
+    "dockerFileCmd": "node command.js"
   },
   {
     "project": "interval-service",
