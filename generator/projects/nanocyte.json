@@ -31,7 +31,7 @@
   },
   {
     "project": "interval-service",
-    "links": [ "redis-tmp:redis.dev", "mongo-persist:mongo.dev" ],
+    "links": [ "mongo-persist:mongo.dev" ],
     "dockerFileCmd": "node command.js"
   },
   {
