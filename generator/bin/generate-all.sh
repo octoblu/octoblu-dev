@@ -7,4 +7,5 @@ echo
 STACK_PROD=$HOME/Projects/Octoblu/the-stack-env-production
 ../../tools/bin/git-prompt.sh "$STACK_PROD"
 
+npm install
 jq -s add ../projects/*.json | ./generate.coffee -j -

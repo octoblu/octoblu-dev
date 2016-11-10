@@ -18,15 +18,15 @@
     ]
   },
   {
-    "project": "minute-man-worker",
+    "project": "minutemen-worker",
     "links": [ "redis-tmp:redis.dev", "mongo-persist:mongo.dev" ]
   },
   {
-    "project": "now-man-worker",
+    "project": "nowmen-worker",
     "links": [ "redis-tmp:redis.dev", "mongo-persist:mongo.dev" ]
   },
   {
-    "project": "second-man-worker",
+    "project": "secondmen-worker",
     "links": [ "redis-tmp:redis.dev" ]
   },
   {
