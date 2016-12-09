@@ -1,1 +1,1 @@
-nanocyte-engine-simple:engine-router
+nanocyte-engine-simple:engine-router,nanocyte-engine-simple:message-process-queue,meshblu*,nanocyte-engine-simple:engine-update
